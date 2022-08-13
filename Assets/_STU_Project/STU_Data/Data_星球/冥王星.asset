@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7e180001e936b4686baa268535ffcf, type: 3}
+  m_Name: "\u51A5\u738B\u661F"
+  m_EditorClassIdentifier: 
+  unlock: 0
+  lockSprite: {fileID: 21300000, guid: 3b2c65a9a4dc91d43987ecf47fefcd8f, type: 3}
+  unlockSprite: {fileID: 21300000, guid: 3b2c65a9a4dc91d43987ecf47fefcd8f, type: 3}
+  planetName: "\u51A5\u738B\u661F"
+  description: "\u6211\u662F\u51A5\u738B\u661F"
+  exploreAreas: []

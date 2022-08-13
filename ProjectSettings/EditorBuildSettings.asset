@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_STU_Project/STU_Lobby/StartUp.unity
+    guid: 93156a53d3802f44fb205db4b1676445
+  - enabled: 1
+    path: Assets/_STU_Project/STU_Lobby/CharactersSelect.unity
+    guid: cb5b4e14a2938ae408f627d14564b4cd
+  - enabled: 1
+    path: Assets/_STU_Project/STU_Lobby/Lobby.unity
+    guid: c4a2853ad1264444b82277a634dc2eee
+  - enabled: 1
+    path: Assets/_STU_Project/STU_Lobby/LevelSelect.unity
+    guid: f2e29471519a4cd4ba768dd3a8c02b12
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level0.unity
+    guid: 41b1354ed506ccf4ebb31633059872e7
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level1.unity
+    guid: 59e71dc1de90b88459702af2bc63f076
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level2.unity
+    guid: 2e5141047502fe5419e99d18c230c9b1
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level3.unity
+    guid: d1e87e402f15c04468db6ad4a94c7374
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level4.unity
+    guid: 3792e6f5003c1f94eaf5fb08404039dc
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level5.unity
+    guid: 91bb9fb25a0ca75468ddb2f1b778818e
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level6.unity
+    guid: 72dacd652eb0b0348a82d3d21c543a62
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level7.unity
+    guid: 7e9e84bc694e8a440b47ee8f9e47fd95
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level8.unity
+    guid: 50291f67b27b4564c92902b4ddc4312a
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level9.unity
+    guid: e38810b64a3d3b748b4bd12dfdc30893
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level10.unity
+    guid: fb620eb7316bdff45b8e0e75553aec36
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level11.unity
+    guid: 29db03e27f28f994b87a6b2b9675c9f0
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level12.unity
+    guid: e987f4a65f8194645a5edfe22c0b2d7e
+  - enabled: 1
+    path: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level13.unity
+    guid: bbc250b99f522794da382fa083b7b6dd
+  - enabled: 1
+    path: Assets/_STU_Project/STU_Lobby/GameOver.unity
+    guid: c5347fd7e2dc29440a3917fcc68fd72e
+  m_configObjects: {}

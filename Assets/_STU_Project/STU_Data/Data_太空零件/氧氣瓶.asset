@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d09226a8687894d9b337e736a2da4a, type: 3}
+  m_Name: "\u6C27\u6C23\u74F6"
+  m_EditorClassIdentifier: 
+  unlock: 0
+  lockSprite: {fileID: 21300000, guid: 7c7558397f5dd03469617fdcaafd428b, type: 3}
+  unlockSprite: {fileID: 21300000, guid: 7c7558397f5dd03469617fdcaafd428b, type: 3}
+  frags:
+  - {fileID: 11400000, guid: 5b0c299b5fc5ade45ac7760117cc85b0, type: 2}
+  - {fileID: 11400000, guid: a49cbc33bdcad9f4186e48fb554a0c16, type: 2}
+  - {fileID: 11400000, guid: e1295506f3f550141ac6911001ad0acb, type: 2}
+  - {fileID: 11400000, guid: 2ac9bbf3b21749f44b382f5cf97b3fb4, type: 2}

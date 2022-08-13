@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Damage2
+  - MgStick
+  - Damage999
+  - StarGroup
+  - MovePlatform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - MiniMap
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4158866733
+    locked: 0
+  - name: Midground
+    uniqueID: 3414162013
+    locked: 0
+  - name: Foreground
+    uniqueID: 3697841113
+    locked: 0
+  - name: Trap
+    uniqueID: 1262573973
+    locked: 0
+  - name: Die
+    uniqueID: 844111089
+    locked: 0

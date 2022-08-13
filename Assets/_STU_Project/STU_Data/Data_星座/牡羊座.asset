@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cecb3b5a9bca0a4bb991664f097a3e5, type: 3}
+  m_Name: "\u7261\u7F8A\u5EA7"
+  m_EditorClassIdentifier: 
+  unlock: 0
+  lockSprite: {fileID: 21300000, guid: 84f0fc15077c7494394696aa9491254e, type: 3}
+  unlockSprite: {fileID: 21300000, guid: 84f0fc15077c7494394696aa9491254e, type: 3}
+  detailName: "\u7261\u7F8A\u5EA7"
+  detailSprite: {fileID: 21300000, guid: 84f0fc15077c7494394696aa9491254e, type: 3}
+  description: "\u6211\u662F\u7261\u7F8A\u5EA7"
+  dialogues:
+  - animation: {fileID: 0}
+    content: "\u7261\u7F8A\u5EA701"
+  - animation: {fileID: 0}
+    content: "\u7261\u7F8A\u5EA702\u7261\u7F8A\u5EA702"
+  - animation: {fileID: 0}
+    content: "\u7261\u7F8A\u5EA703\u7261\u7F8A\u5EA703\u7261\u7F8A\u5EA703"
