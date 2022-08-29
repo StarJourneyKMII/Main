@@ -7,7 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    public static void Init()
+    {
+        GameObject.DontDestroyOnLoad(GameObject.Instantiate(Resources.Load("SoundManager")));
+    }
+
     static public SoundManager Instance = null;
+
+    [SerializeField] bool isMute = false;
 
     //­µ®Ä
     Dictionary<Sound, SoundPack> soundBank = new Dictionary<Sound, SoundPack>();
@@ -63,6 +71,9 @@ public class SoundManager : MonoBehaviour
 
     private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
+        if (isMute)
+            return;
+
         isPreventPlayback = false;
         if (prevenPlayback != null)
             StopCoroutine(prevenPlayback);
@@ -131,7 +142,7 @@ public class SoundManager : MonoBehaviour
     /// <param name="sound"></param>
     public void Play(Sound sound)
     {
-        StartCoroutine(PlayOnce(sound,0f));
+        StartCoroutine(PlayOnce(sound,0.1f));
     }
 
     /// <summary>
@@ -158,6 +169,7 @@ public class SoundManager : MonoBehaviour
 
     private IEnumerator PlayOnce(Sound sound,float preventTime = 0.1f)
     {
+        Debug.Log("Play " + sound.ToString() + " " + prevenPlayback);
         sfxPlayer.clip = null;
         yield return new WaitForSeconds(soundBank[sound].offset);
         if (isPreventPlayback)

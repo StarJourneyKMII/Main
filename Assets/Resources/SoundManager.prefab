@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcc80da4c091cf46baa2f161ad209a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMute: 0
   sfxPlayer: {fileID: 3109420919183503475}
   soundList:
   - clip: {fileID: 8300000, guid: d4805783508f36a4f8ad6c7cc8a93acd, type: 3}
