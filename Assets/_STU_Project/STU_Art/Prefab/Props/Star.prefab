@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3835504028618533533}
   m_Layer: 0
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,4 +147,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992fb7afe569bac40a94138cd74af55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 83f74202-2c7e-43f7-8c20-83c299c17366
+  _id: 5583ae0c-8e2f-40e7-bc20-789a34a2e865

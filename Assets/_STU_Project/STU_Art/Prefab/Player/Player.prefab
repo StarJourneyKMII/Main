@@ -359,25 +359,17 @@ MonoBehaviour:
   cameraTarget: {fileID: 7533223631767386436}
   maxDistance: 2
   followSensitive: 2
+  lookDistanceX: 3
+  lookDistanceY: 3
   maxJumps: 2
   jumpPower: 17
-  dashSpeed: 30
-  dashTime: 0.1
-  wallSlidingSpeed: 2
-  xWallJumpForce: 20
-  yWallJumpForce: 10
-  wallJumpTime: 0.05
   groundCheck: {fileID: 2805450191731190849}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 256
   groundCheckRadius: 0.15
-  wallCheck: {fileID: 2054753138791586475}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 768
-  wallCheckRadius: 0.15
   envGravity: -40
+  canCtrl: 1
 --- !u!114 &5215904152088671999
 MonoBehaviour:
   m_ObjectHideFlags: 0

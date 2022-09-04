@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class Planet : MonoBehaviour
 {
+    private PlanetCtrl planetCtrl;
     private RectTransform rect;
     private Image image;
     private Button button;
@@ -19,6 +20,7 @@ public class Planet : MonoBehaviour
 
     private void Start()
     {
+        planetCtrl = FindObjectOfType<PlanetCtrl>();
         rect = GetComponent<RectTransform>();
         image = GetComponent<Image>();
         button = GetComponent<Button>();
@@ -36,7 +38,7 @@ public class Planet : MonoBehaviour
 
     public void Click()
     {
-        PlanetCtrl.Instance.StopAllPlanet();
+       planetCtrl.StopAllPlanet();
         FocusAnimation();
         PlanetDetailPanel.Instance.SetPlanet(this);
         oriPos = rect.anchoredPosition;
@@ -45,7 +47,7 @@ public class Planet : MonoBehaviour
     private void FocusAnimation()
     {
         float time = 0.3f;
-        PlanetCtrl.Instance.HideCanvasGroup(transform, time);
+       planetCtrl.HideCanvasGroup(transform, time);
         Vector2 point = new Vector2(-450, 0);
         Vector2 size = new Vector2(650, 650);
         rect.DOSizeDelta(size, time);
@@ -58,11 +60,11 @@ public class Planet : MonoBehaviour
     public void BackToOriPos()
     {
         float time = 0.3f;
-        PlanetCtrl.Instance.ShowCanvasGroup(transform, time);
+       planetCtrl.ShowCanvasGroup(transform, time);
         rect.DOAnchorPos(oriPos, time);
         rect.DOSizeDelta(new Vector2(100, 100), time).OnComplete(() =>
         {
-            PlanetCtrl.Instance.ContinuePlanet();
+           planetCtrl.ContinuePlanet();
         });
     }
 }
