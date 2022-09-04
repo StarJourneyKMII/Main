@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +10,10 @@ public class DoorNext : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // ¦pªG¸I¨ì§ÚªºªF¦è¥¦ªº¦WºÙ¬OPlayer
+        // å¦‚æœç¢°åˆ°æˆ‘çš„æ±è¥¿å®ƒçš„åç¨±æ˜¯Player
         if (collision.CompareTag("Player"))
         {
-            //¥´¶}µû¤Àªí
+            //æ‰“é–‹è©•åˆ†è¡¨
             winPanel.Show();
         }
     }

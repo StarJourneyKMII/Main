@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAbility : MonoBehaviourSingleton<PlayerAbility>
+public class PlayerAbility : MonoBehaviour
 {
     public PlayerAbilityData abilityData;
 

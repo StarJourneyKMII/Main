@@ -35,7 +35,16 @@ public class GameManager
     string playName = "STU_PLAY";
     int playNumber = 1;
     string scenesName = "STJ_Old_Level";
-    public int scenesNumber = 0;
+    private int _scenesNumber;
+    public int scenesNumber
+    {
+        get { return _scenesNumber; }
+        set 
+        { 
+            _scenesNumber = value;
+            levelName = scenesName + value;
+        }
+    }
 
     /// <summary>關卡(存讀檔到硬碟)</summary>
     public string levelName

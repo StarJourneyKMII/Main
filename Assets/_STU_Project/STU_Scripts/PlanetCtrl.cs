@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PlanetCtrl : MonoBehaviourSingleton<PlanetCtrl>
+public class PlanetCtrl : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
 

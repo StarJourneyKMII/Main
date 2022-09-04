@@ -6,26 +6,6 @@ using DG.Tweening;
 
 public class EvaluationForm : MonoBehaviour
 {
-    private static EvaluationForm _instance = null;
-
-    public static EvaluationForm Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<EvaluationForm>();
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject(typeof(EvaluationForm).Name);
-                    _instance = obj.AddComponent<EvaluationForm>();
-                }
-            }
-            return _instance;
-        }
-        set { }
-    }
-
     public GameObject panel;
 
     public GameObject gameTimeTitle;
@@ -40,17 +20,6 @@ public class EvaluationForm : MonoBehaviour
     public int collectCount;
     public static int touchTrapCount;
 
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     private void Start()
     {
         oriTime = Time.time;

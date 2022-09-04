@@ -7,14 +7,14 @@ public class Star : PickUpItem
     protected override void Start()
     {
         base.Start();
-        EvaluationForm.Instance.collectTotal++;
+        FindObjectOfType<EvaluationForm>().collectTotal++;
         CheckState();
     }
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
-        EvaluationForm.Instance.collectCount++;
+        FindObjectOfType<EvaluationForm>().collectCount++;
         if (other.gameObject.name == "Player")
         {
             SoundManager.Instance.Play(Sound.GetStar);

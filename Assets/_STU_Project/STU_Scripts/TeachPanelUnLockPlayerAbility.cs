@@ -15,6 +15,6 @@ public class TeachPanelUnLockPlayerAbility : TeachPanel
 
     private void UnLockAbility()
     {
-        PlayerAbility.Instance.UnLockAbility(unLockType);
+        FindObjectOfType<PlayerAbility>().UnLockAbility(unLockType);
     }
 }

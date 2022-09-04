@@ -10,9 +10,11 @@ public class Switch : MonoBehaviour
     public GameObject switchObject;
     public bool debug;
     private bool isOpen;
+    private PlayerCtrl playerCtrl;
 
     private void Start()
     {
+        playerCtrl = FindObjectOfType<PlayerCtrl>();
         anim = GetComponent<Animator>();
         isOpen = switchObject.activeInHierarchy;
     }
@@ -31,21 +33,22 @@ public class Switch : MonoBehaviour
     }
     private void OpenAnimation()
     {
+        playerCtrl.StopCtrl();
         isOpen = !isOpen;
         if (isOpen == true)
         {
-            StartCoroutine(FadeSwitchObj());
-            if (focusCamera != null)
-                focusCamera.SetActive(true);
-            switchObject.SetActive(true);
+            StartCoroutine(FadeInSwitchObj());
+            focusCamera?.SetActive(true);
+            switchObject?.SetActive(true);
         }
         else if (isOpen == false)
         {
-            switchObject.SetActive(false);
+            StartCoroutine(FadeOutSwitchObj());
+            focusCamera?.SetActive(true);
         }
     }
 
-    private IEnumerator FadeSwitchObj()
+    private IEnumerator FadeInSwitchObj()
     {
         float fadeSec = 0.5f;
         float cameraBlendSec = 1.5f;
@@ -54,8 +57,21 @@ public class Switch : MonoBehaviour
             t.DOFade(1, fadeSec).SetDelay(cameraBlendSec).From(0);
 
         yield return new WaitForSeconds(fadeSec + cameraBlendSec);
-        if (focusCamera != null)
-            focusCamera.SetActive(false);
+        focusCamera?.SetActive(false);
+        playerCtrl.canCtrl = true;
+    }
+    private IEnumerator FadeOutSwitchObj()
+    {
+        float fadeSec = 0.5f;
+        float cameraBlendSec = 1.5f;
+        SpriteRenderer[] childsSpr = switchObject.transform.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer t in childsSpr)
+            t.DOFade(0, fadeSec).SetDelay(cameraBlendSec).From(1);
+
+        yield return new WaitForSeconds(fadeSec + cameraBlendSec);
+        focusCamera?.SetActive(false);
+        switchObject?.SetActive(false);
+        playerCtrl.canCtrl = true;
     }
 
     private void OnDrawGizmos()
@@ -66,10 +82,17 @@ public class Switch : MonoBehaviour
         ExtensionGizmo.Label(transform.position + Vector3.up * 2, "Trigger", Color.yellow);
         Gizmos.DrawWireCube(transform.position, Vector3.one);
         Gizmos.color = Color.red;
-        foreach (Transform child in switchObject.transform)
+        foreach (SpriteRenderer child in switchObject.GetComponentsInChildren<SpriteRenderer>())
         {
             //ExtensionGizmo.Label(child.position + Vector3.up * 2, "HideObj", Color.red);
-            Gizmos.DrawWireCube(child.position, child.lossyScale);
+            if (child.CompareTag("Star"))
+            {
+                ExtensionGizmo.DrawWireDisc(child.transform.position, Vector3.forward, child.transform.lossyScale.x / 2);
+            }
+            else
+            {
+                Gizmos.DrawWireCube(child.transform.position, child.transform.lossyScale);
+            }
         }
     }
 }

@@ -1,16 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
-using System.Runtime.InteropServices;
-using System;
 using UnityEngine.Events;
 
 public class PlayerCtrl : MonoBehaviour
 {
     // PlayerSelf
-    [Header("°Ñ¦Ò")]
+    [Header("åƒè€ƒ")]
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private SpriteRenderer sprRenderer = null;
     [SerializeField] private Animator anim = null;
@@ -20,40 +17,31 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] private PlayerAbilityData ability;
 
     // movement value
-    [Header("²¾°Ê")]
+    [Header("ç§»å‹•")]
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 5f;
 
-    [Header("Äá¼v¾÷¸òÀH")]
+    [Header("æ”å½±æ©Ÿè·Ÿéš¨")]
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private float maxDistance = 2;
     [SerializeField] private float followSensitive = 1;
     private float followPosX = 0;
     private float followPosY = 0;
 
-    [Header("¸õÅD")]
+    [Header("æŸ¥çœ‹")]
+    public float lookDistanceX = 3f;
+    public float lookDistanceY = 3f;
+    private float lookOffsetX;
+    private float lookOffsetY;
+
+    [Header("è·³èº")]
     [SerializeField] private int maxJumps = 2;
     [SerializeField] private float jumpPower = 20f;
 
-    [Header("½Ä¨ë")]
-    [SerializeField] private float dashSpeed = 30;
-    [SerializeField] private float dashTime = 0.1f;
-
-    [Header("·ÆÀğ")]
-    [SerializeField] private float wallSlidingSpeed = 3f;
-    [SerializeField] private float xWallJumpForce = 5f;
-    [SerializeField] private float yWallJumpForce = 5f;
-    [SerializeField] private float wallJumpTime;
-
-    [Header("¦aªOÀË´ú")]
-    [SerializeField] private Transform groundCheck = null;
-    [SerializeField] private LayerMask groundLayer = default;
+    [Header("åœ°æ¿æª¢æ¸¬")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckRadius = 0.2f;
-
-    [Header("Àğ¾ÀÀË´ú")]
-    [SerializeField] private Transform wallCheck = null;
-    [SerializeField] private LayerMask wallLayer = default;
-    [SerializeField] private float wallCheckRadius = 0.2f;
 
     [SerializeField] private float envGravity = -40f;
 
@@ -61,15 +49,13 @@ public class PlayerCtrl : MonoBehaviour
     private bool isFaceRight = false;
     private GameObject playerGOF;
     private bool isDie;
-    private float wallCheckOriX;
+    public bool canCtrl = true;
 
     private UnityAction OnTouchGround;
 
     void Start()
     {
         isDie = false;
-        dashTimer = dashTime;
-        wallCheckOriX = wallCheck.localPosition.x;
         cameraTarget.parent = null;
         OnTouchGround += UpdateY;
 
@@ -98,12 +84,11 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
-        if (isDie)
+        if (isDie || canCtrl == false)
             return;
 
         MovementX();
         JumpmentY();
-        WallSliding();
 
 #if UNITY_EDITOR
         // Check Hp
@@ -116,67 +101,23 @@ public class PlayerCtrl : MonoBehaviour
             GameManager.instance.hp -= 1f;
         }
 #endif
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Dash();
-        }
         if (Input.GetKeyDown(KeyCode.C) && ability.flip == true)
         {
             AntiGravity();
         }
-        if(Input.GetKeyDown(KeyCode.W) && wallSliding == true && wallJumping == false)
-        {
-            WallJump();
-        }
+
+        if (input == 0 && onFloor == true)
+            Look();
     }
 
-    #region ·ÆÀğ
-    private bool isTouchingWall;
-    private bool wallSliding;
-
-    private void WallSliding()
+    private void Look()
     {
-        if(isTouchingWall == true && onFloor == false && input != 0)
-        {
-            wallSliding = true;
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
-        }
-        else
-        {
-            wallSliding = false;
-        }
+        lookOffsetY = Input.GetAxis("LookVertical") * lookDistanceY;
+        lookOffsetX = Input.GetAxis("LookHorizontal") * lookDistanceX;
     }
-    #endregion
-
-    #region ·ÆÀğ¸õ
-    private bool wallJumping;
-    private float wallJumpTimer;
-    private void WallJump()
-    {
-        StartCoroutine(DoWallJump());
-    }
-    private IEnumerator DoWallJump()
-    {
-        wallJumping = true;
-        wallJumpTimer = wallJumpTime;
-        float xDir = -input;
-        //rigi.AddForce(new Vector2(xWallJumpForce * xDir, yWallJumpForce), ForceMode2D.Impulse);
-        while (wallJumpTimer > 0)
-        {
-            wallJumpTimer -= Time.deltaTime;
-            rb.velocity = new Vector2(xWallJumpForce * xDir, yWallJumpForce);
-            yield return null;
-        }
-        yield return new WaitForSeconds(wallJumpTimer);
-        wallJumping = false;
-    }
-    #endregion
-
-    #region ²¾°Ê
+    #region ç§»å‹•
     private float sp = 0f;
     private float mixSpeed = 3f;
-    /// <summary>³Ì«á¤@¦¸¾Ş§@ªº®É¶¡ÂI</summary>/// 
-    private float lestMoveTime = 0f;
 
     private void MovementX()
     {
@@ -185,7 +126,7 @@ public class PlayerCtrl : MonoBehaviour
 
         if (input != 0)
             followPosX = Mathf.Lerp(followPosX,  input * maxDistance, Time.deltaTime * followSensitive);
-        cameraTarget.transform.position = new Vector3(transform.position.x + followPosX, followPosY, 0);
+        cameraTarget.transform.position = new Vector3(transform.position.x + followPosX + lookOffsetX, followPosY + lookOffsetY, 0);
 
         if (input > 0 && isFaceRight == false)
             FlipSprite();
@@ -201,58 +142,35 @@ public class PlayerCtrl : MonoBehaviour
             anim.SetBool("IsRun", false);
         }
 
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
-        {
-            //¨ê·s³Ì«á¤@¦¸²¾°Êªº®É¶¡¬O²{¦b
-            lestMoveTime = Time.time;
-        }
-
         wallDetector.SetDirection(sprRenderer.flipX);
 
         float wallStop = 1;
-        //¦pªG¦³¸I¨ìÀğ´N°±¤î©¹¦P¤è¦V¬I¥[Velocity
+        //å¦‚æœæœ‰ç¢°åˆ°ç‰†å°±åœæ­¢å¾€åŒæ–¹å‘æ–½åŠ Velocity
         if (wallDetector.isTouching)
             wallStop = sprRenderer.flipX ? Mathf.Clamp(input, -1, 0) : Mathf.Clamp(input, 0, 1);
 
         Vector2 moveNormal = new Vector2(wallStop * input * sp, rb.velocity.y);
         rb.velocity = moveNormal;
-
-        //ad = Mathf.Lerp(ad, Input.GetAxis("Horizontal"), Time.deltaTime);// -1 0 1
-        //sp = Mathf.Lerp(sp, Input.GetKey(KeyCode.LeftShift) ? 2f : 1f, Time.deltaTime);
-
-        // ¿ëÃÑª±®a¬O§_¦A¾Ş§@
-        // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        //if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
-        //{
-        // ¨ê·s³Ì«á¤@¦¸²¾°Êªº®É¶¡¬O²{¦b
-        //lestMoveTime = Time.time;
-        //}
-
-        // ¦pªGª±®a¥¿¦b²¾°Ê ©ÎªÌ Áä½L¿é¤J>0.1 ´N¼½©ñ²¾°Ê°Êµe
-        //anim.SetBool("IsRun", Mathf.Abs(ad) > 0.1f || Time.time - lestMoveTime < 0.2f);
-
     }
 
     private void FlipSprite()
     {
         transform.localScale = new Vector3(isFaceRight ? 1 : -1, 1, 1);
         isFaceRight = !isFaceRight;
-        //sprRenderer.flipX = isFaceRight;
-        wallCheck.SetLocalPositionX(isFaceRight ? wallCheckOriX : -wallCheckOriX);
     }
 #endregion
 
-    #region ¸õÅD
+    #region è·³èº
     private int jumps;
 
     /// <summary> On floor </summary>
     private bool _onFloor = false;
     bool onFloor
     {
-        // Åª¨úªº®É­Ô¦^¶Ç_onFloor
+        // è®€å–çš„æ™‚å€™å›å‚³_onFloor
         get { return _onFloor; }
-        // ¼g¤Jªº®É­Ô¼g¤J_onFloor
-        // ¶¶«K­×§ï°ÊµeªºonFloor
+        // å¯«å…¥çš„æ™‚å€™å¯«å…¥_onFloor
+        // é †ä¾¿ä¿®æ”¹å‹•ç•«çš„onFloor
         set { 
             _onFloor = value; 
             anim.SetBool("OnFloor", value); }
@@ -300,21 +218,15 @@ public class PlayerCtrl : MonoBehaviour
     }
     public void JumpG()
     {
-        //rigi.AddForce(JumpPower, ForceMode2D.Impulse);
-        // «Å§i¤@­Ó¤Gºû®y¼Ğ§@¬°¸õÅD¤O
-        Vector2 jumping = default;
-        jumping.x = 0f;
-        jumping.y = jumpPower * antiGravity;
-
-        // ¨ú¥N·í«eªººD©Ê
-        // velocity ªÅ¶¡¤¤ªº¬Û¹ï¤û¹y¤O
-        rb.velocity = jumping;
+        // å–ä»£ç•¶å‰çš„æ…£æ€§
+        // velocity ç©ºé–“ä¸­çš„ç›¸å°ç‰›é “åŠ›
+        rb.velocity = new Vector2(0, jumpPower * antiGravity);
         // Jump Sound
         SoundManager.Instance.Play(Sound.Jump);
     }
     #endregion
 
-    #region Â½Âà
+    #region ç¿»è½‰
     private int antiGravity = 1;
     private bool isGirl = true;
     //private bool isAntiPlayer = default;
@@ -375,40 +287,21 @@ public class PlayerCtrl : MonoBehaviour
     }
     #endregion
 
-    #region ½Ä¨ë
-    private float dashTimer;
-
-    private void Dash()
-    {
-        StartCoroutine(DoDash());
-    }
-    private IEnumerator DoDash()
-    {
-        dashTimer = dashTime;
-        while (dashTimer > 0)
-        {
-            rb.velocity = new Vector2((sprRenderer.flipX == true ? 1 : -1) * dashSpeed, rb.velocity.y);
-            dashTimer -= Time.deltaTime;
-            yield return null;
-        }
-    }
-    #endregion
-
-    // ©Ò¦³¸I¼²ÀË©w³£¬O°ò©óª«²z
-    /// <summary> ª«²z¨ê·sªºÀş¶¡ (¤@¬í¬ù50¦¸)</summary>
+    // æ‰€æœ‰ç¢°æ’æª¢å®šéƒ½æ˜¯åŸºæ–¼ç‰©ç†
+    /// <summary> ç‰©ç†åˆ·æ–°çš„ç¬é–“ (ä¸€ç§’ç´„50æ¬¡)</summary>
     private void FixedUpdate()
     {
-        // ¹w³]¥ß³õ¬°¤£µÛ¦a
+        // é è¨­ç«‹å ´ç‚ºä¸è‘—åœ°
         onFloor = false;
         onStick = false;
         // 
         onMid = false;
-        // ¦b«ü©w¦ì¸m»P«ü©w¥b®|¤Uµe¤@­Ó¸I¼²¾¹ ¨Ã¥B¦^¶Ç¸I¨ìªºªF¦è
+        // åœ¨æŒ‡å®šä½ç½®èˆ‡æŒ‡å®šåŠå¾‘ä¸‹ç•«ä¸€å€‹ç¢°æ’å™¨ ä¸¦ä¸”å›å‚³ç¢°åˆ°çš„æ±è¥¿
         Collider2D[] allStuff = Physics2D.OverlapCircleAll(groundCheck.position, 0.3f, groundLayer);
-        // ¶]¦^°éÀË¬d¸I¨ìªº¡u¨C­Ó¡vªF¦è
+        // è·‘å›åœˆæª¢æŸ¥ç¢°åˆ°çš„ã€Œæ¯å€‹ã€æ±è¥¿
         foreach (Collider2D stuff in allStuff)
         {
-            // Debug.Log("¸I¨ì¤F : " + stuff.name);
+            // Debug.Log("ç¢°åˆ°äº† : " + stuff.name);
             if (stuff.gameObject.tag == "MgStick")
             {
                 onStick = true;
@@ -438,11 +331,10 @@ public class PlayerCtrl : MonoBehaviour
                 else if (transform.position.y > followPosY)
                     followPosY = transform.position.y;
             }
-        }    
-        isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer);
+        }
     }
 
-    /// <summary> »P¥ô¦óªF¦è¸I¼² </summary>
+    /// <summary> èˆ‡ä»»ä½•æ±è¥¿ç¢°æ’ </summary>
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.tag == "Damage2")
@@ -470,11 +362,19 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    void Regeneration()
+   private void Regeneration()
     {
         GameManager.instance.life -= 1;
         GameManager.instance.hp = 1f;        
         GameManager.instance.LoadGame();
+    }
+
+    public void StopCtrl()
+    {
+        canCtrl = false;
+        rb.Sleep();
+        anim.SetBool("IsRun", false);
+        anim.SetFloat("Y", 0);
     }
 
     /* Lock Taskmgr
@@ -506,7 +406,6 @@ public class PlayerCtrl : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
     }
 }
 
