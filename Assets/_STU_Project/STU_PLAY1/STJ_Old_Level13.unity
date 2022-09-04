@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19265,7 +19265,7 @@ GameObject:
   - component: {fileID: 3582953889101340229}
   - component: {fileID: 3582953889101340230}
   - component: {fileID: 3582953889101340231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Midground1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33842,7 +33842,7 @@ GameObject:
   - component: {fileID: 5315123400543868223}
   - component: {fileID: 5315123400543868222}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: CM_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33892,7 +33892,7 @@ MonoBehaviour:
     ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1398058, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
