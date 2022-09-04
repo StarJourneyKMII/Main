@@ -18,7 +18,7 @@ TagManager:
   - UI
   - Player
   - MiniMap
-  - 
+  - Ground
   - 
   - 
   - 
@@ -60,4 +60,10 @@ TagManager:
     locked: 0
   - name: Die
     uniqueID: 844111089
+    locked: 0
+  - name: Environment
+    uniqueID: 4294765655
+    locked: 0
+  - name: Player
+    uniqueID: 2689019999
     locked: 0
