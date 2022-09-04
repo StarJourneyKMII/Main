@@ -7,8 +7,9 @@ TagManager:
   - Damage2
   - MgStick
   - Damage999
-  - StarGroup
   - MovePlatform
+  - Damage99
+  - Star
   layers:
   - Default
   - TransparentFX
