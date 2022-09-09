@@ -169,7 +169,6 @@ public class SoundManager : MonoBehaviour
 
     private IEnumerator PlayOnce(Sound sound,float preventTime = 0.1f)
     {
-        Debug.Log("Play " + sound.ToString() + " " + prevenPlayback);
         sfxPlayer.clip = null;
         yield return new WaitForSeconds(soundBank[sound].offset);
         if (isPreventPlayback)
