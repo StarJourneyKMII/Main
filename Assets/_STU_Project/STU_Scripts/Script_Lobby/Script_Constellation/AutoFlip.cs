@@ -10,8 +10,8 @@ public class AutoFlip : MonoBehaviour
     public bool AutoStartFlip=true;
     public Book ControledBook;
     public int AnimationFramesCount = 40;
-    public GameObject leftBtn;
-    public GameObject rightBtn;
+    //public GameObject leftBtn;
+    //public GameObject rightBtn;
     bool isFlipping = false;
     // Use this for initialization
     void Start () {
@@ -22,21 +22,49 @@ public class AutoFlip : MonoBehaviour
         ControledBook.OnFlip.AddListener(new UnityEngine.Events.UnityAction(PageFlipped));
         PageFlipped();
     }
+
+    public void FlipToPage(int page)
+    {
+        if (page > ControledBook.TotalPageCount)
+            page = ControledBook.TotalPageCount;
+        else if (page < 0)
+            page = 0;
+        StartCoroutine(DoFlipToPage(page));
+    }
+    private IEnumerator DoFlipToPage(int page)
+    {
+        if (page > ControledBook.currentPage)
+        {
+            while (ControledBook.currentPage < page)
+            {
+                FlipRightPage();
+                yield return new WaitForSeconds(TimeBetweenPages);
+            }
+        }
+        else if (page < ControledBook.currentPage)
+        {
+            while (ControledBook.currentPage > page)
+            {
+                FlipLeftPage();
+                yield return new WaitForSeconds(TimeBetweenPages);
+            }
+        }
+    }
     void PageFlipped()
     {
-        if (ControledBook.currentPage == 0)
-        {
-            leftBtn.SetActive(false);
-        }
-        else if (ControledBook.currentPage > ControledBook.TotalPageCount)
-        {
-            rightBtn.SetActive(false);
-        }
-        else
-        {
-            rightBtn.SetActive(true);
-            leftBtn.SetActive(true);
-        }
+        //if (ControledBook.currentPage == 0)
+        //{
+        //    leftBtn.SetActive(false);
+        //}
+        //else if (ControledBook.currentPage > ControledBook.TotalPageCount)
+        //{
+        //    rightBtn.SetActive(false);
+        //}
+        //else
+        //{
+        //    rightBtn.SetActive(true);
+        //    leftBtn.SetActive(true);
+        //}
 
         isFlipping = false;
     }

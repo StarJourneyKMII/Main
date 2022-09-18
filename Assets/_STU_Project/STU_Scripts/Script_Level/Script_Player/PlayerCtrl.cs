@@ -372,7 +372,7 @@ public class PlayerCtrl : MonoBehaviour
     public void StopCtrl()
     {
         canCtrl = false;
-        rb.Sleep();
+        rb.velocity = Vector3.zero;
         anim.SetBool("IsRun", false);
         anim.SetFloat("Y", 0);
     }
