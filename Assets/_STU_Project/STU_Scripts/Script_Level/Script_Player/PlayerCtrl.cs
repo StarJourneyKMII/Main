@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using MiProduction.BroAudio;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -222,7 +223,7 @@ public class PlayerCtrl : MonoBehaviour
         // velocity 空間中的相對牛頓力
         rb.velocity = new Vector2(0, jumpPower * antiGravity);
         // Jump Sound
-        SoundManager.Instance.Play(Sound.Jump);
+        SoundManager.Instance.PlaySFX(Sound.Jump);
     }
     #endregion
 
@@ -353,7 +354,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             isDie = true;
             // Die Sound
-            SoundManager.Instance.Play(Sound.Die, 2f);
+            SoundManager.Instance.PlaySFX(Sound.Die, 2f);
             anim.SetTrigger("Die");
             // Pause
             // Time.timeScale = 0f;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MiProduction.BroAudio;
 
 public class Switch : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Switch : MonoBehaviour
         playerCtrl = FindObjectOfType<PlayerCtrl>();
         anim = GetComponent<Animator>();
         isOpen = switchObject.activeInHierarchy;
+        focusCamera.transform.position = new Vector3(switchObject.transform.position.x,switchObject.transform.position.y,Camera.main.transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,7 +26,7 @@ public class Switch : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Switch Close Sound
-            SoundManager.Instance.Play(Sound.SwitchClose);
+            SoundManager.Instance.PlaySFX(Sound.SwitchClose);
             // Touch Switch one time
             anim.SetTrigger("Touch");
             gameObject.GetComponent<Collider2D>().enabled = false;

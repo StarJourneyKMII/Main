@@ -1,3 +1,4 @@
+using MiProduction.BroAudio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class Star : PickUpItem
         FindObjectOfType<EvaluationForm>().collectCount++;
         if (other.gameObject.name == "Player")
         {
-            SoundManager.Instance.Play(Sound.GetStar);
+            SoundManager.Instance.PlaySFX(Sound.GetStar);
             //    Instantiate(soundObject, transform.position, Quaternion.identity);
             //    var inventory = other.GetComponent<InventoryHolder>();
             //    if (inventory == null) return;

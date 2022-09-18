@@ -39,6 +39,6 @@ public class StartUp : MonoBehaviour
 
     public void PlayUISound(int sound)
     {
-        SoundManager.Instance.PlayWithUI((Sound)sound);
+        //SoundManager.Instance.PlayWithUI((Sound)sound);
     }
 }
