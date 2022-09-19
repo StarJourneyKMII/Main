@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10249,6 +10249,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3896215343517803424, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
   m_PrefabInstance: {fileID: 1572150231}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1599690369
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 801135294181341589, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801135294181341590, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ca13eaa10ec0854ba9ec1ced878cdfd, type: 3}
 --- !u!1001 &1616938341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11390,6 +11455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 6866422003840468936, guid: b1671ee33d9f7c544932cc4b3b1f0e46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6866422003840468951, guid: b1671ee33d9f7c544932cc4b3b1f0e46, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -12121,7 +12190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027597521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.430508, y: 2.84708, z: -12}
+  m_LocalPosition: {x: -25.073563, y: 2.85175, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12867,7 +12936,7 @@ GameObject:
   - component: {fileID: 7303998787956654104}
   - component: {fileID: 1798673560813761810}
   - component: {fileID: 5846628068968170129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trap1
   m_TagString: Damage2
   m_Icon: {fileID: 0}
@@ -17695,7 +17764,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.2492013, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
