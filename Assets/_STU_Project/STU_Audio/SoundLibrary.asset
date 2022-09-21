@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c0ac843b2c2b47b8a665170a807b7, type: 3}
+  m_Name: SoundLibrary
+  m_EditorClassIdentifier: 
+  Libraries:
+  - Name: Jump
+    Sound: 1
+    Clip: {fileID: 8300000, guid: f602db151a134d543b32cfedc6e014f5, type: 3}
+    Volume: 0.902
+    Delay: 0
+    StartPosition: 0
+  - Name: GetStar
+    Sound: 2
+    Clip: {fileID: 8300000, guid: f214e7e3d1cdf0647be54b2a86264e9a, type: 3}
+    Volume: 0.83
+    Delay: 0
+    StartPosition: 0
+  - Name: SwitchClose
+    Sound: 3
+    Clip: {fileID: 8300000, guid: c2a44e5b17cc60f46914d8ccf4f22114, type: 3}
+    Volume: 0.791
+    Delay: 0
+    StartPosition: 0
+  - Name: Die
+    Sound: 4
+    Clip: {fileID: 8300000, guid: 85a171ecdfb4bfb488126a0cb154cb07, type: 3}
+    Volume: 0.817
+    Delay: 0
+    StartPosition: 0

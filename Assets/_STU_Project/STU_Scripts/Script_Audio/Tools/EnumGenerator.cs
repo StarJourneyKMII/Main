@@ -1,11 +1,10 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using System.IO;
-using System.Linq;
 
 public static class EnumGenerator
 {
-    public static string _folderPath = "Assets/_STU_Project/STU_Scripts/Script_Audio/Enums/";
+    const string _folderPath = "Assets/_STU_Project/STU_Scripts/Script_Audio/Enums/";
 
     public static void Generate(string enumName,string[] enums)
     {
@@ -34,7 +33,7 @@ public static class EnumGenerator
                 }
                 else
                 {
-                    streamWriter.WriteLine("\t" + enums[i] + ",");                
+                    streamWriter.WriteLine("\t" + enums[i].Replace(" ","") + ",");                
                 }
                 
             }
