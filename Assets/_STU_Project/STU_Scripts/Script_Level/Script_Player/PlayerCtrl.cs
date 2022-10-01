@@ -16,28 +16,16 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] private GameObject girlObj;
     [SerializeField] private GameObject boyObj;
     [SerializeField] private PlayerAbilityData ability;
+    private Player_CameraTarget playerCameraTarget;
 
     // movement value
     [Header("移動")]
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 5f;
 
-    [Header("攝影機跟隨")]
-    [SerializeField] private Transform cameraTarget;
-    [SerializeField] private float maxDistance = 2;
-    [SerializeField] private float followSensitive = 1;
-    private float followPosX = 0;
-    private float followPosY = 0;
-
-    [Header("查看")]
-    public float lookDistanceX = 3f;
-    public float lookDistanceY = 3f;
-    private float lookOffsetX;
-    private float lookOffsetY;
-
     [Header("跳躍")]
-    [SerializeField] private int maxJumps = 2;
-    [SerializeField] private float jumpPower = 20f;
+    [SerializeField] private int exJumps = 1;
+    [SerializeField] private float jumpHeight = 3f;
 
     [Header("地板檢測")]
     [SerializeField] private Transform groundCheck;
@@ -46,25 +34,18 @@ public class PlayerCtrl : MonoBehaviour
 
     [SerializeField] private float envGravity = -40f;
 
-    private float input;
+    public Vector2 input;
     private bool isFaceRight = false;
-    private GameObject playerGOF;
     private bool isDie;
     public bool canCtrl = true;
 
-    private UnityAction OnTouchGround;
+    public UnityAction OnTouchGround;
 
     void Start()
     {
         isDie = false;
-        cameraTarget.parent = null;
-        OnTouchGround += UpdateY;
 
-        playerGOF =gameObject;
-        if (Physics2D.gravity.y != envGravity)
-        {
-            Physics2D.gravity = new Vector2(0f, envGravity);
-        }
+        Physics2D.gravity = new Vector2(0f, envGravity * gravityDir);
         if (GameManager.instance.life != 10)
         {
             anim.SetTrigger("Reborn");
@@ -77,10 +58,25 @@ public class PlayerCtrl : MonoBehaviour
         // Record current level
         GameManager.instance.levelName = SceneManager.GetActiveScene().name;
         GameManager.instance.Save();
+        playerCameraTarget = GetComponent<Player_CameraTarget>();
+
+        OnTouchGround += playerCameraTarget.UpdateY;
+        OnTouchGround += ResetStatus;
     }
     private void OnDestroy()
     {
         // GameManager.instance.respawnPosition = transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        if (isJumping && isExJumping  == false)
+        {
+            if (!Input.GetKey(KeyCode.Space) && rb.velocity.y > 0)
+            {
+                rb.AddForce(Vector2.down * 30);
+            }
+        }
     }
 
     void Update()
@@ -88,8 +84,11 @@ public class PlayerCtrl : MonoBehaviour
         if (isDie || canCtrl == false)
             return;
 
+        GroundCheck();
         MovementX();
-        JumpmentY();
+        if (Input.GetKeyDown(KeyCode.Space) && ability.jump == true)
+            Jump();
+        
 
 #if UNITY_EDITOR
         // Check Hp
@@ -106,35 +105,50 @@ public class PlayerCtrl : MonoBehaviour
         {
             AntiGravity();
         }
-
-        if (input == 0 && onFloor == true)
-            Look();
     }
 
-    private void Look()
+    #region 地板檢測
+    /// <summary> On ground </summary>
+    private bool _isGrounded = false;
+    bool isGrounded
     {
-        lookOffsetY = Input.GetAxis("LookVertical") * lookDistanceY;
-        lookOffsetX = Input.GetAxis("LookHorizontal") * lookDistanceX;
+        // 讀取的時候回傳_grounded
+        get { return _isGrounded; }
+        // 寫入的時候寫入_grounded
+        // 順便修改動畫的grounded
+        set
+        {
+            _isGrounded = value;
+            anim.SetBool("OnFloor", value);
+        }
     }
+    private bool lateGrounded;
+    private void GroundCheck()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (lateGrounded == false && rb.velocity.y <= 0 && isGrounded)
+        {
+            OnTouchGround.Invoke();
+        }
+        lateGrounded = isGrounded;
+    }
+    #endregion
+
     #region 移動
     private float sp = 0f;
     private float mixSpeed = 3f;
 
     private void MovementX()
     {
-        input = Input.GetAxisRaw("Horizontal"); // Get keyboard AD value -1 ~ 1
+        input.x = Input.GetAxisRaw("Horizontal"); // Get keyboard AD value -1 ~ 1
         sp = Mathf.Lerp(sp, Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed, Time.deltaTime * mixSpeed);
 
-        if (input != 0)
-            followPosX = Mathf.Lerp(followPosX,  input * maxDistance, Time.deltaTime * followSensitive);
-        cameraTarget.transform.position = new Vector3(transform.position.x + followPosX + lookOffsetX, followPosY + lookOffsetY, 0);
-
-        if (input > 0 && isFaceRight == false)
+        if (input.x > 0 && isFaceRight == false)
             FlipSprite();
-        else if (input < 0 && isFaceRight == true)
+        else if (input.x < 0 && isFaceRight == true)
             FlipSprite();
 
-        if (Mathf.Abs(input) > 0.1f)
+        if (Mathf.Abs(input.x) > 0.1f)
         {
             anim.SetBool("IsRun", true);
         }
@@ -148,9 +162,9 @@ public class PlayerCtrl : MonoBehaviour
         float wallStop = 1;
         //如果有碰到牆就停止往同方向施加Velocity
         if (wallDetector.isTouching)
-            wallStop = sprRenderer.flipX ? Mathf.Clamp(input, -1, 0) : Mathf.Clamp(input, 0, 1);
+            wallStop = sprRenderer.flipX ? Mathf.Clamp(input.x, -1, 0) : Mathf.Clamp(input.x, 0, 1);
 
-        Vector2 moveNormal = new Vector2(wallStop * input * sp, rb.velocity.y);
+        Vector2 moveNormal = new Vector2(wallStop * input.x * sp, rb.velocity.y);
         rb.velocity = moveNormal;
     }
 
@@ -159,84 +173,58 @@ public class PlayerCtrl : MonoBehaviour
         transform.localScale = new Vector3(isFaceRight ? 1 : -1, 1, 1);
         isFaceRight = !isFaceRight;
     }
-#endregion
+    #endregion
 
     #region 跳躍
-    private int jumps;
+    private int jumpCounter;
+    private bool isJumping;
+    private bool isExJumping;
 
-    /// <summary> On floor </summary>
-    private bool _onFloor = false;
-    bool onFloor
+    private float CalculateJumpForce(float gravityStrength, float jumpHeight)
     {
-        // 讀取的時候回傳_onFloor
-        get { return _onFloor; }
-        // 寫入的時候寫入_onFloor
-        // 順便修改動畫的onFloor
-        set { 
-            _onFloor = value; 
-            anim.SetBool("OnFloor", value); }
+        //h = v^2/2g
+        //2gh = v^2
+        //sqrt(2gh) = v
+        return Mathf.Sqrt(2 * gravityStrength * jumpHeight);
     }
-
-    private bool _onStick = false;
-    bool onStick
+    private void Jump()
     {
-        get { return _onStick; }
-        set { 
-            _onStick = value; }
-    }
-    private bool _onMid = false;
-    bool onMid
-    {
-        get { return _onMid; }
-        set { 
-            _onMid = value; }
-    }
-
-    public void JumpmentY()
-    {
-        bool isJump = Input.GetKeyDown(KeyCode.Space);
-        if (isJump)
+        if (isGrounded)  //FirstJump
         {
-            if (onFloor && ability.jump == true)
-            {
-                jumps = maxJumps;
-                JumpG();
-                jumps -= 1;
-            }
-            else if(ability.doubleJump == true)
-            {
-                if (jumps > 0)
-                {
-                    JumpG();
-                    jumps -= 1;
-                }
-                else
-                    return;
-            }
+            isJumping = true;
+            jumpCounter = exJumps;
+            JumpForce();
         }
-
-        anim.SetFloat("Y", rb.velocity.y); // Send Y into the animation
+        else if(isJumping && jumpCounter > 0 && ability.doubleJump == true)  //ExJump
+        {
+            isExJumping = true;
+            jumpCounter--;
+            rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+            JumpForce();
+        }
     }
-    public void JumpG()
+
+    private void JumpForce()
     {
-        // 取代當前的慣性
-        // velocity 空間中的相對牛頓力
-        rb.velocity = new Vector2(0, jumpPower * antiGravity);
+        float jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, jumpHeight);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         // Jump Sound
         SoundManager.Instance.PlaySFX(Sound.Jump);
     }
     #endregion
 
     #region 翻轉
-    private int antiGravity = 1;
-    private bool isGirl = true;
-    //private bool isAntiPlayer = default;
+    public int gravityDir = -1;
+    public bool isGirl
+    {
+        get { return gravityDir == -1; }
+    }
     public void AntiGravity()
     {
-        if (!onFloor || onStick) return;
+        if (!isGrounded) return;
 
-        isGirl = !isGirl;
-        if(isGirl == true)
+        gravityDir = -gravityDir;
+        if (isGirl == true)
         {
             girlObj.SetActive(true);
             boyObj.SetActive(false);
@@ -249,23 +237,9 @@ public class PlayerCtrl : MonoBehaviour
             anim = boyObj.GetComponent<Animator>();
         }
         // Antigravity
-        Physics2D.gravity = new Vector2(0, (Physics2D.gravity.y * -1f));
-        if (Physics2D.gravity.y > 0)
-        {
-            antiGravity = -1;
-            playerGOF.transform.rotation *= Quaternion.Euler(180f, 0f, 0f);
-            if (onFloor)
-                playerGOF.transform.position = new Vector3(playerGOF.transform.position.x, playerGOF.transform.position.y - 3f, playerGOF.transform.position.z);
-            //isAntiPlayer = true;
-        }
-        else
-        {
-            antiGravity = 1;
-            playerGOF.transform.rotation *= Quaternion.Euler(180f, 0f, 0f);
-            if (onFloor)
-                playerGOF.transform.position = new Vector3(playerGOF.transform.position.x, playerGOF.transform.position.y + 3f, playerGOF.transform.position.z);
-            //isAntiPlayer = false;
-        }
+        Physics2D.gravity = new Vector2(0, (envGravity * gravityDir));
+        transform.rotation *= Quaternion.Euler(180f, 0f, 0f);
+        transform.position += Vector3.down * 3 * gravityDir;
     }
     public void AntiGravityByProps(bool isInvert)
     {
@@ -273,67 +247,20 @@ public class PlayerCtrl : MonoBehaviour
         {
             // Negative
             Physics2D.gravity = new Vector2(0, Mathf.Abs(Physics2D.gravity.y));
-            antiGravity = -1;
-            playerGOF.transform.rotation = Quaternion.Euler(-180f, 0f, 0f);
+            gravityDir = -1;
+            transform.rotation = Quaternion.Euler(-180f, 0f, 0f);
             //isAntiPlayer = true;
         }
         else
         {
             // Positive
             Physics2D.gravity = new Vector2(0, Mathf.Abs(Physics2D.gravity.y) * -1f);
-            antiGravity = 1;
-            playerGOF.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            gravityDir = 1;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             //isAntiPlayer = false;
         }
     }
     #endregion
-
-    // 所有碰撞檢定都是基於物理
-    /// <summary> 物理刷新的瞬間 (一秒約50次)</summary>
-    private void FixedUpdate()
-    {
-        // 預設立場為不著地
-        onFloor = false;
-        onStick = false;
-        // 
-        onMid = false;
-        // 在指定位置與指定半徑下畫一個碰撞器 並且回傳碰到的東西
-        Collider2D[] allStuff = Physics2D.OverlapCircleAll(groundCheck.position, 0.3f, groundLayer);
-        // 跑回圈檢查碰到的「每個」東西
-        foreach (Collider2D stuff in allStuff)
-        {
-            // Debug.Log("碰到了 : " + stuff.name);
-            if (stuff.gameObject.tag == "MgStick")
-            {
-                onStick = true;
-            }
-            if (stuff.gameObject.name == "Midground1")
-            {
-                onMid = true;
-            }
-            onFloor = true;
-            OnTouchGround.Invoke();
-        }
-
-        float maxY = 3.5f;
-        if (onFloor == false)
-        {
-            if (isGirl == true)
-            {
-                if (transform.position.y > followPosY + maxY)
-                    followPosY = transform.position.y - maxY;
-                else if (transform.position.y < followPosY)
-                    followPosY = transform.position.y;
-            }
-            else
-            {
-                if (transform.position.y < followPosY - maxY)
-                    followPosY = transform.position.y + maxY;
-                else if (transform.position.y > followPosY)
-                    followPosY = transform.position.y;
-            }
-        }
-    }
 
     /// <summary> 與任何東西碰撞 </summary>
     private void OnCollisionEnter2D(Collision2D other)
@@ -394,13 +321,10 @@ public class PlayerCtrl : MonoBehaviour
     static extern void BlockInput(bool Block);
     */
 
-    private void UpdateY()
+    private void ResetStatus()
     {
-        float offset = 0.7f;
-        if (isGirl == true)
-            followPosY = transform.position.y + offset;
-        else
-            followPosY = transform.position.y - offset;
+        isJumping = false;
+        isExJumping = false;
     }
 
     private void OnDrawGizmos()

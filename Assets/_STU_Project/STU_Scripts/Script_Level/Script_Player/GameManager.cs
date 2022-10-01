@@ -32,9 +32,9 @@ public class GameManager
 
     //----------------------------------------------
 
-    string playName = "STU_PLAY";
-    int playNumber = 1;
-    string scenesName = "STJ_Old_Level";
+    private string playName = "STU_PLAY";
+    private int playNumber = 1;
+    private string scenesName = "STJ_Old_Level";
     private int _scenesNumber;
     public int scenesNumber
     {
