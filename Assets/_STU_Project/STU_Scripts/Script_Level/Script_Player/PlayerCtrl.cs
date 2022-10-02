@@ -207,7 +207,7 @@ public class PlayerCtrl : MonoBehaviour
     private void JumpForce()
     {
         float jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, jumpHeight);
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.down * jumpForce * gravityDir, ForceMode2D.Impulse);
         // Jump Sound
         SoundManager.Instance.PlaySFX(Sound.Jump);
     }
@@ -240,6 +240,7 @@ public class PlayerCtrl : MonoBehaviour
         Physics2D.gravity = new Vector2(0, (envGravity * gravityDir));
         transform.rotation *= Quaternion.Euler(180f, 0f, 0f);
         transform.position += Vector3.down * 3 * gravityDir;
+        playerCameraTarget.UpdateY();
     }
     public void AntiGravityByProps(bool isInvert)
     {

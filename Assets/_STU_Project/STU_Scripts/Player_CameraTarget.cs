@@ -54,7 +54,7 @@ public class Player_CameraTarget : MonoBehaviour
 
     private void LimitOffsetY()
     {
-        float maxY = 7f;
+        float maxY = 5f;
         if (playerCtrl.isGirl)
         {
             if (transform.position.y > followOffsetY + maxY)
@@ -66,8 +66,8 @@ public class Player_CameraTarget : MonoBehaviour
         {
             if (transform.position.y < followOffsetY - maxY)
                 followOffsetY = transform.position.y + maxY;
-            else if (transform.position.y > followOffsetY)
-                followOffsetY = transform.position.y;
+            else if (transform.position.y > followOffsetY + maxY)
+                followOffsetY = transform.position.y - maxY;
         }
     }
 
