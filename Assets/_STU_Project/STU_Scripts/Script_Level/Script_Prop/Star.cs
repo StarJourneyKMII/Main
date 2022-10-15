@@ -18,7 +18,7 @@ public class Star : PickUpItem
         FindObjectOfType<EvaluationForm>().collectCount++;
         if (other.gameObject.name == "Player")
         {
-            //SoundManager.Instance.PlaySFX(Sound.GetStar);
+            SoundSystem.PlaySFX(Sound.GetStar);
             //    Instantiate(soundObject, transform.position, Quaternion.identity);
             //    var inventory = other.GetComponent<InventoryHolder>();
             //    if (inventory == null) return;
