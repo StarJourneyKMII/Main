@@ -19,16 +19,16 @@ MonoBehaviour:
     Volume: 1
     StartPosition: 0
     EndPosition: 0
-    FadeIn: 0
-    FadeOut: 0
+    FadeIn: 2
+    FadeOut: 3
     Loop: 1
   - Name: Menu
     Clip: {fileID: 8300000, guid: 05d9ef6e51db1764b89a299d95ff0b9c, type: 3}
     Music: 2
     Volume: 1
     StartPosition: 0
-    EndPosition: 0
-    FadeIn: 0
-    FadeOut: 0
+    EndPosition: 1
+    FadeIn: 2
+    FadeOut: 2
     Loop: 1
   _enumsPath: Assets/_STU_Project/STU_Scripts/Script_Audio/MiProduction/Enums

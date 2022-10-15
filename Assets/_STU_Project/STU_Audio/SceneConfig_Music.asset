@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366ceb0ca93f394459459b9b165e86c0, type: 3}
+  m_Name: SceneConfig_Music
+  m_EditorClassIdentifier: 
+  SceneConfigs:
+  - Scene: Assets/_STU_Project/STU_Lobby/StartUp.unity
+    Data: 2
+  - Scene: Assets/_STU_Project/STU_Lobby/CharactersSelect.unity
+    Data: 2
+  - Scene: Assets/_STU_Project/STU_Lobby/Lobby.unity
+    Data: 2
+  - Scene: Assets/_STU_Project/STU_Lobby/LevelSelect.unity
+    Data: 2
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level1.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level2.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level3.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level4.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level5.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level6.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level7.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level8.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level9.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level10.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level11.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level12.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level13.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/STU_Lobby/GameOver.unity
+    Data: 0

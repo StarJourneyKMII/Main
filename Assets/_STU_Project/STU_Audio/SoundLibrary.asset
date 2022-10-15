@@ -36,9 +36,9 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: f602db151a134d543b32cfedc6e014f5, type: 3}
     Volume: 1
     Delay: 0
-    StartPosition: 0
+    StartPosition: 0.03
     EndPosition: 0
-    FadeIn: 0
+    FadeIn: 0.01
     FadeOut: 0
   - Name: Die
     Sound: 4
