@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &45861072 stripped
@@ -313,6 +317,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -571,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90087561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwitchFloorD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,6 +660,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -785,6 +797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &136152848 stripped
@@ -850,6 +866,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -1092,6 +1112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &194023303 stripped
@@ -1110,7 +1134,7 @@ GameObject:
   - component: {fileID: 221024236}
   - component: {fileID: 221024238}
   - component: {fileID: 221024237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1243,7 @@ GameObject:
   - component: {fileID: 236718547}
   - component: {fileID: 236718549}
   - component: {fileID: 236718548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1569,7 +1593,7 @@ GameObject:
   - component: {fileID: 301982958}
   - component: {fileID: 301982960}
   - component: {fileID: 301982959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2019,7 +2043,7 @@ GameObject:
   - component: {fileID: 351386224}
   - component: {fileID: 351386226}
   - component: {fileID: 351386225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2156,7 +2180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363028514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwitchFloorE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2256,7 +2280,7 @@ GameObject:
   - component: {fileID: 372405406}
   - component: {fileID: 372405408}
   - component: {fileID: 372405407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2670,6 +2694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &447082492 stripped
@@ -2802,6 +2830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &474732825 stripped
@@ -2868,6 +2900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &537497453 stripped
@@ -2933,6 +2969,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -3127,7 +3167,7 @@ GameObject:
   - component: {fileID: 581644300}
   - component: {fileID: 581644302}
   - component: {fileID: 581644301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3283,6 +3323,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -3525,6 +3569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &646742849 stripped
@@ -3703,6 +3751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &692972077 stripped
@@ -3719,7 +3771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 721685349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StarG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3754,7 +3806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 757961560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3944,7 +3996,7 @@ GameObject:
   - component: {fileID: 814594479}
   - component: {fileID: 814594481}
   - component: {fileID: 814594480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4100,6 +4152,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -4312,7 +4368,7 @@ GameObject:
   - component: {fileID: 842372339}
   - component: {fileID: 842372341}
   - component: {fileID: 842372340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4469,6 +4525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &844120036 stripped
@@ -4534,6 +4594,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -4791,7 +4855,7 @@ GameObject:
   - component: {fileID: 908494531}
   - component: {fileID: 908494533}
   - component: {fileID: 908494532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5032,7 +5096,7 @@ GameObject:
   - component: {fileID: 1027577852}
   - component: {fileID: 1027577854}
   - component: {fileID: 1027577853}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5189,6 +5253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1072816014 stripped
@@ -5255,6 +5323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1077368911 stripped
@@ -5320,6 +5392,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -5471,7 +5547,7 @@ GameObject:
   - component: {fileID: 1114179923}
   - component: {fileID: 1114179925}
   - component: {fileID: 1114179924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5694,6 +5770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1175864923 stripped
@@ -5712,7 +5792,7 @@ GameObject:
   - component: {fileID: 1212982434}
   - component: {fileID: 1212982436}
   - component: {fileID: 1212982435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5868,6 +5948,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -6126,6 +6210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1238728801 stripped
@@ -6324,6 +6412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1264331864 stripped
@@ -6342,7 +6434,7 @@ GameObject:
   - component: {fileID: 1273385236}
   - component: {fileID: 1273385238}
   - component: {fileID: 1273385237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6451,7 +6543,7 @@ GameObject:
   - component: {fileID: 1292977436}
   - component: {fileID: 1292977438}
   - component: {fileID: 1292977437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6740,6 +6832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1330163677 stripped
@@ -6758,7 +6854,7 @@ GameObject:
   - component: {fileID: 1331767147}
   - component: {fileID: 1331767149}
   - component: {fileID: 1331767148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6914,6 +7010,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -7215,6 +7315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1408482090 stripped
@@ -7340,7 +7444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427771362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StarG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7432,6 +7536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1439690934 stripped
@@ -7516,7 +7624,7 @@ GameObject:
   - component: {fileID: 1447559399}
   - component: {fileID: 1447559401}
   - component: {fileID: 1447559400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7691,7 +7799,7 @@ GameObject:
   - component: {fileID: 1456357159}
   - component: {fileID: 1456357161}
   - component: {fileID: 1456357160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7864,7 +7972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499158741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7906,7 +8014,7 @@ GameObject:
   - component: {fileID: 1509231512}
   - component: {fileID: 1509231514}
   - component: {fileID: 1509231513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8015,7 +8123,7 @@ GameObject:
   - component: {fileID: 1528177853}
   - component: {fileID: 1528177855}
   - component: {fileID: 1528177854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8188,7 +8296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542304910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8228,7 +8336,7 @@ GameObject:
   - component: {fileID: 1561778895}
   - component: {fileID: 1561778897}
   - component: {fileID: 1561778896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8413,7 +8521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570081758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StarG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8565,6 +8673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1605044656 stripped
@@ -8630,6 +8742,10 @@ PrefabInstance:
     - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
       propertyPath: m_Name
       value: Star (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
@@ -8846,7 +8962,7 @@ GameObject:
   - component: {fileID: 1689010817}
   - component: {fileID: 1689010819}
   - component: {fileID: 1689010818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9021,7 +9137,7 @@ GameObject:
   - component: {fileID: 1699448323}
   - component: {fileID: 1699448325}
   - component: {fileID: 1699448324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9178,6 +9294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1702757477 stripped
@@ -9196,7 +9316,7 @@ GameObject:
   - component: {fileID: 1725649140}
   - component: {fileID: 1725649142}
   - component: {fileID: 1725649141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9419,6 +9539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1725961618 stripped
@@ -9551,6 +9675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &1802980902 stripped
@@ -9633,7 +9761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852741934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9839,7 +9967,7 @@ GameObject:
   - component: {fileID: 1945508716}
   - component: {fileID: 1945508718}
   - component: {fileID: 1945508717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10174,7 +10302,7 @@ GameObject:
   - component: {fileID: 1963367868}
   - component: {fileID: 1963367870}
   - component: {fileID: 1963367869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10349,7 +10477,7 @@ GameObject:
   - component: {fileID: 1977142780}
   - component: {fileID: 1977142782}
   - component: {fileID: 1977142781}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10458,7 +10586,7 @@ GameObject:
   - component: {fileID: 1977811556}
   - component: {fileID: 1977811558}
   - component: {fileID: 1977811557}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10567,7 +10695,7 @@ GameObject:
   - component: {fileID: 1997942500}
   - component: {fileID: 1997942502}
   - component: {fileID: 1997942501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10705,14 +10833,14 @@ MonoBehaviour:
   m_Follow: {fileID: 1811267844}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8298556, y: 1}
+    m_SensorSize: {x: 1.7204473, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10942,6 +11070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &2035887766 stripped
@@ -11069,8 +11201,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -11094,7 +11226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059675377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.412485, y: 10.9998, z: -12}
+  m_LocalPosition: {x: -12.966006, y: 10.9933195, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11111,7 +11243,7 @@ GameObject:
   - component: {fileID: 2072562815}
   - component: {fileID: 2072562817}
   - component: {fileID: 2072562816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11284,7 +11416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2109395561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwitchFloorF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11366,6 +11498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 3896215343517803431, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9b3767eaa0d2d41b7d0cc9c9a9d25c, type: 3}
 --- !u!4 &2113778322 stripped
@@ -11384,7 +11520,7 @@ GameObject:
   - component: {fileID: 2133914203}
   - component: {fileID: 2133914205}
   - component: {fileID: 2133914204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11493,7 +11629,7 @@ GameObject:
   - component: {fileID: 2137174437}
   - component: {fileID: 2137174439}
   - component: {fileID: 2137174438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11600,7 +11736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2137812854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SratG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11639,7 +11775,7 @@ GameObject:
   - component: {fileID: 2141301426}
   - component: {fileID: 2141301428}
   - component: {fileID: 2141301427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11919,7 +12055,7 @@ GameObject:
   - component: {fileID: 2570479256286386566}
   - component: {fileID: 9049358402351381405}
   - component: {fileID: 4734562089476310572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12203,7 +12339,7 @@ GameObject:
   - component: {fileID: 5790830478624224757}
   - component: {fileID: 8910956653499058050}
   - component: {fileID: 8644637924076512101}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19511,7 +19647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3950807291616969851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwitchFloorA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19559,7 +19695,7 @@ GameObject:
   - component: {fileID: 1111809308661667640}
   - component: {fileID: 8130010484053465982}
   - component: {fileID: 8094361501600679700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorDeep7_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
