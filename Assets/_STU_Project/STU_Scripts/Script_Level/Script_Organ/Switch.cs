@@ -26,7 +26,7 @@ public class Switch : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Switch Close Sound
-            SoundManager.Instance.PlaySFX(Sound.SwitchClose);
+            //SoundSystem.PlaySFX(Sound.Switch);
             // Touch Switch one time
             anim.SetTrigger("Touch");
             gameObject.GetComponent<Collider2D>().enabled = false;

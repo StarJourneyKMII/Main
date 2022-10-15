@@ -209,7 +209,7 @@ public class PlayerCtrl : MonoBehaviour
         float jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, jumpHeight);
         rb.AddForce(Vector2.down * jumpForce * gravityDir, ForceMode2D.Impulse);
         // Jump Sound
-        SoundManager.Instance.PlaySFX(Sound.Jump);
+        //SoundManager.Instance.PlaySFX(Sound.Jump);
     }
     #endregion
 
@@ -282,7 +282,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             isDie = true;
             // Die Sound
-            SoundManager.Instance.PlaySFX(Sound.Die, 2f);
+            //SoundManager.Instance.PlaySFX(Sound.Die, 2f);
             anim.SetTrigger("Die");
             // Pause
             // Time.timeScale = 0f;

@@ -9,31 +9,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c0ac843b2c2b47b8a665170a807b7, type: 3}
+  m_Script: {fileID: 11500000, guid: d7503726fe06fa14b86343a58f57c179, type: 3}
   m_Name: SoundLibrary
   m_EditorClassIdentifier: 
   Libraries:
-  - Name: Jump
-    Sound: 1
-    Clip: {fileID: 8300000, guid: f602db151a134d543b32cfedc6e014f5, type: 3}
-    Volume: 0.902
-    Delay: 0
-    StartPosition: 0
   - Name: GetStar
-    Sound: 2
+    Sound: 1
     Clip: {fileID: 8300000, guid: f214e7e3d1cdf0647be54b2a86264e9a, type: 3}
-    Volume: 0.83
+    Volume: 1
     Delay: 0
     StartPosition: 0
-  - Name: SwitchClose
-    Sound: 3
+    EndPosition: 0
+    FadeIn: 0
+    FadeOut: 0
+  - Name: Switch
+    Sound: 2
     Clip: {fileID: 8300000, guid: c2a44e5b17cc60f46914d8ccf4f22114, type: 3}
-    Volume: 0.791
+    Volume: 1
     Delay: 0
     StartPosition: 0
+    EndPosition: 0
+    FadeIn: 0
+    FadeOut: 0
+  - Name: Jump
+    Sound: 3
+    Clip: {fileID: 8300000, guid: f602db151a134d543b32cfedc6e014f5, type: 3}
+    Volume: 1
+    Delay: 0
+    StartPosition: 0
+    EndPosition: 0
+    FadeIn: 0
+    FadeOut: 0
   - Name: Die
     Sound: 4
     Clip: {fileID: 8300000, guid: 85a171ecdfb4bfb488126a0cb154cb07, type: 3}
-    Volume: 0.817
+    Volume: 1
     Delay: 0
     StartPosition: 0
+    EndPosition: 0
+    FadeIn: 0
+    FadeOut: 0
+  _enumsPath: Assets/_STU_Project/STU_Scripts/Script_Audio/MiProduction/Enums
