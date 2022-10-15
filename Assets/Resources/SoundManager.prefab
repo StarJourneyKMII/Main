@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3109420919183503373}
   - component: {fileID: 4505893217293699161}
-  - component: {fileID: 9025515768450914561}
+  - component: {fileID: 8747234223803896275}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
   _mainSoundAsset: {fileID: 11400000, guid: 981fe4e1c96bc7846b96161e1356efcb, type: 2}
   _randomSoundAsset: []
   _mainMusicAsset: {fileID: 11400000, guid: 7d1a5e4e798b97644a04ce593b67a752, type: 2}
---- !u!114 &9025515768450914561
+--- !u!114 &8747234223803896275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3109420919183503372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481cb97351c27ff45bed59a683c52d5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6000be1077e066e499ab2f1679daa2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneMusic: {fileID: 11400000, guid: 6d4942949188cbb43ad997dc76274dfd, type: 2}
