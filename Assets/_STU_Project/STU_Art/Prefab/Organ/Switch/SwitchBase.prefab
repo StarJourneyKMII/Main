@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 1378684311686803396}
   - component: {fileID: 1378684311686803259}
   m_Layer: 0
-  m_Name: SwitchOpen
+  m_Name: SwitchBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
