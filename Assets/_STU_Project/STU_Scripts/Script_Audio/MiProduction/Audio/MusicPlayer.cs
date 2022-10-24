@@ -5,76 +5,26 @@ using UnityEngine;
 using UnityEngine.Audio;
 using MiProduction.Extension;
 using MiProduction.BroAudio.Library;
-using static UnityEngine.GraphicsBuffer;
+using static MiProduction.BroAudio.AudioExtension;
 
 namespace MiProduction.BroAudio.Core
 {
-    [RequireComponent(typeof(AudioSource))]
-    public class MusicPlayer : MonoBehaviour
+    public class MusicPlayer : AudioPlayer
     {
-        [SerializeField] AudioSource _player = null;
-        [SerializeField] AudioMixer _audioMixer;
-        private string _volParaName = string.Empty;
-        private MusicLibrary _currentMusic;
+        private MusicLibrary _currentMusicLibrary;
         private Coroutine _currentPlayCoroutine;
-        private Coroutine _subVolumeControl;
         private Coroutine _stopControlCoroutine;
 
-        private float _subVolume = 1f;
-
-        public float MixerVolume
-        {
-            get
-            {
-                return (MixerDecibelVolume / AudioExtension.MinDecibelVolume * -1f) + 1f;
-            }
-            private set
-            {
-                MixerDecibelVolume = value.ToDecibel();
-            }
-        }
-
-        float MixerDecibelVolume
-        {
-            get
-            {
-                if (!_audioMixer.GetFloat(_volParaName, out float currentVol))
-                {
-                    Debug.LogError("[SoundSystem] Can't get exposed parameter in audio mixer,AudioMixerGroup's name and ExposedParameter's name should be the same");
-                }
-                return currentVol;
-            }
-            set
-            {
-                _audioMixer.SetFloat(_volParaName, value * _subVolume);
-            }
-        }
-
-        public Music CurrentMusic { get => _currentMusic.Music; }
-
-        public bool IsPlaying { get; private set; }
-        public bool IsStoping { get; private set; }
-        public bool IsFadingOut { get; private set; }
-        public bool IsFadingIn { get; private set; }
-
-        private void Awake()
-        {
-            if (_player == null)
-            {
-                _player = GetComponent<AudioSource>();
-            }
-            if (_audioMixer == null)
-            {
-                _audioMixer = _player.outputAudioMixerGroup.audioMixer;
-            }
-            _volParaName = _player.outputAudioMixerGroup.name;
-        }
+        public Music CurrentMusic { get => _currentMusicLibrary.Music; }
+        public override bool IsPlaying { get; protected set; }
+        public override bool IsStoping { get; protected set; }
+        public override bool IsFadingOut { get; protected set; }
+        public override bool IsFadingIn { get; protected set; }
 
         private void Start()
         {
-            MixerVolume = 0f;
+            ClipVolume = 0f;
         }
-
 
         public void Play(MusicLibrary musicLibrary, float fadeInTime = -1f, float fadeOutTime = -1f, Action onFinishFadeIn = null, Action onFinishPlaying = null)
         {
@@ -83,12 +33,11 @@ namespace MiProduction.BroAudio.Core
 
         private IEnumerator PlayControl(MusicLibrary musicLibrary, float fadeInTime, float fadeOutTime, Action onFinishFadeIn, Action onFinishPlaying)
         {
-            Debug.Log("PlayMusicCoroutine");
-            _currentMusic = musicLibrary;
-            _player.clip = musicLibrary.Clip;
-            _player.time = musicLibrary.StartPosition;
-            _player.loop = musicLibrary.Loop;
-            _player.Play();
+            _currentMusicLibrary = musicLibrary;
+            AudioSource.clip = musicLibrary.Clip;
+            AudioSource.time = musicLibrary.StartPosition;
+            AudioSource.loop = musicLibrary.Loop;
+            AudioSource.Play();
             IsPlaying = true;
 
             do
@@ -104,7 +53,7 @@ namespace MiProduction.BroAudio.Core
                 }    
                 else
                 {
-                    MixerVolume = musicLibrary.Volume;
+                    ClipVolume = musicLibrary.Volume;
                 }
                 #endregion
 
@@ -112,14 +61,14 @@ namespace MiProduction.BroAudio.Core
                 fadeOutTime = fadeOutTime < 0 ? musicLibrary.FadeOut : fadeOutTime;
                 if (fadeOutTime > 0)
                 {
-                    yield return new WaitUntil(() => (_player.clip.length - _player.time) <= fadeOutTime);
+                    yield return new WaitUntil(() => (AudioSource.clip.length - AudioSource.time) <= fadeOutTime);
                     IsFadingOut = true;
                     yield return StartCoroutine(Fade(fadeOutTime, 0f));
                     IsFadingOut = false;
                 }
                 else
                 {
-                    yield return new WaitUntil(() => _player.clip.length == _player.time);
+                    yield return new WaitUntil(() => AudioSource.clip.length == AudioSource.time);
                 }
                 #endregion
             } while (musicLibrary.Loop);
@@ -132,7 +81,7 @@ namespace MiProduction.BroAudio.Core
         {
             if(IsStoping)
             {
-                Debug.Log("WTF");
+                Debug.LogWarning("[SoundSystem]The music player is already processing StopMusic !");
                 return;
             }
             _stopControlCoroutine = StartCoroutine(StopControl(fadeOutTime, onFinishPlaying));
@@ -140,23 +89,21 @@ namespace MiProduction.BroAudio.Core
 
         private IEnumerator StopControl(float fadeOutTime, Action onFinishPlaying)
         {
-            Debug.Log("StopMusicCoroutine");
-
-            if (_currentMusic.Music == Music.None || !IsPlaying)
+            if (_currentMusicLibrary.Music == Music.None || !IsPlaying)
             {
                 onFinishPlaying?.Invoke();
                 yield break;
             }
 
-            fadeOutTime = fadeOutTime < 0 ? _currentMusic.FadeOut : fadeOutTime;
+            IsStoping = true;
+            fadeOutTime = fadeOutTime < 0 ? _currentMusicLibrary.FadeOut : fadeOutTime;
             if (fadeOutTime > 0)
             {
                 if (IsFadingOut)
                 {
-                    Debug.Log("ISFADEOUT");
                     // 目前設計成:如果原有的音樂已經在FadeOut了，就等它FadeOut不強制停止
-                    _player.loop = false;
-                    yield return new WaitUntil(() => _player.clip.length == _player.time);
+                    AudioSource.loop = false;
+                    yield return new WaitUntil(() => AudioSource.clip.length == AudioSource.time);
                 }
                 else
                 {
@@ -169,59 +116,19 @@ namespace MiProduction.BroAudio.Core
         }
 
 
-        private IEnumerator Fade(float duration, float targetVolume)
-        {
-            float currentTime = 0;
-            float currentVol = Mathf.Pow(10, MixerDecibelVolume / 20);
-            float targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
-            Ease ease = currentVol < targetValue ? SoundManager.FadeInEase : SoundManager.FadeOutEase;
-            float newVol = 0f;
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                newVol = Mathf.Lerp(currentVol, targetValue , (currentTime / duration).SetEase(ease));
-                MixerDecibelVolume = Mathf.Log10(newVol) * 20;
-                yield return null;
-            }
-            yield break;
-        }
+        
 
         private void EndPlaying()
         {
-            Debug.Log("End");
-            _currentMusic = default;
+            _currentMusicLibrary = default;
             _currentPlayCoroutine.Stop(this);
-            MixerVolume = 0f;     
-            _player.Stop();
-            _player.clip = null;
-            _player.volume = 1f;
-            _player.loop = false;
+            ClipVolume = 0f;    
+            AudioSource.Stop();
+            AudioSource.clip = null;
+            AudioSource.loop = false;
             IsPlaying = false;
+            IsStoping = false;
         }
-
-        public void FadeSubVolume(float vol,float fadeTime = 1f)
-		{
-            // 只動SubVolume，使原本的音量以及FadeIn/Out以及此處音量能共同運作
-            _subVolumeControl.Stop(this);
-            _subVolumeControl = StartCoroutine(SubVolumeControl(vol, fadeTime));
-        }
-
-        private IEnumerator SubVolumeControl(float target,float fadeTime)
-		{
-            float start = _subVolume;
-            float t = 0f;
-            while(t < 1f)
-			{
-                _subVolume = Mathf.Lerp(start, target, t);
-                t += Time.deltaTime / fadeTime;
-                if (!IsFadingIn && !IsFadingOut)
-                {
-                    // 取現在的 再乘上sub  還沒寫完!!
-                    MixerVolume = target;
-                }
-                yield return null;
-			}
-		}
 
     }
 

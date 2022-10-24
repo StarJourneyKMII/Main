@@ -9,9 +9,35 @@ namespace MiProduction.BroAudio
         public const float MinDecibelVolume = -80f;
         public const float MaxDecibelVolume = 0f;
 
+        public const float MinVolume = 0.0001f;
+        public const float MaxVolume = 1f;
+
         public static float ToDecibel(this float vol)
+        {  
+            //vol = Mathf.Clamp(vol, MinVolume, MaxVolume);
+            //Debug.Log("toDb:" + vol.ToString());
+            return Mathf.Log10(vol.ClampNormalize()) * 20f;
+        }
+
+        public static float ToNormalizeVolume(this float dB)
         {
-            return Mathf.Lerp(MinDecibelVolume, MaxDecibelVolume, Mathf.Clamp01(vol));
+            if(dB == 0)
+            {
+                Debug.Log("is Zero");
+                return 1;
+            }
+            // = Mathf.Clamp(dB, MinDecibelVolume, MaxDecibelVolume);
+            return Mathf.Pow(10, dB.ClampDecibel() / 20f);
+        }
+
+        public static float ClampNormalize(this float vol)
+        {
+            return Mathf.Clamp(vol, MinVolume, MaxVolume);
+        }
+
+        public static float ClampDecibel(this float dB)
+        {
+            return Mathf.Clamp(dB,MinDecibelVolume, MaxDecibelVolume);
         }
 
         public static bool Validate(string typeName, int index,AudioClip clip , float startPosition, float fadeInTime = -1,float fadeOutTime = -1)
