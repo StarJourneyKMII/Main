@@ -34,6 +34,19 @@ public class JumpTutorial : MonoBehaviour
         _originPos = transform.position;
     }
 
+    private void Update()
+    {
+        if(Physics2D.gravity.y > 0)
+        {
+            _rigibody.gravityScale = -1f;
+        }
+        else
+        {
+            _rigibody.gravityScale = 1f;
+        }
+        
+    }
+
     private IEnumerator PlayTutorial()
     {
         while (true)
