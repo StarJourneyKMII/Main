@@ -49,3 +49,5 @@ MonoBehaviour:
     Data: 1
   - Scene: Assets/_STU_Project/STU_Lobby/GameOver.unity
     Data: 0
+  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level0.unity
+    Data: 1
