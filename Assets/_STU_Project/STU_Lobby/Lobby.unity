@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -527,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -535,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -575,11 +575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2900
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1872,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1880,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1920,11 +1920,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2617,6 +2617,7 @@ GameObject:
   - component: {fileID: 270573100}
   - component: {fileID: 270573099}
   - component: {fileID: 270573102}
+  - component: {fileID: 270573103}
   m_Layer: 5
   m_Name: Button_Gallery
   m_TagString: Untagged
@@ -2814,6 +2815,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &270573103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270573097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 270573099}
+  _uiSound: 5
 --- !u!1 &291586725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,6 +3513,7 @@ GameObject:
   - component: {fileID: 376789894}
   - component: {fileID: 376789893}
   - component: {fileID: 376789896}
+  - component: {fileID: 376789897}
   m_Layer: 5
   m_Name: Button_Menu
   m_TagString: Untagged
@@ -3576,18 +3592,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 682838291}
-        m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
-        m_MethodName: PlayUISound
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -3707,6 +3711,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &376789897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376789891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 376789893}
+  _uiSound: 5
 --- !u!1 &381769147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5629,6 +5647,7 @@ GameObject:
   - component: {fileID: 633092477}
   - component: {fileID: 633092476}
   - component: {fileID: 633092478}
+  - component: {fileID: 633092479}
   m_Layer: 5
   m_Name: Button_Back
   m_TagString: Untagged
@@ -5749,6 +5768,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &633092479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633092474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 633092478}
+  _uiSound: 6
 --- !u!1 &666322955
 GameObject:
   m_ObjectHideFlags: 0
@@ -7286,7 +7319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7294,7 +7327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7334,11 +7367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 4100
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8039,7 +8072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8047,7 +8080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8087,11 +8120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8829,6 +8862,7 @@ GameObject:
   - component: {fileID: 1062016152}
   - component: {fileID: 1062016151}
   - component: {fileID: 1062016150}
+  - component: {fileID: 1062016153}
   m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
@@ -8911,18 +8945,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 682838291}
-        m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
-        m_MethodName: PlayUISound
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 101
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1062016151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8961,6 +8983,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062016148}
   m_CullTransparentMesh: 1
+--- !u!114 &1062016153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062016148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1062016150}
+  _uiSound: 6
 --- !u!1 &1069547286
 GameObject:
   m_ObjectHideFlags: 0
@@ -10903,7 +10939,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 3300, y: -8}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1337277339
 MonoBehaviour:
@@ -11260,7 +11296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -11268,7 +11304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11308,11 +11344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11440,7 +11476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -11448,7 +11484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11488,11 +11524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11870,6 +11906,7 @@ GameObject:
   - component: {fileID: 1396490160}
   - component: {fileID: 1396490159}
   - component: {fileID: 1396490162}
+  - component: {fileID: 1396490163}
   m_Layer: 5
   m_Name: Button_Adventure
   m_TagString: Untagged
@@ -11948,18 +11985,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 682838291}
-        m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
-        m_MethodName: PlayUISound
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12079,6 +12104,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1396490163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396490157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1396490159}
+  _uiSound: 5
 --- !u!1 &1397983941
 GameObject:
   m_ObjectHideFlags: 0
@@ -12524,7 +12563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -12532,7 +12571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -12572,11 +12611,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12795,6 +12834,7 @@ GameObject:
   - component: {fileID: 1469956778}
   - component: {fileID: 1469956781}
   - component: {fileID: 1469956782}
+  - component: {fileID: 1469956783}
   m_Layer: 5
   m_Name: Button_RandomConstellation
   m_TagString: Untagged
@@ -13010,6 +13050,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 52dc117ac85957a49837c5ab5073400a, type: 2}
   - {fileID: 11400000, guid: 2adbd3ddb9b4f1d4788d3210e5120123, type: 2}
   constellation: {fileID: 1606698863}
+--- !u!114 &1469956783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469956776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1469956778}
+  _uiSound: 5
 --- !u!1 &1492832380
 GameObject:
   m_ObjectHideFlags: 0
@@ -13367,7 +13421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1584570106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13531,7 +13585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -13539,7 +13593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -13579,11 +13633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13789,7 +13843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -13797,7 +13851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -13837,11 +13891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2600
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14077,7 +14131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -14085,7 +14139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -14125,11 +14179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2300
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14348,6 +14402,7 @@ GameObject:
   - component: {fileID: 1641223964}
   - component: {fileID: 1641223963}
   - component: {fileID: 1641223962}
+  - component: {fileID: 1641223965}
   m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
@@ -14430,18 +14485,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 682838291}
-        m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
-        m_MethodName: PlayUISound
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 101
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1641223963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14480,6 +14523,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641223960}
   m_CullTransparentMesh: 1
+--- !u!114 &1641223965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641223960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1641223962}
+  _uiSound: 6
 --- !u!1001 &1687475873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14505,7 +14562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -14513,7 +14570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -14553,11 +14610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 3800
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14756,6 +14813,7 @@ GameObject:
   - component: {fileID: 1747262389}
   - component: {fileID: 1747262388}
   - component: {fileID: 1747262391}
+  - component: {fileID: 1747262392}
   m_Layer: 5
   m_Name: Button_Property
   m_TagString: Untagged
@@ -14965,6 +15023,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1747262392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747262386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1747262388}
+  _uiSound: 5
 --- !u!1 &1748751349
 GameObject:
   m_ObjectHideFlags: 0
@@ -17471,6 +17543,7 @@ GameObject:
   - component: {fileID: 1852572189}
   - component: {fileID: 1852572188}
   - component: {fileID: 1852572187}
+  - component: {fileID: 1852572190}
   m_Layer: 5
   m_Name: Button_BackToLobby
   m_TagString: Untagged
@@ -17591,6 +17664,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852572185}
   m_CullTransparentMesh: 1
+--- !u!114 &1852572190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852572185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1852572187}
+  _uiSound: 6
 --- !u!1001 &1858365863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17616,7 +17703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -17624,7 +17711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -17664,11 +17751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 3200
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -17721,7 +17808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -17729,7 +17816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -17769,11 +17856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19084,6 +19171,7 @@ GameObject:
   - component: {fileID: 2043275316}
   - component: {fileID: 2043275315}
   - component: {fileID: 2043275314}
+  - component: {fileID: 2043275317}
   m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
@@ -19166,18 +19254,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 682838291}
-        m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
-        m_MethodName: PlayUISound
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 101
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2043275315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19216,6 +19292,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043275312}
   m_CullTransparentMesh: 1
+--- !u!114 &2043275317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2043275314}
+  _uiSound: 6
 --- !u!1 &2055252994
 GameObject:
   m_ObjectHideFlags: 0
@@ -19625,6 +19715,7 @@ GameObject:
   - component: {fileID: 2097499868}
   - component: {fileID: 2097499867}
   - component: {fileID: 2097499870}
+  - component: {fileID: 2097499871}
   m_Layer: 5
   m_Name: Button_Constellation
   m_TagString: Untagged
@@ -19822,6 +19913,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2097499871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097499865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44011f7cd78cc44986169a2a4be7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2097499867}
+  _uiSound: 5
 --- !u!1 &2105320360
 GameObject:
   m_ObjectHideFlags: 0
@@ -20297,7 +20402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -20305,7 +20410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -20345,11 +20450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 3666573951864395394, guid: 8196226e34006d949a215d5641ff426c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
