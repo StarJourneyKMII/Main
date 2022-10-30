@@ -5,4 +5,6 @@ public enum Sound
 	Switch,
 	Jump,
 	Die,
+	ButtonClick,
+	ButtonCancel,
 }

@@ -49,4 +49,22 @@ MonoBehaviour:
     EndPosition: 0
     FadeIn: 0
     FadeOut: 0
+  - Name: ButtonClick
+    Sound: 5
+    Clip: {fileID: 8300000, guid: 0b6a8c8eb95a39043b07dc562e90a187, type: 3}
+    Volume: 1
+    Delay: 0
+    StartPosition: 0
+    EndPosition: 0
+    FadeIn: 0
+    FadeOut: 0
+  - Name: ButtonCancel
+    Sound: 6
+    Clip: {fileID: 8300000, guid: 1bccc23abcc46b245b909bec900aeb92, type: 3}
+    Volume: 1
+    Delay: 0
+    StartPosition: 0
+    EndPosition: 0
+    FadeIn: 0
+    FadeOut: 0
   _enumsPath: Assets/_STU_Project/STU_Scripts/Script_Audio/MiProduction/Enums
