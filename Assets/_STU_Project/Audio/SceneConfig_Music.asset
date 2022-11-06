@@ -13,41 +13,39 @@ MonoBehaviour:
   m_Name: SceneConfig_Music
   m_EditorClassIdentifier: 
   SceneConfigs:
-  - Scene: Assets/_STU_Project/STU_Lobby/StartUp.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/StartUp.unity
     Data: 2
-  - Scene: Assets/_STU_Project/STU_Lobby/CharactersSelect.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/CharactersSelect.unity
     Data: 2
-  - Scene: Assets/_STU_Project/STU_Lobby/Lobby.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/Lobby.unity
     Data: 2
-  - Scene: Assets/_STU_Project/STU_Lobby/LevelSelect.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/LevelSelect.unity
     Data: 2
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level1.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level1.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level2.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level2.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level3.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level3.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level4.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level4.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level5.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level5.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level6.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level6.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level7.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level7.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level8.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level8.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level9.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level9.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level10.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level10.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level11.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level11.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level12.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level12.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level13.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level13.unity
     Data: 1
-  - Scene: Assets/_STU_Project/STU_Lobby/GameOver.unity
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/GameOver.unity
     Data: 0
-  - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level0.unity
-    Data: 1

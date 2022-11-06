@@ -14,22 +14,31 @@ namespace MiProduction.Scene
 
         public bool TryGetSceneData(out T data)
         {
-            try
+            if(SceneConfigs == null || SceneConfigs.Length <= 0)
             {
-                data = (T)GetSceneData();
-                return true;
-            }
-            catch (InvalidCastException)
-            {
+                Debug.LogError("There is no data in SceneConfig!");
                 data = default;
                 return false;
             }
+            
+            foreach(var configData in SceneConfigs)
+            {
+                if(configData.Scene == SceneManager.GetActiveScene().path)
+                {
+                    data = configData.Data;
+                    return true;
+                }
+            }
+
+            Debug.LogError($"Can't get {nameof(T)} in Scene:{SceneManager.GetActiveScene().name}, please check SceneConfig asset");
+            data = default;
+            return false;
         }
 
-        public object GetSceneData()
-        {
-            return SceneConfigs.Where(x => x.Scene == SceneManager.GetActiveScene().path).Select(x => x.Data).First();
-        }
+        //public object GetSceneData()
+        //{
+        //    return SceneConfigs.Where(x => x.Scene == SceneManager.GetActiveScene().path).Select(x => x.Data).First();
+        //}
 
         
         
