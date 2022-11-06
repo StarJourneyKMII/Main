@@ -5,11 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Damage2
-  - MgStick
   - Damage999
-  - MovePlatform
-  - Damage99
   - Star
+  - ParticleContainer
   layers:
   - Default
   - TransparentFX
@@ -55,12 +53,6 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3697841113
-    locked: 0
-  - name: Trap
-    uniqueID: 1262573973
-    locked: 0
-  - name: Die
-    uniqueID: 844111089
     locked: 0
   - name: Environment
     uniqueID: 4294765655
