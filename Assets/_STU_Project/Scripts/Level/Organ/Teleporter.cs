@@ -33,16 +33,14 @@ public class Teleporter : MonoBehaviour
     public void GoToA(GameObject target)
     {
         target.transform.position = doorA.teleportPoint;
-        //TODO: ChangeToFlipState
-        //target.GetComponent<PlayerCtrl>().AntiGravityByProps(doorA.isInvert);
+        target.GetComponent<Player>().CheckNeedFlip(doorA.isInvert);
         StartCoroutine(EnterCD());
     }
 
     public void GoToB(GameObject target)
     {
         target.transform.position = doorB.teleportPoint;
-        //TODO: ChangeToFlipState
-        //target.GetComponent<PlayerCtrl>().AntiGravityByProps(doorB.isInvert);
+        target.GetComponent<Player>().CheckNeedFlip(doorB.isInvert);
         StartCoroutine(EnterCD());
     }
 

@@ -136,6 +136,11 @@ public class Player : MonoBehaviour
         }
         Physics2D.gravity *= -1;
     }
+    public void CheckNeedFlip(bool value)
+    {
+        if (CurrentSex != (value == true ? 1 : -1))
+            FlipSex();
+    }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
