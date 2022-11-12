@@ -4,45 +4,65 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class PlanetDetailPanel : MonoBehaviourSingleton<PlanetDetailPanel>
+public class PlanetDetailPanel : MonoBehaviour
 {
     private CanvasGroup canvasGroup;
-    public PlanetData currentSelectData;
-    public GameObject panelGroup;
-    public GameObject selectGroup;
+    [SerializeField] private PlanetGroup planetGroup;
+    [SerializeField] private GameObject panelGroup;
+    [SerializeField] private GameObject selectGroup;
 
-    public Text planetNameText;
-    public Text planetDescriptionText;
+    [Header("Planet")]
+    [SerializeField] private Text planetNameText;
+    [SerializeField] private Text planetDescriptionText;
 
-    public Text planetAreaNameText;
-    public Text planetAreaDescriptionText;
-    public Image collectImage;
+    [Header("PlanetArea")]
+    [SerializeField] private Text planetAreaNameText;
+    [SerializeField] private Text planetAreaDescriptionText;
+    [SerializeField] private Image collectImage;
 
-    private Planet planet;
-    public List<Toggle> toggles;
-    public int areaIndex;
+    private PlanetArea[] areas;
+
+    private PlanetData currentSelectData;
+    private int areaIndex;
 
     private void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        areas = GetComponentsInChildren<PlanetArea>();
+
+        planetGroup.OnFocusEnd += HandleFocusEnd;
+
+        foreach (PlanetArea area in areas)
+            area.OnClick += HandleOnAreaClick;
+
+        panelGroup.SetActive(false);
+        selectGroup.SetActive(false);
     }
     
-    public void SetPlanet(Planet planet)
+    private void HandleOnAreaClick(int index)
     {
-        this.planet = planet;
-        currentSelectData = planet.data;
+        RefreshArea(index);
     }
 
-    public void OpenDetailPanel()
+    private void HandleFocusEnd(PlanetData planet)
     {
+        currentSelectData = planet;
+
         panelGroup.SetActive(true);
         selectGroup.SetActive(true);
         canvasGroup.DOFade(1, 0.3f).From(0);
-        RefreshPlanet();
+
+        planetNameText.text = currentSelectData.planetName;
+        planetDescriptionText.text = currentSelectData.description;
+
+        RefreshArea(currentSelectData.planetIndex);
     }
+
     public void CloseDetailPanel()
     {
-        planet.BackToOriPos();
+        planetGroup.PlanetBack();
+        currentSelectData = null;
+        areaIndex = -1;
         canvasGroup.DOFade(0, 0.2f).From(1).OnComplete(() =>
         {
             panelGroup.SetActive(false);
@@ -50,15 +70,7 @@ public class PlanetDetailPanel : MonoBehaviourSingleton<PlanetDetailPanel>
         });
     }
 
-    public void RefreshPlanet()
-    {
-        planetNameText.text = currentSelectData.planetName;
-        planetDescriptionText.text = currentSelectData.description;
-
-        RefreshArea(currentSelectData.planetIndex);
-    }
-
-    public void RefreshArea(int index)
+    private void RefreshArea(int index)
     {
         if(index >= currentSelectData.planetArea.Count)
         {
@@ -68,7 +80,6 @@ public class PlanetDetailPanel : MonoBehaviourSingleton<PlanetDetailPanel>
         }
         else
         {
-            //toggles[index].isOn = true;
             areaIndex = index;
             PlanetAreaData data = currentSelectData.planetArea[index];
             planetAreaNameText.text = data.areaName;

@@ -16,6 +16,12 @@ public class UIManager : MonoBehaviour
             Instance = this;
     }
 
+    private void Start()
+    {
+        RefreshStarBar();
+        RefreshHpBar();
+    }
+
     public void RefreshHpBar()
     {
 
@@ -23,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     public void RefreshStarBar()
     {
+        if (PlayerCollection.Instance.StarTotal == 0) return;
+        Debug.Log("RefreshStarBar");
         starBar.fillAmount = PlayerCollection.Instance.CollectStarCount / PlayerCollection.Instance.StarTotal;
     }
 }

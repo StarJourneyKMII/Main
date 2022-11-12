@@ -25,7 +25,7 @@ public class EllipticalOrbit : MonoBehaviour
     private void OnEnable()
     {
         SetPosition();
-        StartCoroutine(AnimaterOrbit());
+        StartMove();
     }
     private void Start()
     {
@@ -52,6 +52,17 @@ public class EllipticalOrbit : MonoBehaviour
             SetPosition();
             yield return null;
         }
+    }
+
+    public void StopMove()
+    {
+        orbitActive = false;
+    }
+
+    public void StartMove()
+    {
+        orbitActive = true;
+        StartCoroutine(AnimaterOrbit());
     }
 
     public void ResetProgress(float time)

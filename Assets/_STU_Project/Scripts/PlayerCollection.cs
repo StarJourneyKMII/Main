@@ -25,6 +25,7 @@ public class PlayerCollection : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
+
     private void Start()
     {
         OnCollected += UIManager.Instance.RefreshStarBar;
@@ -37,7 +38,7 @@ public class PlayerCollection : MonoBehaviour
 
     public void CollectStar(Star star)
     {
-        OnCollected?.Invoke();
         collectStars.Add(star);
+        OnCollected?.Invoke();
     }
 }

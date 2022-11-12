@@ -6,16 +6,16 @@ using DG.Tweening;
 
 public class Star : MonoBehaviour, IData
 {
-    public ItemData ItemData;
-    public int StackCount = 1;
+    [SerializeField] private ItemData ItemData;
+    [SerializeField] private int StackCount = 1;
 
-    private ItemPickUpSaveData itemSaveData;
     private string id;
 
     private SpriteRenderer sr;
     private CircleCollider2D collider;
-    public bool collected = false;
-    public int collectPlayerIsGirl;
+    private bool collected = false;
+
+    public int collectPlayerIsGirl { get; private set; }
 
     private void Awake()
     {

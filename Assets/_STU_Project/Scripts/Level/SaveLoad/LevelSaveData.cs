@@ -7,12 +7,12 @@ public class LevelSaveData
 {
     public Vector3 spawnPoint;
     public List<string> collectItems;
-    public SerializableDictionary<string, ItemPickUpSaveData> activeItems;
+    public SerializableDictionary<string, ItemData> activeItems;
 
     public LevelSaveData()
     {
         spawnPoint = Vector3.zero;
         collectItems = new List<string>();
-        activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
+        activeItems = new SerializableDictionary<string, ItemData>();
     }
 }
