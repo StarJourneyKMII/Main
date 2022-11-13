@@ -24,23 +24,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GridentTex:
-        m_Texture: {fileID: 2800000, guid: 12768b3b9a47e9a439f2d1ac5699e674, type: 3}
-        m_Scale: {x: 1, y: 0.2}
+        m_Texture: {fileID: 2800000, guid: ff436325b40e73f42be20006d0d7e7e5, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 497bee8a52f0f0f4d8ad0af6f295f50e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 98a418ab4d04bde4bb04802711f602f7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 86217028256e2cc46a70181f606ede39, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 5
-    - _ColorSpeed: 1
+    - _Brightness: 1
+    - _ColorSpeed: 0
     - _MainTexW: 256
     - _MaskSpeedX: 0
-    - _MaskSpeedY: 0.2
+    - _MaskSpeedY: 0
     - _OutlineW: 166
     - _Speed: 1
     - _max: 1
