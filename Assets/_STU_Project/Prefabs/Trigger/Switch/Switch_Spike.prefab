@@ -37,6 +37,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8464155387085673522, guid: 82a7318199c3f4d47a6c81ef620cca9f, type: 3}
+      propertyPath: _id
+      value: 7292b7fa-f11a-460d-94de-5bbef2656de6
+      objectReference: {fileID: 0}
     - target: {fileID: 1378684311686803258, guid: 82a7318199c3f4d47a6c81ef620cca9f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -89,6 +93,10 @@ PrefabInstance:
       propertyPath: switchObject
       value: 
       objectReference: {fileID: 408833266139615177}
+    - target: {fileID: 1378684311686803397, guid: 82a7318199c3f4d47a6c81ef620cca9f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e70c541340fb06499df12522e469779, type: 3}
     - target: {fileID: 1378684311686803399, guid: 82a7318199c3f4d47a6c81ef620cca9f, type: 3}
       propertyPath: m_Name
       value: Switch_Spike
