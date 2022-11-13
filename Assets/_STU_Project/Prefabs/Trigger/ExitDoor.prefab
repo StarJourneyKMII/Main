@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winPanel: {fileID: 8453367967772301635}
+  animator: {fileID: 0}
 --- !u!95 &8210885160534526910
 Animator:
   serializedVersion: 3
@@ -379,9 +380,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -201641
-  m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingLayerID: -1605947297
+  m_SortingLayer: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6f2f90fdf3f3df143bded0b1239b539a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
