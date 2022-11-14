@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using System;
 
 public class PlayerCollection : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class PlayerCollection : MonoBehaviour
     public HashSet<Star> activeStars = new HashSet<Star>();
     public List<Star> collectStars = new List<Star>();
 
-    public UnityAction OnCollected;
+    public event Action OnCollected;
 
     private void Awake()
     {

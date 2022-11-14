@@ -23,7 +23,7 @@ public class Switch : MonoBehaviour, IData
     private void Start()
     {
         id = GetComponent<UniqueID>().ID;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         focusCamera.transform.position = new Vector3(switchObject.transform.position.x,switchObject.transform.position.y,Camera.main.transform.position.z);
         switchObject.SetActive(isOpen);
         switchsSpriteRenderer = switchObject.GetComponentsInChildren<SpriteRenderer>();
