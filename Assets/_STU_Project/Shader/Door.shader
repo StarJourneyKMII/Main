@@ -77,7 +77,7 @@ Shader "Unlit/Door"
                     o.vertex = UnityObjectToClipPos(v.vertex);
                     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                     o.uv2 = TRANSFORM_TEX(v.uv, _NoiseTex);
-
+                    o.color = v.color;
 
                     return o;
                 }
@@ -101,7 +101,7 @@ Shader "Unlit/Door"
                 
                 float MaskPart = mask.r * alphatex;
 
-                float4 gridenttex = tex2D(_GridentTex, float2(MaskPart, IN.uv.y));
+                float4 gridenttex = tex2D(_GridentTex, IN.uv);
 
                 
                 maintex.rgb *= MaskPart * alphatex * _Color;
