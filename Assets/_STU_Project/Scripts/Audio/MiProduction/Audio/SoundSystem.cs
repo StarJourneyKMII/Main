@@ -113,3 +113,6 @@ namespace MiProduction.BroAudio
         //public static void SetVolumeExcept(float vol, float fadeTime, AudioType type)
 	}
 }
+
+// https://github.com/man572142/Bro_Audio.git
+// 2022 by «}
