@@ -9,7 +9,7 @@ public enum PlayerSex
     Boy = -1
 }
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IData
 {
     #region State Variables
     public PlayerStateMachine StateMachine { get; private set; }
@@ -200,6 +200,20 @@ public class Player : MonoBehaviour
 
     public void AnimtionFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
-   
+    public void SaveData(ref GameData data)
+    {
+        data.CurrentLevelData.spawnPoint = transform.position;
+        data.CurrentLevelData.playerSex = CurrentSex;
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (data.CurrentLevelData.spawnPoint != Vector3.zero)
+            transform.position = data.CurrentLevelData.spawnPoint;
+        if (data.CurrentLevelData.playerSex != CurrentSex)
+            FlipSex();
+    }
+
+
     #endregion
 }
