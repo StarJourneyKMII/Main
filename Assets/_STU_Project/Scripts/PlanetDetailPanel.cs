@@ -55,7 +55,7 @@ public class PlanetDetailPanel : MonoBehaviour
         planetNameText.text = currentSelectData.planetName;
         planetDescriptionText.text = currentSelectData.description;
 
-        RefreshArea(currentSelectData.planetIndex);
+        RefreshArea(currentSelectData.ContinueAreaIndex);
     }
 
     public void CloseDetailPanel()
@@ -77,6 +77,7 @@ public class PlanetDetailPanel : MonoBehaviour
             planetAreaNameText.text = "未知";
             planetAreaDescriptionText.text = "未知";
             collectImage.sprite = null;
+            NewGameManager.Instance.SetSelectLevel(currentSelectData, null);
         }
         else
         {
@@ -85,12 +86,14 @@ public class PlanetDetailPanel : MonoBehaviour
             planetAreaNameText.text = data.areaName;
             planetAreaDescriptionText.text = data.description;
             collectImage.sprite = data.spaceFrags[0].showSprite;
+            NewGameManager.Instance.SetSelectLevel(currentSelectData, currentSelectData.planetArea[index]);
         }
     }
 
     public void Go()
     {
-        GameManager.instance.scenesNumber = currentSelectData.levelIndex * 4 + areaIndex;
-        GameManager.instance.NewGame();
+        SceneChangeManager.Instance.LoadSceneByName("STJ_Old_Level" + currentSelectData.planetArea[areaIndex].levelIndex);
+        //GameManager.instance.scenesNumber = currentSelectData.planetArea[areaIndex].levelIndex;
+        //GameManager.instance.NewGame();
     }
 }

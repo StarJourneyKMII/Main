@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+public enum PlayerSex 
+{
+    Girl = 1, 
+    Boy = -1
+}
+
 public class Player : MonoBehaviour
 {
     #region State Variables
@@ -15,6 +21,7 @@ public class Player : MonoBehaviour
     public PlayerLandState LandState { get; private set; }
     public PlayerFlipHorizontalState FlipHorizontalState { get; private set; }
     public PlayerLookState LookState { get; private set; }
+    public PlayerInteractiveState InteractiveState { get; private set; }
 
     [SerializeField]
     private PlayerControlData playerData;
@@ -27,7 +34,6 @@ public class Player : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
-    private SpriteRenderer spr;
 
     private Animator boyAnim;
     private Animator girlAnim;
@@ -39,7 +45,9 @@ public class Player : MonoBehaviour
 
     private Vector2 workspace;
 
-    public int CurrentSex { get; private set; }
+    public PlayerSex CurrentSex = PlayerSex.Girl;
+
+    private Switch switchInteractive;
     #endregion
 
     #region Unity Callback Functions
@@ -56,6 +64,7 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
         FlipHorizontalState = new PlayerFlipHorizontalState(this, StateMachine, playerData, "flip");
         LookState = new PlayerLookState(this, StateMachine, playerData, "idle");
+        InteractiveState = new PlayerInteractiveState(this, StateMachine, playerData, "idle");
     }
 
     private void Start()
@@ -68,9 +77,8 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         MovementCollider = GetComponent<BoxCollider2D>();
         RB = GetComponent<Rigidbody2D>();
-        spr = GetComponent<SpriteRenderer>();
 
-        CurrentSex = 1;
+        CurrentSex = PlayerSex.Girl;
 
         SetTouchGroundY();
 
@@ -89,17 +97,44 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Switch"))
+        {
+            switchInteractive = collision.GetComponent<Switch>();
+        }
+
+        if(collision.CompareTag("Damage2"))
+        {
+            Core.GetCoreComponent<Stats>().DecreaseHealth(1);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Switch"))
+        {
+            switchInteractive = null;
+        }
+    }
     #endregion
 
     #region Other Functions
     public void Hide()
     {
-        spr.enabled = false;
+        girlAnim.gameObject.SetActive(false);
+        boyAnim.gameObject.SetActive(false);
     }
     public void Show()
     {
-        spr.enabled = true;
+        if (CurrentSex == PlayerSex.Girl)
+            girlAnim.gameObject.SetActive(true);
+        else
+            boyAnim.gameObject.SetActive(true);
     }
+
+
     public void SetTouchGroundY()
     {
         cameraTarget.SetTouchGroundY(transform.position.y);
@@ -116,19 +151,19 @@ public class Player : MonoBehaviour
     {
         FlipSex();
         transform.Rotate(180, 0, 0);
-        transform.position += (Vector3)(CurrentSex * Vector2.up * 2.8f);
+        transform.position += (Vector3)((int)CurrentSex * Vector2.up * 2.8f);
         SetTouchGroundY();
     }
     public void FlipSex()
     {
-        CurrentSex *= -1;
-        if(CurrentSex == 1)
+        CurrentSex = (PlayerSex)((int)CurrentSex * -1);
+        if(CurrentSex == PlayerSex.Girl)
         {
             Anim = girlAnim;
             girlAnim.gameObject.SetActive(true);
             boyAnim.gameObject.SetActive(false);
         }
-        else if(CurrentSex == -1)
+        else if(CurrentSex == PlayerSex.Boy)
         {
             Anim = boyAnim;
             boyAnim.gameObject.SetActive(true);
@@ -136,10 +171,29 @@ public class Player : MonoBehaviour
         }
         Physics2D.gravity *= -1;
     }
-    public void CheckNeedFlip(bool value)
+    public void FlipSexNoShow()
     {
-        if (CurrentSex != (value == true ? 1 : -1))
+        CurrentSex = (PlayerSex)((int)CurrentSex * -1);
+        if (CurrentSex == PlayerSex.Girl)
+        {
+            Anim = girlAnim;
+        }
+        else if (CurrentSex == PlayerSex.Boy)
+        {
+            Anim = boyAnim;
+        }
+        Physics2D.gravity *= -1;
+    }
+    public void CheckNeedFlip(PlayerSex value)
+    {
+        if (CurrentSex != value)
             FlipSex();
+    }
+
+    public bool CanInteractive(out Switch interactiveObject)
+    {
+        interactiveObject = switchInteractive;
+        return switchInteractive != null && switchInteractive.CanInteractive();
     }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();

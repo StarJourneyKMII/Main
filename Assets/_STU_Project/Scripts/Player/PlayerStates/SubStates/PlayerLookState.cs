@@ -39,9 +39,9 @@ public class PlayerLookState : PlayerAbilityState
 
         float y = 0;
         if (lookInputY > 0)
-            y = (player.CurrentSex == 1 ? playerData.lookDistanceY.y : -playerData.lookDistanceY.x);
+            y = (player.CurrentSex == PlayerSex.Girl ? playerData.lookDistanceY.y : -playerData.lookDistanceY.x);
         else if (lookInputY < 0)
-            y = (player.CurrentSex == 1 ? playerData.lookDistanceY.x : -playerData.lookDistanceY.y);
+            y = (player.CurrentSex == PlayerSex.Girl ? playerData.lookDistanceY.x : -playerData.lookDistanceY.y);
 
         return new Vector3(x, y, 0);
     }

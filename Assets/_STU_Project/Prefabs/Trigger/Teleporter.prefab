@@ -298,8 +298,8 @@ MonoBehaviour:
   doorA:
     target: {fileID: 5009176385180672314}
     offset: {x: 0, y: 0, z: 0}
-    isInvert: 0
+    playerSex: 1
   doorB:
     target: {fileID: 7048440979772565530}
     offset: {x: 0, y: 0, z: 0}
-    isInvert: 0
+    playerSex: 1

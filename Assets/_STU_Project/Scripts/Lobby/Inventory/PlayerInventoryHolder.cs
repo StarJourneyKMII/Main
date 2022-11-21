@@ -12,17 +12,17 @@ public class PlayerInventoryHolder : InventoryHolder
 
     private void Start()
     {
-        SaveGameManager.data.playerInventory = new InventorySaveData(inventorySystem);
+        //SaveGameManager.data.playerInventory = new InventorySaveData(inventorySystem);
     }
 
-    protected override void LoadInventory(SaveData data)
+    /*protected override void LoadInventory(SaveData data)
     {
         if (data.playerInventory.InvSystem != null)
         {
             this.inventorySystem = data.playerInventory.InvSystem;
             OnPlayerInventoryChanged?.Invoke();
         }
-    }
+    }*/
     private void Update()
     {
         //if(Input.GetKeyDown(KeyCode.B))

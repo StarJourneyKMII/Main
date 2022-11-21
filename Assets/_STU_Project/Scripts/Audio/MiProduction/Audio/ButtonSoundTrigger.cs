@@ -29,4 +29,9 @@ public class ButtonSoundTrigger : MonoBehaviour
     {
         SoundSystem.PlaySFX(_uiSound);
     }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneChangeManager.Instance.LoadSceneByName(sceneName);
+    }
 }

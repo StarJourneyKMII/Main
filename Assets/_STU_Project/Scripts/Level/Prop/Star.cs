@@ -6,22 +6,21 @@ using DG.Tweening;
 
 public class Star : MonoBehaviour, IData
 {
-    [SerializeField] private ItemData ItemData;
-    [SerializeField] private int StackCount = 1;
+    //[SerializeField] private ItemData ItemData;
+    //[SerializeField] private int StackCount = 1;
 
     private string id;
 
     private SpriteRenderer sr;
     private CircleCollider2D collider;
-    private bool collected = false;
 
-    public int collectPlayerIsGirl { get; private set; }
+    public StarData starData;
 
     private void Awake()
     {
-        id = GetComponent<UniqueID>().ID;
         sr = GetComponent<SpriteRenderer>();
         collider = GetComponent<CircleCollider2D>();
+        PlayerCollection.Instance.AddStar(this);
     }
     private void Update()
     {
@@ -30,17 +29,17 @@ public class Star : MonoBehaviour, IData
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collected == false)
+        if (collision.CompareTag("Player") && starData.collected == false)
         {
             //TODO: ChangeToFlipState
-            collectPlayerIsGirl = collision.GetComponent<Player>().CurrentSex;
+            starData.collectPlayerSex = collision.GetComponent<Player>().CurrentSex;
             Collect();
         }
     }
 
     private void Collect()
     {
-        collected = true;
+        starData.collected = true;
         SoundSystem.PlaySFX(Sound.GetStar);
         PlayerCollection.Instance.CollectStar(this);
         sr.enabled = false;
@@ -48,7 +47,7 @@ public class Star : MonoBehaviour, IData
     }
     private void UnCollect()
     {
-        collected = false;
+        starData.collected = false;
         sr.enabled = true;
         collider.enabled = true;
     }
@@ -58,27 +57,37 @@ public class Star : MonoBehaviour, IData
         collider.enabled = true;
         sr.DOFade(1, 0.3f).From(0).OnComplete(() =>
         {
-            collected = false;
+            starData.collected = false;
         });
     }
     public void SaveData(ref GameData data)
     {
-        if(data.starCollected.ContainsKey(id))
+        if (data.CurrentLevelData.stars.ContainsKey(id))
         {
-            data.starCollected.Remove(id);
+            data.CurrentLevelData.stars.Remove(id);
         }
-        data.starCollected.Add(id, collected);
+        data.CurrentLevelData.stars.Add(id, starData);
     }
 
     public void LoadData(GameData data)
     {
-        data.starCollected.TryGetValue(id, out collected);
-        if(collected)
+        id = GetComponent<UniqueID>().ID;
+        
+        if (data.CurrentLevelData.stars != null)
+            data.CurrentLevelData.stars.TryGetValue(id, out starData);
+
+        if (!starData.Equals(default(StarData)) && starData.collected)
         {
             sr.enabled = false;
             PlayerCollection.Instance.CollectStar(this);
         }
-        PlayerCollection.Instance.AddStar(this);
     }
+}
+
+[System.Serializable]
+public struct  StarData
+{
+    public bool collected;
+    public PlayerSex collectPlayerSex;
 }
 

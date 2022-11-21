@@ -77,4 +77,14 @@ public class PlanetGroup : MonoBehaviour
         foreach (Planet planet in planets)
             planet.ResumeInteraction();
     }
+
+    public void SelectContinueLevel()
+    {
+        foreach(Planet planet in planets)
+        {
+            if (planet.data.IsAllClear)
+                continue;
+
+        }
+    }
 }

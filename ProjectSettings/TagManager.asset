@@ -8,6 +8,7 @@ TagManager:
   - Damage999
   - Star
   - ParticleContainer
+  - Switch
   layers:
   - Default
   - TransparentFX

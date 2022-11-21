@@ -21,6 +21,8 @@ MonoBehaviour:
     Data: 2
   - Scene: Assets/_STU_Project/Scenes/STU_Lobby/LevelSelect.unity
     Data: 2
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level0.unity
+    Data: 1
   - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level1.unity
     Data: 1
   - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level2.unity
@@ -46,6 +48,8 @@ MonoBehaviour:
   - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level12.unity
     Data: 1
   - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level13.unity
+    Data: 1
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level14.unity
     Data: 1
   - Scene: Assets/_STU_Project/Scenes/STU_Lobby/GameOver.unity
     Data: 0

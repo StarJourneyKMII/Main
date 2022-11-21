@@ -18,12 +18,12 @@ public abstract class InventoryHolder : MonoBehaviour
 
     protected virtual void Awake()
     {
-        SaveLoad.OnLoadGame += LoadInventory;
+        //SaveLoad.OnLoadGame += LoadInventory;
 
         inventorySystem = new InventorySystem(inventorySize);
     }
 
-    protected abstract void LoadInventory(SaveData saveData);
+    //protected abstract void LoadInventory(SaveData saveData);
 }
 
 

@@ -9,7 +9,7 @@ public struct TargetSetting
 {
     public Transform target;
     public Vector3 offset;
-    public bool isInvert;
+    public PlayerSex playerSex;
 
     public Vector3 teleportPoint
     {
@@ -33,14 +33,14 @@ public class Teleporter : MonoBehaviour
     public void GoToA(GameObject target)
     {
         target.transform.position = doorA.teleportPoint;
-        target.GetComponent<Player>().CheckNeedFlip(doorA.isInvert);
+        target.GetComponent<Player>().CheckNeedFlip(doorA.playerSex);
         StartCoroutine(EnterCD());
     }
 
     public void GoToB(GameObject target)
     {
         target.transform.position = doorB.teleportPoint;
-        target.GetComponent<Player>().CheckNeedFlip(doorB.isInvert);
+        target.GetComponent<Player>().CheckNeedFlip(doorB.playerSex);
         StartCoroutine(EnterCD());
     }
 
@@ -60,10 +60,10 @@ public class Teleporter : MonoBehaviour
         Vector3 doorBPos = doorB.target.position + doorB.offset;
         bool isRight = doorBPos.x > doorAPos.x;
         ExtensionsGizmos.DrawWireDisc(doorAPos, Vector3.forward, 0.3f);
-        ExtensionsGizmos.DrawArrow(doorAPos, (doorA.isInvert ? Vector3.down : Vector3.up) * 1.5f, 0.7f, 30);
+        ExtensionsGizmos.DrawArrow(doorAPos, (int)doorA.playerSex * Vector3.up * 1.5f, 0.7f, 30);
         ExtensionsGizmos.Label(doorAPos + (isRight ? Vector3.left * 3f : Vector3.right * 1.5f) + Vector3.down * 0.5f, "DoorA", Color.red);
         ExtensionsGizmos.DrawWireDisc(doorBPos, Vector3.forward, 0.3f);
-        ExtensionsGizmos.DrawArrow(doorBPos, (doorB.isInvert ? Vector3.down : Vector3.up) * 1.5f, 0.7f, 30);
+        ExtensionsGizmos.DrawArrow(doorBPos, (int)doorB.playerSex * Vector3.up * 1.5f, 0.7f, 30);
         ExtensionsGizmos.Label(doorBPos + (isRight ? Vector3.right * 1.5f : Vector3.left * 3f) + Vector3.down * 0.5f, "DoorB", Color.red);
 
         Gizmos.color = Color.yellow;

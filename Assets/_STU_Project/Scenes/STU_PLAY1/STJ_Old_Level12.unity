@@ -1277,7 +1277,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &257181896
 PrefabInstance:
@@ -1363,6 +1363,14 @@ PrefabInstance:
     - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: doorB.isInvert
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorA.playerSex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorB.playerSex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 73540223728574471, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: m_Sprite
@@ -1933,7 +1941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370608238
 GameObject:
@@ -4401,6 +4409,10 @@ PrefabInstance:
     - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: doorB.isInvert
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorB.playerSex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5009176385180672314, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7540,6 +7552,10 @@ PrefabInstance:
       propertyPath: doorB.isInvert
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorA.playerSex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 73540223728574471, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -9718,6 +9734,10 @@ PrefabInstance:
       propertyPath: doorA.isInvert
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorA.playerSex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 73540223728574471, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -9917,6 +9937,14 @@ PrefabInstance:
     - target: {fileID: 2805450191122128852, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568264214050545724, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568264214050545724, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}

@@ -13,7 +13,7 @@ public class PlayerJumpState : PlayerAbilityState {
 	public override void Enter() {
 		base.Enter();
 		player.InputHandler.UseJumpInput();
-		Movement?.SetVelocityY(playerData.jumpVelocity * player.CurrentSex);
+		Movement?.SetVelocityY(playerData.jumpVelocity * (int)player.CurrentSex);
 		isAbilityDone = true;
 		amountOfJumpsLeft--;
 		player.InAirState.SetIsJumping();

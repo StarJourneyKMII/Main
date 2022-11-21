@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class DataHandler
 {
-    private string saveName = "GameData_Level1";
+    private string gameSaveName = "NewGameData";
 
     public DataHandler(string saveName)
     {
-        this.saveName = saveName;
+        this.gameSaveName = saveName;
     }
 
     public GameData Load()
     {
-        string jsonData = PlayerPrefs.GetString(saveName);
+        string jsonData = PlayerPrefs.GetString(gameSaveName);
         GameData loadData = JsonUtility.FromJson<GameData>(jsonData);
 
         return loadData;
@@ -22,6 +22,12 @@ public class DataHandler
     public void Save(GameData data)
     {
         string toJson = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(saveName, toJson);
+        PlayerPrefs.SetString(gameSaveName, toJson);
+    }
+
+    public void Delete()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Delete");
     }
 }

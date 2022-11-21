@@ -8807,74 +8807,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &1048707046
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5214635562489944488, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_Name
-      value: SceneChangeManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214635562489944490, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
---- !u!114 &1048707047 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8757501860539062068, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-  m_PrefabInstance: {fileID: 1048707046}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6e1466ddce93344a620b7cd774b7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062016148
 GameObject:
   m_ObjectHideFlags: 0
@@ -10373,66 +10305,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1240610151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1240610153}
-  - component: {fileID: 1240610152}
-  - component: {fileID: 1240610154}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1240610152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240610151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5773f096e545a644c99cbda2898827ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySize: 30
-  inventorySystem:
-    inventorySlots: []
-  inventoryPanel: {fileID: 1620321928}
---- !u!4 &1240610153
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240610151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1240610154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240610151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 508b4ba88e5d83444b4ca891c241ce9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1264666743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12002,16 +11874,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048707047}
-        m_TargetAssemblyTypeName: SceneChangeManager, Assembly-CSharp
-        m_MethodName: GoToLevelSelect
-        m_Mode: 1
+      - m_Target: {fileID: 1396490163}
+        m_TargetAssemblyTypeName: ButtonSoundTrigger, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LevelSelect
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1396490160
@@ -14126,11 +13998,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1620321928 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7729135224131251916, guid: 928f753b23cc0aa4cb95c44ef9d2a815, type: 3}
-  m_PrefabInstance: {fileID: 1788888539}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1628754477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14909,7 +14776,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240610154}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
         m_MethodName: TryLoadData
         m_Mode: 1
@@ -16998,7 +16865,7 @@ PrefabInstance:
     - target: {fileID: 7729135225720727168, guid: 928f753b23cc0aa4cb95c44ef9d2a815, type: 3}
       propertyPath: inventoryHolder
       value: 
-      objectReference: {fileID: 1240610152}
+      objectReference: {fileID: 0}
     - target: {fileID: 7729135225720727169, guid: 928f753b23cc0aa4cb95c44ef9d2a815, type: 3}
       propertyPath: m_Spacing.x
       value: 30

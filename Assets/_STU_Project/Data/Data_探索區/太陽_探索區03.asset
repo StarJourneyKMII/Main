@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2687ebf84767c42a69697e66bb1c17, type: 3}
   m_Name: "\u592A\u967D_\u63A2\u7D22\u534003"
   m_EditorClassIdentifier: 
+  unLock: 0
+  levelIndex: 2
   areaName: "\u63A2\u7D22\u534003"
   description: "\u53EF\u8490\u96C6\u7D20\u6750"
   spaceFrags:

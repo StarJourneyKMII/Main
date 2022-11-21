@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: LoadingSceneGameHint
   m_EditorClassIdentifier: 
   SceneConfigs:
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level0.unity
+    Data:
+    - {fileID: 21300000, guid: 0ddfd1efbc490524aa2bec4ccbeed209, type: 3}
+    - {fileID: 21300000, guid: 1d6dae70462eb2d4c9949aea63e74bde, type: 3}
+    - {fileID: 21300000, guid: 529483d347973914186370fb7ebebac0, type: 3}
+    - {fileID: 21300000, guid: bcced45f95bc3a14683590a65753e585, type: 3}
+    - {fileID: 21300000, guid: 334b081c99a38b148a285615c95ace79, type: 3}
+    - {fileID: 21300000, guid: 27f1502ced74ecf4e80bc246ae1ba9d5, type: 3}
+    - {fileID: 21300000, guid: 0a8374ffcee15604aa18cbd3971fb00a, type: 3}
+    - {fileID: 21300000, guid: 8015241c1ea79c9498792e8f09418b72, type: 3}
+    - {fileID: 21300000, guid: 3888a92248455dd40878ff3ce169a2ea, type: 3}
+    - {fileID: 21300000, guid: b6ebeb43e2eb70f49b95d1773eb8f20e, type: 3}
+    - {fileID: 21300000, guid: 687cafd12ec13f04f82b88a599a400a5, type: 3}
   - Scene: Assets/_STU_Project/STU_PLAY1/STJ_Old_Level1.unity
     Data:
     - {fileID: 21300000, guid: 0ddfd1efbc490524aa2bec4ccbeed209, type: 3}

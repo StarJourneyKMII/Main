@@ -16,7 +16,39 @@ public class PlanetData : ScriptableObject
     public string description;
 
     [Header("°Ï°ì")]
-    public int levelIndex;
     public int planetIndex;
     public List<PlanetAreaData> planetArea;
+    
+    public int ContinueAreaIndex
+    {
+        get
+        {
+            for(int i = 0; i < planetArea.Count; i++)
+            {
+                if(planetArea[i].unLock == false)
+                    return i;
+            }
+            return 0;
+        }
+    }
+    public bool IsAllClear
+    {
+        get
+        {
+            foreach(PlanetAreaData area in planetArea)
+            {
+                if (area.unLock)
+                    continue;
+                else
+                    return false;
+            }
+            return true;
+
+        }
+    }
+
+    public void SetData(PlanetData data)
+    {
+        unlock = data.unlock;
+    }
 }

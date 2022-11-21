@@ -6671,6 +6671,10 @@ PrefabInstance:
       propertyPath: debug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorA.playerSex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5009176385180672314, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.364
@@ -7602,6 +7606,14 @@ PrefabInstance:
     - target: {fileID: 6434707267489771513, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
       propertyPath: m_Name
       value: TrapCounterUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568264214050545724, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568264214050545724, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7955123856467616837, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}

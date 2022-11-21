@@ -46,7 +46,7 @@ public class CameraTarget : MonoBehaviour
     private void FollowPlayerPositionX()
     {
         float x = player.position.x + lookOffset.x + moveOffsetX;
-        float y = touchGroundY + playerData.touchGroundOffsetY * playerScript.CurrentSex + lookOffset.y;
+        float y = touchGroundY + playerData.touchGroundOffsetY * (int)playerScript.CurrentSex + lookOffset.y;
         transform.position = new Vector3(x, y, 0);
     }
 

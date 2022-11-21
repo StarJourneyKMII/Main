@@ -8,30 +8,30 @@ public class EvaluationForm : MonoBehaviour
 {
     public GameObject panel;
 
-    public GameObject gameTimeTitle;
-    public Text gameTimeText;
-    public GameObject collectStarTitle;
-    public Text collectStarText;
-    public GameObject touchTrapTitle;
-    public Text touchTrapText;
+    [SerializeField] private GameObject gameTimeTitle;
+    [SerializeField] private Text gameTimeText;
+    [SerializeField] private GameObject collectStarTitle;
+    [SerializeField] private Text collectStarText;
+    [SerializeField] private GameObject touchTrapTitle;
+    [SerializeField] private Text touchTrapText;
 
-    private float oriTime;
-    public int collectTotal;
-    public int collectCount;
+    private float gameStartTime;
     public static int touchTrapCount;
 
     private void Start()
     {
-        oriTime = Time.time;
+        gameStartTime = Time.time;
     }
 
     public void Show()
     {
         panel.SetActive(true);
-        float gameTime = Time.time - oriTime;
+        float gameTime = Time.time - gameStartTime;
         float gameTimeCounter = 0;
         int collectCounter = 0;
         int touchTrapCounter = 0;
+        int collectCount = PlayerCollection.Instance.CollectStarCount;
+        int collectTotal = PlayerCollection.Instance.StarTotal;
         DOTween.To(() => gameTimeCounter, x => gameTimeCounter = x, gameTime, 1).SetEase(Ease.Linear).OnUpdate(() =>{
             gameTimeText.text = gameTimeCounter.ToString("0.00");
         });

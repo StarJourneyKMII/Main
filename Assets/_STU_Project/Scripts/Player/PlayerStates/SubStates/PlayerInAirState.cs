@@ -14,6 +14,7 @@ public class PlayerInAirState : PlayerState {
 	private int xInput;
 	private bool jumpInput;
 	private bool jumpInputStop;
+	private bool interactiveInput;
 
 	//Checks
 	private bool isGrounded;
@@ -70,6 +71,7 @@ public class PlayerInAirState : PlayerState {
 		xInput = player.InputHandler.NormInputX;
 		jumpInput = player.InputHandler.JumpInput;
 		jumpInputStop = player.InputHandler.JumpInputStop;
+		interactiveInput = player.InputHandler.InteractiveInput;
 
 		CheckJumpMultiplier();
 
@@ -77,6 +79,9 @@ public class PlayerInAirState : PlayerState {
 			stateMachine.ChangeState(player.LandState);
 		}  else if (jumpInput && player.JumpState.CanJump()) {
 			stateMachine.ChangeState(player.JumpState);
+		} else if (interactiveInput && player.CanInteractive(out Switch interactiveObject)){
+			player.InteractiveState.SetInteractiveObject(interactiveObject);
+			stateMachine.ChangeState(player.InteractiveState);
 		} else {
 			Movement?.CheckIfShouldFlip(xInput);
 			Movement?.SetVelocityX(playerData.movementVelocity * xInput);
@@ -92,7 +97,7 @@ public class PlayerInAirState : PlayerState {
 			if (jumpInputStop) {
 				Movement?.SetVelocityY(Movement.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
 				isJumping = false;
-			} else if (Movement.CurrentVelocity.y * player.CurrentSex <= 0f) {
+			} else if (Movement.CurrentVelocity.y * (int)player.CurrentSex <= 0f) {
 				isJumping = false;
 			}
 		}

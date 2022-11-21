@@ -6,15 +6,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    private PlayerInput playerInput;
-    private Camera cam;
-
     public Vector2 RawMovementInput { get; private set; }
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
     public bool JumpInput { get; private set; }
     public bool JumpInputStop { get; private set; }
     public bool FlipInput { get; private set; }
+    public bool InteractiveInput { get; private set; }
     public Vector2 RawLookInput { get; private set; }
     public int NormLookInputX { get; private set; }
     public int NormLookInputY { get; private set; }
@@ -24,18 +22,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float jumpInputStartTime;
     private float flipInputStartTime;
-
-    private void Start()
-    {
-        playerInput = GetComponent<PlayerInput>();
-
-        cam = Camera.main;
-    }
+    private float interactiveInputStartTime;
 
     private void Update()
     {
         CheckJumpInputHoldTime();
         CheckFlipInputHoldTime();
+        CheckInteractiveInputHoldTime();
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -79,8 +72,18 @@ public class PlayerInputHandler : MonoBehaviour
 
     }
 
+    public void OnInteractiveInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            InteractiveInput = true;
+
+        }
+    }
+
     public void UseJumpInput() => JumpInput = false;
     public void UseFlipInput() => FlipInput = false;
+    public void UseInteractiveInput() => InteractiveInput = false;
 
     private void CheckJumpInputHoldTime()
     {
@@ -94,6 +97,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (Time.time >= flipInputStartTime + inputHoldTime)
         {
             FlipInput = false;
+        }
+    }
+
+    private void CheckInteractiveInputHoldTime()
+    {
+        if (Time.time >= interactiveInputStartTime + inputHoldTime)
+        {
+            InteractiveInput = false;
         }
     }
 }

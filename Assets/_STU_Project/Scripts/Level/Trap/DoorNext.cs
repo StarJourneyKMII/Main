@@ -8,34 +8,38 @@ public class DoorNext : MonoBehaviour
     //private string nextLevelName = "STJ_Old_Level";
     //private string playName = "STJ_PLAY1";
     [SerializeField] private EvaluationForm winPanel;
-    [SerializeField] private Animator animator;
-    private bool isTrigger;
+    private Animator animator;
 
+    private bool isUsed;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isTrigger)
+        if (collision.CompareTag("Player") && !isUsed)
         {
-            //winPanel.Show();
-            isTrigger = true;
-            animator.SetTrigger("OpenDoor");
+            isUsed = true;
             StartCoroutine(PlayAnimation(collision.transform.gameObject));
         }
     }
 
     private IEnumerator PlayAnimation(GameObject player)
     {
+        animator.SetTrigger("OpenDoor");
+
         yield return new WaitForSeconds(0.8f);
         player.SetActive(false);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         winPanel.Show();
     }
 
 
     public void GotoNextLevel()
     {
-        GameManager.instance.scenesNumber++;
-        SceneManager.LoadScene(GameManager.instance.levelName);
+        NewGameManager.Instance.GotoNextLevel();
     }
 }

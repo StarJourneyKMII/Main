@@ -30,7 +30,6 @@ public class UIManager : MonoBehaviour
     public void RefreshStarBar()
     {
         if (PlayerCollection.Instance.StarTotal == 0) return;
-        Debug.Log("RefreshStarBar");
-        starBar.fillAmount = PlayerCollection.Instance.CollectStarCount / PlayerCollection.Instance.StarTotal;
+        starBar.fillAmount = (float)PlayerCollection.Instance.CollectStarCount / PlayerCollection.Instance.StarTotal;
     }
 }

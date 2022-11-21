@@ -23,6 +23,7 @@ public class PlayerGroundedState : PlayerState
 
     private bool jumpInput;
     private bool flipInput;
+    private bool interactiveInput;
     private bool isGrounded;
     private bool isTouchingWall;
 
@@ -62,6 +63,7 @@ public class PlayerGroundedState : PlayerState
         yInput = player.InputHandler.NormInputY;
         jumpInput = player.InputHandler.JumpInput;
         flipInput = player.InputHandler.FlipInput;
+        interactiveInput = player.InputHandler.InteractiveInput;
 
         if (jumpInput && player.JumpState.CanJump())
         {
@@ -70,6 +72,11 @@ public class PlayerGroundedState : PlayerState
         else if(flipInput)
         {
             stateMachine.ChangeState(player.FlipHorizontalState);
+        }
+        else if(interactiveInput && player.CanInteractive(out Switch interactiveObject))
+        {
+            player.InteractiveState.SetInteractiveObject(interactiveObject);
+            stateMachine.ChangeState(player.InteractiveState);
         }
         else if (!isGrounded)
         {

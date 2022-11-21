@@ -8250,6 +8250,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6568264214050545724, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568264214050545724, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
 --- !u!1 &1714384913
@@ -8453,6 +8461,10 @@ PrefabInstance:
     - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: doorB.offset.x
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264387412, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
+      propertyPath: doorA.playerSex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6800301823661355166, guid: 9514caf8fb6b28d4bb07de0047e1fa9a, type: 3}
       propertyPath: m_RootOrder
