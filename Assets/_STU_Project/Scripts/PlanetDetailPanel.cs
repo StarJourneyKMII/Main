@@ -10,6 +10,7 @@ public class PlanetDetailPanel : MonoBehaviour
     [SerializeField] private PlanetGroup planetGroup;
     [SerializeField] private GameObject panelGroup;
     [SerializeField] private GameObject selectGroup;
+    [SerializeField] private GameObject continueButton;
 
     [Header("Planet")]
     [SerializeField] private Text planetNameText;
@@ -19,6 +20,8 @@ public class PlanetDetailPanel : MonoBehaviour
     [SerializeField] private Text planetAreaNameText;
     [SerializeField] private Text planetAreaDescriptionText;
     [SerializeField] private Image collectImage;
+    [SerializeField] private Image unLockImage;
+    [SerializeField] private GameObject startButton;
 
     private PlanetArea[] areas;
 
@@ -48,6 +51,7 @@ public class PlanetDetailPanel : MonoBehaviour
     {
         currentSelectData = planet;
 
+
         panelGroup.SetActive(true);
         selectGroup.SetActive(true);
         canvasGroup.DOFade(1, 0.3f).From(0);
@@ -55,6 +59,7 @@ public class PlanetDetailPanel : MonoBehaviour
         planetNameText.text = currentSelectData.planetName;
         planetDescriptionText.text = currentSelectData.description;
 
+        selectGroup.transform.GetChild(currentSelectData.ContinueAreaIndex).GetComponent<Toggle>().isOn = true;
         RefreshArea(currentSelectData.ContinueAreaIndex);
     }
 
@@ -67,6 +72,7 @@ public class PlanetDetailPanel : MonoBehaviour
         {
             panelGroup.SetActive(false);
             selectGroup.SetActive(false);
+            continueButton.SetActive(true);
         });
     }
 
@@ -77,12 +83,23 @@ public class PlanetDetailPanel : MonoBehaviour
             planetAreaNameText.text = "未知";
             planetAreaDescriptionText.text = "未知";
             collectImage.sprite = null;
+            unLockImage.gameObject.SetActive(false);
             NewGameManager.Instance.SetSelectLevel(currentSelectData, null);
         }
         else
         {
             areaIndex = index;
             PlanetAreaData data = currentSelectData.planetArea[index];
+            if (!data.unLock)
+            {
+                unLockImage.gameObject.SetActive(true);
+                startButton.SetActive(false);
+            }
+            else
+            {
+                unLockImage.gameObject.SetActive(false);
+                startButton.SetActive(true);
+            }
             planetAreaNameText.text = data.areaName;
             planetAreaDescriptionText.text = data.description;
             collectImage.sprite = data.spaceFrags[0].showSprite;

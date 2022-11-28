@@ -4,6 +4,9 @@
 public class GameData
 {
     public SerializableDictionary<string, LevelData> levelsData;
+    public SerializableDictionary<PlanetData, bool> planetUnlockData;
+    public SerializableDictionary<PlanetAreaData, bool> planetAreaUnlockData;
+
     public PlayerData playerData;
 
     public LevelData CurrentLevelData
@@ -21,7 +24,10 @@ public class GameData
     public GameData()
     {
          levelsData = new SerializableDictionary<string, LevelData>();
-        for(int i = 0; i < 15; i ++)
+        planetUnlockData = new SerializableDictionary<PlanetData, bool>();
+        planetAreaUnlockData = new SerializableDictionary<PlanetAreaData, bool>();
+
+        for (int i = 0; i < 15; i ++)
         {
             AddNewLevelData("STJ_Old_Level" + i, new LevelData());
         }

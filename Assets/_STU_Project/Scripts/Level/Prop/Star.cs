@@ -20,8 +20,13 @@ public class Star : MonoBehaviour, IData
     {
         sr = GetComponent<SpriteRenderer>();
         collider = GetComponent<CircleCollider2D>();
+    }
+
+    private void Start()
+    {
         PlayerCollection.Instance.AddStar(this);
     }
+
     private void Update()
     {
         

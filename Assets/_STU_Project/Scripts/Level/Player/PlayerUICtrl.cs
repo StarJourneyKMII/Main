@@ -39,7 +39,7 @@ public class PlayerUICtrl : MonoBehaviour
         Time.timeScale = 1;
         pause.SetActive(false);
     }
-    private void SwitchPause()
+    public void SwitchPause()
     {
         pauseIsOpen = !pauseIsOpen;
         pause.SetActive(pauseIsOpen);

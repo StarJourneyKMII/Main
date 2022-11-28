@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 
-public class Planet : MonoBehaviour
+public class Planet : MonoBehaviour, IData
 {
     public PlanetData data;
     private Button button;
@@ -43,5 +43,39 @@ public class Planet : MonoBehaviour
     {
         if (!canInteractable) return;
         OnClick?.Invoke(this);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.planetUnlockData.ContainsKey(this.data))
+        {
+            data.planetUnlockData.Remove(this.data);
+        }
+        data.planetUnlockData.Add(this.data, this.data.unlock);
+
+        foreach (PlanetAreaData areaData in this.data.planetArea)
+        {
+            if (data.planetAreaUnlockData.ContainsKey(areaData))
+            {
+                data.planetAreaUnlockData.Remove(areaData);
+            }
+            data.planetAreaUnlockData.Add(areaData, areaData.unLock);
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (data.planetUnlockData.TryGetValue(this.data, out bool unLock))
+        {
+            this.data.unlock = unLock;
+        }
+
+        foreach (PlanetAreaData areaData in this.data.planetArea)
+        {
+            if(data.planetAreaUnlockData.TryGetValue(areaData, out bool areaUnLock))
+            {
+                areaData.unLock = areaUnLock;
+            }
+        }
     }
 }

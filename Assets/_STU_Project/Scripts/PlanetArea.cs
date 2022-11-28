@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PlanetArea : MonoBehaviour
+public class PlanetArea : MonoBehaviour, IData
 {
     public int areaIndex;
 
@@ -17,5 +17,15 @@ public class PlanetArea : MonoBehaviour
     public void Click()
     {
         OnClick?.Invoke(areaIndex);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
+    }
+
+    public void LoadData(GameData data)
+    {
+        
     }
 }

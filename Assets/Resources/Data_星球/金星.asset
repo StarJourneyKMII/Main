@@ -17,4 +17,5 @@ MonoBehaviour:
   unlockSprite: {fileID: 21300000, guid: a465442d5d97cf44c94414b859c5b4d2, type: 3}
   planetName: "\u91D1\u661F"
   description: "\u6211\u662F\u91D1\u661F"
-  exploreAreas: []
+  planetIndex: -1
+  planetArea: []

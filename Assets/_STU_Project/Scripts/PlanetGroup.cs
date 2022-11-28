@@ -6,6 +6,7 @@ using System;
 
 public class PlanetGroup : MonoBehaviour
 {
+    [SerializeField] private GameObject continueButton;
     [SerializeField] private CanvasGroup canvasGroup;
 
     public Planet currentSelectPlanet;
@@ -28,6 +29,7 @@ public class PlanetGroup : MonoBehaviour
 
     private void HandleClickPlanet(Planet planet)
     {
+        continueButton.SetActive(false);
         currentSelectPlanet = planet;
         StopAllPlanetMove();
 
@@ -80,11 +82,20 @@ public class PlanetGroup : MonoBehaviour
 
     public void SelectContinueLevel()
     {
+        int continueIndex = -1;
+        Planet continuePlanet = null;
         foreach(Planet planet in planets)
         {
-            if (planet.data.IsAllClear)
+            if (planet.data.IsAllClear || planet.data.planetIndex == -1)
                 continue;
 
+            if(planet.data.planetIndex >= continueIndex)
+            {
+                continuePlanet = planet;
+                continueIndex = planet.data.planetIndex;
+            }
         }
+
+        HandleClickPlanet(continuePlanet);
     }
 }

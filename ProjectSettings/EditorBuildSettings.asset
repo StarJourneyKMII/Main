@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/_STU_Project/Scenes/STU_Lobby/StartUp.unity
     guid: 93156a53d3802f44fb205db4b1676445
   - enabled: 1
-    path: Assets/_STU_Project/Scenes/STU_Lobby/CharactersSelect.unity
-    guid: cb5b4e14a2938ae408f627d14564b4cd
-  - enabled: 1
     path: Assets/_STU_Project/Scenes/STU_Lobby/Lobby.unity
     guid: c4a2853ad1264444b82277a634dc2eee
   - enabled: 1

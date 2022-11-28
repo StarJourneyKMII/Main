@@ -19,8 +19,6 @@ public class NewGameManager
     public PlanetData currentPlanet;
     public PlanetAreaData currentArea;
 
-    private int continuePlanetIndex = 0;
-    private int continueAreaIndex = 0;
     public int currentLevelIndex;
 
     public string CurrentLevelName
@@ -46,6 +44,32 @@ public class NewGameManager
         if (currentLevelIndex > 14)
             SceneChangeManager.Instance.GoToLobby();
         else
+        {
+            PlanetAreaData areaData = GetAreaDataByIndex(currentLevelIndex, out PlanetData planet);
+            if (currentPlanet != planet)
+            {
+                planet.unlock = true;
+            }
+            areaData.unLock = true;
             SceneChangeManager.Instance.LoadSceneByName("STJ_Old_Level" + currentLevelIndex);
+        }
+    }
+
+    public PlanetAreaData GetAreaDataByIndex(int index, out PlanetData planetData)
+    {
+        PlanetData[] planets = Resources.LoadAll<PlanetData>("Data_¬P²y");
+        foreach(PlanetData planet in planets)
+        {
+            foreach(PlanetAreaData areaData in planet.planetArea)
+            {
+                if (areaData.levelIndex == index)
+                {
+                    planetData = planet;
+                    return areaData;
+                }
+            }
+        }
+        planetData = null;
+        return null;
     }
 }
