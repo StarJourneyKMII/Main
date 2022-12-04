@@ -59,8 +59,9 @@ public class PlanetDetailPanel : MonoBehaviour
         planetNameText.text = currentSelectData.planetName;
         planetDescriptionText.text = currentSelectData.description;
 
-        selectGroup.transform.GetChild(currentSelectData.ContinueAreaIndex).GetComponent<Toggle>().isOn = true;
-        RefreshArea(currentSelectData.ContinueAreaIndex);
+        int continueIndex = currentSelectData.ContinueAreaIndex == -1 ? 0 : currentSelectData.ContinueAreaIndex;
+        selectGroup.transform.GetChild(continueIndex).GetComponent<Toggle>().isOn = true;
+        RefreshArea(continueIndex);
     }
 
     public void CloseDetailPanel()
@@ -78,7 +79,7 @@ public class PlanetDetailPanel : MonoBehaviour
 
     private void RefreshArea(int index)
     {
-        if(index >= currentSelectData.planetArea.Count)
+        if(index >= currentSelectData.planetArea.Length)
         {
             planetAreaNameText.text = "未知";
             planetAreaDescriptionText.text = "未知";

@@ -22,11 +22,7 @@ public class Planet : MonoBehaviour, IData
 
     public void Refresh()
     {
-        if (data.unlock == false)
-        {
-            button.interactable = false;
-            //image.color = new Color32(100, 100, 100, 255);
-        }
+        button.interactable = data.unLock;
     }
 
     public void StopInteraction()
@@ -51,7 +47,7 @@ public class Planet : MonoBehaviour, IData
         {
             data.planetUnlockData.Remove(this.data);
         }
-        data.planetUnlockData.Add(this.data, this.data.unlock);
+        data.planetUnlockData.Add(this.data, this.data.unLock);
 
         foreach (PlanetAreaData areaData in this.data.planetArea)
         {
@@ -67,7 +63,7 @@ public class Planet : MonoBehaviour, IData
     {
         if (data.planetUnlockData.TryGetValue(this.data, out bool unLock))
         {
-            this.data.unlock = unLock;
+            this.data.unLock = unLock;
         }
 
         foreach (PlanetAreaData areaData in this.data.planetArea)

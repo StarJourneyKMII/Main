@@ -43,10 +43,27 @@ public class CameraTarget : MonoBehaviour
         }
     }
 
+    private void LimitY()
+    {
+
+    }
+
     private void FollowPlayerPositionX()
     {
         float x = player.position.x + lookOffset.x + moveOffsetX;
         float y = touchGroundY + playerData.touchGroundOffsetY * (int)playerScript.CurrentSex + lookOffset.y;
+
+        if(playerScript.CurrentSex == PlayerSex.Girl)
+        {
+            if (player.position.y < touchGroundY - 1)
+                touchGroundY = player.position.y;
+        }
+        else
+        {
+            if (player.position.y > touchGroundY + 1)
+                touchGroundY = player.position.y;
+        }
+
         transform.position = new Vector3(x, y, 0);
     }
 

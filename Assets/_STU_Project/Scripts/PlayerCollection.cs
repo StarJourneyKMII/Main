@@ -5,12 +5,6 @@ using System;
 
 public class PlayerCollection : MonoBehaviour
 {
-    private static PlayerCollection instance;
-    public static PlayerCollection Instance 
-    { 
-        get { return instance; }
-        private set { instance = value; }
-    }
     public int CollectStarCount
     {
         get { return collectStars.Count; }
@@ -25,10 +19,17 @@ public class PlayerCollection : MonoBehaviour
 
     public event Action OnCollected;
 
-    private void Awake()
+    private static PlayerCollection _instance;
+    public static PlayerCollection Instance
     {
-        if (instance == null)
-            instance = this;
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<PlayerCollection>();
+            }
+            return _instance;
+        }
     }
 
     private void Start()

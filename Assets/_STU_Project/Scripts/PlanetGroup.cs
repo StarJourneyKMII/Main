@@ -17,14 +17,24 @@ public class PlanetGroup : MonoBehaviour
     public event Action<PlanetData> OnFocusEnd;
 
     private Vector2 oriPos;
+    private PlanetsDataBase planetsData;
 
     private void Start()
     {
+        planetsData = Resources.Load<PlanetsDataBase>("Data_¬P²y/PlanetsDataBase");
         planets = GetComponentsInChildren<Planet>();
         ellipticals = GetComponentsInChildren<EllipticalOrbit>();
 
         foreach (Planet planet in planets)
             planet.OnClick += HandleClickPlanet;
+    }
+
+    public void RefreshAllPlanet()
+    {
+        foreach(Planet planet in planets)
+        {
+            planet.Refresh();
+        }
     }
 
     private void HandleClickPlanet(Planet planet)
@@ -82,20 +92,24 @@ public class PlanetGroup : MonoBehaviour
 
     public void SelectContinueLevel()
     {
-        int continueIndex = -1;
-        Planet continuePlanet = null;
         foreach(Planet planet in planets)
         {
-            if (planet.data.IsAllClear || planet.data.planetIndex == -1)
-                continue;
-
-            if(planet.data.planetIndex >= continueIndex)
+            if (planet.data == planetsData.GetContinuePlanetData())
             {
-                continuePlanet = planet;
-                continueIndex = planet.data.planetIndex;
+                HandleClickPlanet(planet);
+                break;
             }
         }
+    }
 
-        HandleClickPlanet(continuePlanet);
+    private void OnEnable()
+    {
+        TestGM.Instance.OnPlanetDataChange += RefreshAllPlanet;
+    }
+
+    private void OnDisable()
+    {
+        if (TestGM.Instance != null)
+            TestGM.Instance.OnPlanetDataChange -= RefreshAllPlanet;
     }
 }

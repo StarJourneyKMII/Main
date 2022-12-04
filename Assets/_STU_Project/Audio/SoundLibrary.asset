@@ -67,4 +67,4 @@ MonoBehaviour:
     EndPosition: 0
     FadeIn: 0
     FadeOut: 0
-  _enumsPath: Assets/_STU_Project/STU_Scripts/Script_Audio/MiProduction/Enums
+  _enumsPath: Assets/_STU_Project/Scripts/Audio/MiProduction/Enums

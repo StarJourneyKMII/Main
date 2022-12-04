@@ -78,8 +78,6 @@ public class Player : MonoBehaviour, IData
         MovementCollider = GetComponent<BoxCollider2D>();
         RB = GetComponent<Rigidbody2D>();
 
-        CurrentSex = PlayerSex.Girl;
-
         SetTouchGroundY();
 
         StateMachine.Initialize(IdleState);
@@ -169,7 +167,13 @@ public class Player : MonoBehaviour, IData
             boyAnim.gameObject.SetActive(true);
             girlAnim.gameObject.SetActive(false);
         }
-        Physics2D.gravity *= -1;
+
+        UpdateGravity();
+    }
+
+    private void UpdateGravity()
+    {
+        Physics2D.gravity = new Vector2(0, Mathf.Abs(Physics2D.gravity.y) * -(int)CurrentSex);
     }
     public void FlipSexNoShow()
     {
@@ -210,10 +214,14 @@ public class Player : MonoBehaviour, IData
     {
         if (data.CurrentLevelData.spawnPoint != Vector3.zero)
             transform.position = data.CurrentLevelData.spawnPoint;
-        if (data.CurrentLevelData.playerSex != CurrentSex)
+        if (data.CurrentLevelData.playerSex != PlayerSex.Girl)
+        {
             FlipSex();
+            transform.Rotate(180, 0, 0);
+            SetTouchGroundY();
+        }
+        UpdateGravity();
     }
-
 
     #endregion
 }

@@ -21,6 +21,8 @@ public class Death : CoreComponent
     private int dieStarCount;
     private int maxStarCount;
 
+    private bool isDeading = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -35,6 +37,8 @@ public class Death : CoreComponent
     }
     public void Die()
     {
+        if (isDeading) return;
+
         foreach (var particle in deathParticles)
         {
             ParticleManager.StartParticles(particle);
@@ -48,6 +52,8 @@ public class Death : CoreComponent
         {
             StartCoroutine(Reborn());
         }
+
+        isDeading = true;
         //core.transform.parent.gameObject.SetActive(false);
     }
 
@@ -76,12 +82,14 @@ public class Death : CoreComponent
         {
             StartCoroutine(ReburnBlend(playerCollection.collectStars[i]));
             playerCollection.collectStars.RemoveAt(i);
+            UIManager.Instance.RefreshStarBar();
             yield return new WaitForSeconds(1.5f);
         }
         cameraTarget.SetFollowTargetPos(core.transform.parent.position);
         cameraTarget.StartFollowPlayer();
         player.Show();
         dieStarCount++;
+        isDeading = false;
     }
 
     private IEnumerator ReburnBlend(Star star)

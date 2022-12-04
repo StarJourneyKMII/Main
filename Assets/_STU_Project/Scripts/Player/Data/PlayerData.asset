@@ -20,7 +20,7 @@ MonoBehaviour:
   lookSensitive: 6
   lookDistanceX: {x: -5, y: 5}
   lookDistanceY: {x: -7, y: 3}
-  touchGroundOffsetY: 2
+  touchGroundOffsetY: 1
   moveLookSensitiveX: 2
   moveLookMaxDistanceX: 2
   autoRecovery: 1

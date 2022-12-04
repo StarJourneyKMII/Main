@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New PlanetArea", menuName = "Data/Level Data/New PlanetArea")]
+[CreateAssetMenu(fileName = "New PlanetArea", menuName = "Data/Planet Data/New PlanetArea")]
 public class PlanetAreaData : ScriptableObject
 {
     public bool unLock = false;
@@ -15,4 +15,14 @@ public class PlanetAreaData : ScriptableObject
 
     [Header("¥i»`¶°¯À§÷")]
     public List<SpacePartsFragData> spaceFrags;
+
+    public void ResetDefault()
+    {
+        unLock = false;
+    }
+
+    public void UnLock()
+    {
+        unLock = true;
+    }
 }

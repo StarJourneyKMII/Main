@@ -6,8 +6,7 @@ public class Pause_UI : MonoBehaviour
 {
     public void BackToLobby()
     {
-        DataManager.Instance.SaveGame();
-        GameManager.instance.GoToLobby();
+        SceneChangeManager.Instance.LoadSceneByName("Lobby");
         Time.timeScale = 1;
     }
 

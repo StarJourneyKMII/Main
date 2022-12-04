@@ -6,7 +6,7 @@ using UnityEngine;
 /// Unity的Mono單例泛型
 /// </summary>
 /// <typeparam name="T">泛型</typeparam>
-public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
+public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     /// <summary>
     /// 泛型單例實體
@@ -20,6 +20,8 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
     {
         get
         {
+            if (applicationIsQuitting)
+                return null;
             if (_instance == null)
             {//未建立過，先尋找是否有同類物件
                 _instance = FindObjectOfType<T>();
@@ -36,26 +38,40 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
         set { }
     }
 
+    private static bool applicationIsQuitting = false;
+
     /// <summary>
     /// 腳本建立時，檢查場景中是否已經存在對象的副本；
     /// 如果有將其摧毀以確保物件唯一性(單例)。
     /// </summary>
-    public virtual void Awake()
+    private void Awake()
     {
-        if (_instance == null)
-        {
-            DontDestroyOnLoad(this.gameObject);
-            _instance = this as T;
-        }
-        else
+        if (Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        if(ShouldDestroyOnLoad() == false)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
+        DidAwake();
     }
 
-    public void DestroySelf()
+    protected virtual bool ShouldDestroyOnLoad()
     {
-        _instance = null;
-        Destroy(gameObject);
+        return false;
+    }
+
+    protected virtual void DidAwake()
+    {
+
+    }
+
+    private void OnDestroy()
+    {
+        applicationIsQuitting = true;
     }
 }

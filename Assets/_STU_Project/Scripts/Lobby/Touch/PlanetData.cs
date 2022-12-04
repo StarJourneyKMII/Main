@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-[CreateAssetMenu(fileName = "New Planet", menuName = "Data/Level Data/New Planet")]
+[CreateAssetMenu(fileName = "New Planet", menuName = "Data/Planet Data/New Planet")]
 public class PlanetData : ScriptableObject
 {
     [Header("¸ÑÂê")]
-    public bool unlock;
+    public bool unLock;
     public Sprite lockSprite;
     public Sprite unlockSprite;
 
@@ -17,18 +18,45 @@ public class PlanetData : ScriptableObject
 
     [Header("°Ï°ì")]
     public int planetIndex = -1;
-    public List<PlanetAreaData> planetArea;
+    public PlanetAreaData[] planetArea;
     
+    public int MaxLevelIndex
+    {
+        get
+        {
+            if (planetArea.Length == 0) 
+                return -1;
+
+            List<PlanetAreaData>  deSort = planetArea.OrderByDescending(i => i.levelIndex).ToList();
+            return deSort[0].levelIndex;
+        }
+    }
+    public int ContinueAreaLevelIndex
+    {
+        get
+        {
+            if(IsAllClear)
+            {
+                return MaxLevelIndex;
+            }
+            for (int i = planetArea.Length - 1; i >= 0; i--)
+            {
+                if (planetArea[i].unLock == true)
+                    return planetArea[i].levelIndex;
+            }
+            return -1;
+        }
+    }
     public int ContinueAreaIndex
     {
         get
         {
-            for(int i = 0; i < planetArea.Count; i++)
+            for (int i = planetArea.Length - 1; i >= 0; i--)
             {
-                if(planetArea[i].unLock == false)
-                    return Mathf.Clamp(i - 1, 0, planetArea.Count);
+                if (planetArea[i].unLock == true)
+                    return i;
             }
-            return 0;
+            return -1;
         }
     }
     public bool IsAllClear
@@ -46,4 +74,52 @@ public class PlanetData : ScriptableObject
 
         }
     }
+
+    public PlanetAreaData GetPlanetAreaByIndex(int areaIndex)
+    {
+        if (areaIndex < planetArea.Length)
+            return planetArea[areaIndex];
+
+        return null;
+    }
+
+    public PlanetAreaData GetPlanetAreaByLevelIndex(int levelIndex)
+    {
+        foreach(PlanetAreaData area in planetArea)
+        {
+            if(area.levelIndex == levelIndex)
+                return area;
+        }
+
+        return null;
+    }
+
+    public PlanetAreaData GetContinuePlanetArea()
+    {
+        if(ContinueAreaIndex == -1)
+            return null;
+        return planetArea[ContinueAreaIndex];
+    }
+
+    public void ResetDefault()
+    {
+        unLock = false;
+        foreach (PlanetAreaData area in planetArea)
+        {
+            area.ResetDefault();
+        }
+    }
+
+    public void UnLock()
+    {
+        unLock = true;
+    }
+
+    public void UnLockAllArea()
+    {
+        foreach (PlanetAreaData area in planetArea)
+        {
+            area.UnLock();
+        }
+     }
 }

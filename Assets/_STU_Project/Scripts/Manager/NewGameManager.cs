@@ -28,29 +28,32 @@ public class NewGameManager
 
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneChangeManager.Instance.LoadSceneByName("GameOver", false);
     }
 
     public void SetSelectLevel(PlanetData planetData, PlanetAreaData planetAreaData)
     {
         this.currentPlanet = planetData;
         this.currentArea = planetAreaData;
-        currentLevelIndex  = planetAreaData.levelIndex;
+        if (planetAreaData != null)
+            currentLevelIndex = planetAreaData.levelIndex;
     }
 
     public void GotoNextLevel()
     {
         currentLevelIndex++;
         if (currentLevelIndex > 14)
-            SceneChangeManager.Instance.GoToLobby();
+            SceneChangeManager.Instance.LoadSceneByName("Lobby");
         else
         {
             PlanetAreaData areaData = GetAreaDataByIndex(currentLevelIndex, out PlanetData planet);
             if (currentPlanet != planet)
             {
-                planet.unlock = true;
+                planet.unLock = true;
             }
             areaData.unLock = true;
+
+            DataManager.Instance.SaveScriptableData();
             SceneChangeManager.Instance.LoadSceneByName("STJ_Old_Level" + currentLevelIndex);
         }
     }

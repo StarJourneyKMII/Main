@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unLock: 0
   levelIndex: 4
-  areaName: "\u63A2\u7D22\u534001_156489"
+  areaName: "\u63A2\u7D22\u534001(Level4)"
   description: "\u53EF\u8490\u96C6\u7D20\u6750"
   spaceFrags:
   - {fileID: 11400000, guid: 3c35e852ef4c7f04ebc173785e0f7e8e, type: 2}

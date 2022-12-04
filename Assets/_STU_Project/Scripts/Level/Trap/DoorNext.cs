@@ -40,6 +40,7 @@ public class DoorNext : MonoBehaviour
 
     public void GotoNextLevel()
     {
+        DataManager.Instance.SaveGame();
         NewGameManager.Instance.GotoNextLevel();
     }
 }

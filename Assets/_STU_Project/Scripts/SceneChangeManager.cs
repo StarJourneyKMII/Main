@@ -4,19 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using MiProduction.BroAudio;
 
-public class SceneChangeManager : MonoBehaviour
+public class SceneChangeManager : MonoBehaviourSingleton<SceneChangeManager>
 {
-    public static SceneChangeManager Instance;
-
+    [SerializeField] private SceneConfig_MultipleSprites loadHintData;
     [SerializeField] private SceneLoadPanel loadPanel;
-
-    private void Awake()
-    {
-        if(Instance == null)
-            Instance = this;
-
-        DontDestroyOnLoad(this);
-    }
 
     public void GoToMainMenu()
     {
@@ -33,9 +24,11 @@ public class SceneChangeManager : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
-    public void LoadSceneByName(string sceneName)
+    public void LoadSceneByName(string sceneName, bool needSave = true)
     {
         //SceneManager.LoadScene(sceneName);
+        if (needSave)
+            DataManager.Instance.SaveGame();
         StartCoroutine(LoadScene(sceneName));
     }
 
@@ -67,8 +60,8 @@ public class SceneChangeManager : MonoBehaviour
 
         operation.allowSceneActivation = true;
         yield return null;
-        loadPanel.CloseLoadPanel();
         DataManager.Instance.LoadData();
+        loadPanel.CloseLoadPanel();
     }
 
     private void SetProgress(ref float displayProgress)

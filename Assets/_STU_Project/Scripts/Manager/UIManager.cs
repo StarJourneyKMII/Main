@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
+    private static UIManager _instance;
+    public static UIManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<UIManager>();
+            }
+            return _instance;
+        }
+    }
 
     [SerializeField] private Image hpBar;
     [SerializeField] private Image starBar;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
 
     private void Start()
     {

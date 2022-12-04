@@ -45,10 +45,14 @@ public class Switch : MonoBehaviour, IData
             {
                 SoundSystem.PlaySFX(Sound.Switch);
                 anim.SetTrigger("Touch");
+
+                Player player = collision.GetComponent<Player>();
+                player.StateMachine.ChangeState(player.InteractiveState);
+
                 if (isOpen)
-                    StartCoroutine(Close());
+                    StartCoroutine(Close(player));
                 else
-                    StartCoroutine(Open());
+                    StartCoroutine(Open(player));
                 isUsed = true;
             }
             else
@@ -66,7 +70,7 @@ public class Switch : MonoBehaviour, IData
         }
     }
 
-    private IEnumerator Open()
+    private IEnumerator Open(Player player)
     {
         isPlaying = true;
         focusCamera.SetActive(true);
@@ -80,9 +84,10 @@ public class Switch : MonoBehaviour, IData
         focusCamera.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         isPlaying = false;
+        player.InteractiveState.Finish();
     }
 
-    private IEnumerator Close()
+    private IEnumerator Close(Player player)
     {
         isPlaying = true;
         focusCamera.SetActive(true);
@@ -96,6 +101,7 @@ public class Switch : MonoBehaviour, IData
         focusCamera.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         isPlaying = false;
+        player.InteractiveState.Finish();
     }
 
     public void LookTarget(Action finishAction = null)

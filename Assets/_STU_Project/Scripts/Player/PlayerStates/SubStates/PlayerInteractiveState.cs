@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerInteractiveState : PlayerAbilityState
 {
@@ -15,10 +16,13 @@ public class PlayerInteractiveState : PlayerAbilityState
     {
         base.Enter();
 
-        interactiveObject.LookTarget(() =>
+        if(interactiveObject != null)
         {
-            isAbilityDone = true;
-        });
+            interactiveObject.LookTarget(() =>
+            {
+                isAbilityDone = true;
+            });
+        }
 
         player.InputHandler.UseInteractiveInput();
 
@@ -35,5 +39,10 @@ public class PlayerInteractiveState : PlayerAbilityState
     public void SetInteractiveObject(Switch interactiveObject)
     {
         this.interactiveObject = interactiveObject;
+    }
+
+    public void Finish()
+    {
+        isAbilityDone = true;
     }
 }

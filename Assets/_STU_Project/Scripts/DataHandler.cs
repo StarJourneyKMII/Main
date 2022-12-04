@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataHandler
 {
-    private string gameSaveName = "NewGameData";
+    private string gameSaveName = "";
 
     public DataHandler(string saveName)
     {
@@ -13,7 +13,12 @@ public class DataHandler
 
     public GameData Load()
     {
-        string jsonData = PlayerPrefs.GetString(gameSaveName);
+        string jsonData = PlayerPrefs.GetString(gameSaveName, "");
+        if(jsonData == "")
+        {
+            return null;
+        }
+
         GameData loadData = JsonUtility.FromJson<GameData>(jsonData);
 
         return loadData;

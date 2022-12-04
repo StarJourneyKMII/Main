@@ -23,7 +23,7 @@ public class GameData
 
     public GameData()
     {
-         levelsData = new SerializableDictionary<string, LevelData>();
+        levelsData = new SerializableDictionary<string, LevelData>();
         planetUnlockData = new SerializableDictionary<PlanetData, bool>();
         planetAreaUnlockData = new SerializableDictionary<PlanetAreaData, bool>();
 
