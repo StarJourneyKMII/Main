@@ -7,8 +7,10 @@ using System;
 
 public class Planet : MonoBehaviour, IData
 {
-    public PlanetData data;
+    private Image image;
     private Button button;
+
+    public PlanetData data;
 
     public event Action<Planet> OnClick;
 
@@ -16,6 +18,7 @@ public class Planet : MonoBehaviour, IData
 
     private void Start()
     {
+        image = GetComponent<Image>();
         button = GetComponent<Button>();
         Refresh();
     }
@@ -23,6 +26,7 @@ public class Planet : MonoBehaviour, IData
     public void Refresh()
     {
         button.interactable = data.unLock;
+        image.sprite = data.Image;
     }
 
     public void StopInteraction()

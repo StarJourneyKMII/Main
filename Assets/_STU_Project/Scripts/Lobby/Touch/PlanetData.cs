@@ -20,6 +20,13 @@ public class PlanetData : ScriptableObject
     public int planetIndex = -1;
     public PlanetAreaData[] planetArea;
     
+    public Sprite Image
+    {
+        get
+        {
+            return unLock ? unlockSprite : lockSprite;
+        }
+    }
     public int MaxLevelIndex
     {
         get

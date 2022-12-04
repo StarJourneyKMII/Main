@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7e180001e936b4686baa268535ffcf, type: 3}
   m_Name: "\u6C34\u661F"
   m_EditorClassIdentifier: 
-  unlock: 0
-  lockSprite: {fileID: 21300000, guid: 4100cde64caa5504395ba74aa3c9cc11, type: 3}
-  unlockSprite: {fileID: 21300000, guid: 4100cde64caa5504395ba74aa3c9cc11, type: 3}
+  unLock: 0
+  lockSprite: {fileID: 21300000, guid: 36e10ad6564a77d45a5c6c8e2607640f, type: 3}
+  unlockSprite: {fileID: 21300000, guid: 4eaa4609d65c6d549bf636d84ce24d13, type: 3}
   planetName: "\u6C34\u661F"
   description: "\u6211\u662F\u6C34\u661F"
   planetIndex: -1
