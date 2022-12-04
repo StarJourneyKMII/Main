@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6457,7 +6457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767236732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.796692, y: 2.00154, z: -10}
+  m_LocalPosition: {x: -18.685543, y: 1.9011999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7618,6 +7618,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7955123856467616837, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+--- !u!4 &2129502654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1531995111466256048, guid: 5fed27bc6d9454b47bd2df6ebb44f2db, type: 3}
+  m_PrefabInstance: {fileID: 2129502653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!19719996 &113519663491264750
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -13891,7 +13896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7015516451585808253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 2, z: -10}
+  m_LocalPosition: {x: -30.2, y: 1.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7015516449900404687}
@@ -13950,7 +13955,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 2129502654}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 7
@@ -13960,7 +13965,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
