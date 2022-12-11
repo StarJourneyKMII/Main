@@ -2326,6 +2326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 97ee086e618d50c4dbefcf4cd7135726, type: 2}
+  sceneConfig: {fileID: 11400000, guid: 21d5137cff461a14d9a66ff4a158eed8, type: 2}
   CurrentSex: 1
 --- !u!114 &6568264214050545708
 MonoBehaviour:

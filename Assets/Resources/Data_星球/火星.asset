@@ -18,4 +18,7 @@ MonoBehaviour:
   planetName: "\u706B\u661F"
   description: "\u6211\u662F\u706B\u661F"
   planetIndex: -1
-  planetArea: []
+  planetArea:
+  - {fileID: 11400000, guid: 1acf50e62d99eb74bbb630b7a0d4df53, type: 2}
+  - {fileID: 11400000, guid: b88399284858d004d9f20137b5c35ffa, type: 2}
+  - {fileID: 11400000, guid: f175f1df045fdc64287468979d0bf56f, type: 2}

@@ -14,13 +14,13 @@ public class DataManager : MonoBehaviourSingleton<DataManager>
     [SerializeField] private float autoSaveSec = 120f;
     private float autoSaveStartTime;
 
-    private SaveAnimation saveAnimation;
+    private SavingAnimation saveAnimation;
 
     protected override void DidAwake()
     {
         base.DidAwake();
         CheckHasOldGame();
-        saveAnimation= GetComponentInChildren<SaveAnimation>();
+        saveAnimation= GetComponentInChildren<SavingAnimation>();
     }
 
     private void Update()

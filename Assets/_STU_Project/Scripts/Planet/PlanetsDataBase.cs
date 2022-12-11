@@ -97,6 +97,11 @@ public class PlanetsDataBase : ScriptableObject
         levelPlanetArea.UnLock();
     }
 
+    public int GetCurrentLevel()
+    {
+        return GetNextLevelIndex() - 1;
+    }
+
     public void UnLockNextLevel()
     {
         UnLockLevelByLevelIndex(GetNextLevelIndex());

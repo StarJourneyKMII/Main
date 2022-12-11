@@ -11,12 +11,6 @@ public class PlayerUICtrl : MonoBehaviour
 
     private bool pauseIsOpen;
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //    SwitchPause();
-    }
-
     public void OpenSaveLoad()
     {
         saveLoad.SetActive(true);
@@ -29,6 +23,7 @@ public class PlayerUICtrl : MonoBehaviour
     {
         Time.timeScale = 0;
         pause.SetActive(true);
+        pauseIsOpen = true;
     }
     public void OpenIntruction()
     {
@@ -38,6 +33,7 @@ public class PlayerUICtrl : MonoBehaviour
     {
         Time.timeScale = 1;
         pause.SetActive(false);
+        pauseIsOpen = false;
     }
     public void SwitchPause()
     {

@@ -146,15 +146,34 @@ public class Switch : MonoBehaviour, IData
         }
     }
 
+    private void Restart()
+    {
+        StopAllCoroutines();
+        anim.Play("SwitchOpen");
+        switchObject.SetActive(isOpen);
+        isPlaying = false;
+        isUsed = false;
+    }
+
+    private void OnEnable()
+    {
+        NewGameManager.Instance.OnRestartEvent += Restart;
+    }
+
+    private void OnDestroy()
+    {
+        NewGameManager.Instance.OnRestartEvent -= Restart;
+    }
+
     private void OnDrawGizmos()
     {
         if (debug == false) return;
 
         Gizmos.color = Color.red;
-        ExtensionsGizmos.Label(transform.position + Vector3.up * 2, "Trigger", Color.red);
+        GizmosExtensions.Label(transform.position + Vector3.up * 2, "Trigger", Color.red);
         Gizmos.DrawWireCube(transform.position, Vector3.one);
 
         Gizmos.color = Color.yellow;
-        ExtensionsGizmos.DrawArrow_Point(transform.position, switchObject.transform.position, 1);
+        GizmosExtensions.DrawArrow_Point(transform.position, switchObject.transform.position, 1);
     }
 }

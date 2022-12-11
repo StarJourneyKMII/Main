@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ExtensionsGizmos
+public static class GizmosExtensions
 {
     public static void DrawArrow_Point(Vector3 posA, Vector3 posB, float arrowHeadLength = 0.25f, float arrowHeadAngle = 20.0f)
     {

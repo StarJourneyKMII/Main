@@ -6,6 +6,7 @@ using MiProduction.BroAudio;
 
 public class SceneChangeManager : MonoBehaviourSingleton<SceneChangeManager>
 {
+    [SerializeField] private float loadTime = 1f;
     [SerializeField] private SceneConfig_MultipleSprites loadHintData;
     [SerializeField] private SceneLoadPanel loadPanel;
 
@@ -66,7 +67,7 @@ public class SceneChangeManager : MonoBehaviourSingleton<SceneChangeManager>
 
     private void SetProgress(ref float displayProgress)
     {
-        displayProgress += Time.deltaTime * 65;
+        displayProgress += Time.deltaTime * 100 / loadTime;
         if(displayProgress > 100)
             displayProgress = 100;
         loadPanel.SetProgress(displayProgress);

@@ -67,14 +67,12 @@ public class Death : CoreComponent
         if(reburnStarIndex >= 0)
         {
             Star reburnStar = playerCollection.collectStars[reburnStarIndex];
-            if (player.CurrentSex != reburnStar.starData.collectPlayerSex)
-                player.FlipSexNoShow();
+            player.SetCurrentSex(reburnStar.starData.collectPlayerSex, false);
             core.transform.parent.position = reburnStar.transform.position;
         }
         else
         {
-            if (player.CurrentSex != PlayerSex.Girl)
-                player.FlipSexNoShow();
+            player.SetCurrentSex(PlayerSex.Girl, false);
             core.transform.parent.position = new Vector3(-32, 2.8f, 0);
         }
 

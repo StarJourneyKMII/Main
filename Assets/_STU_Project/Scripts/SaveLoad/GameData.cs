@@ -7,8 +7,6 @@ public class GameData
     public SerializableDictionary<PlanetData, bool> planetUnlockData;
     public SerializableDictionary<PlanetAreaData, bool> planetAreaUnlockData;
 
-    public PlayerData playerData;
-
     public LevelData CurrentLevelData
     {
         get 

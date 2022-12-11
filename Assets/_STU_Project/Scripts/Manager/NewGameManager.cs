@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,7 @@ public class NewGameManager
         }
     }
 
-    public PlanetData currentPlanet;
-    public PlanetAreaData currentArea;
+    private PlanetData currentPlanet;
 
     public int currentLevelIndex;
 
@@ -25,6 +25,8 @@ public class NewGameManager
     {
         get { return SceneManager.GetActiveScene().name; }
     }
+
+    public event Action OnRestartEvent;
 
     public void GameOver()
     {
@@ -34,7 +36,6 @@ public class NewGameManager
     public void SetSelectLevel(PlanetData planetData, PlanetAreaData planetAreaData)
     {
         this.currentPlanet = planetData;
-        this.currentArea = planetAreaData;
         if (planetAreaData != null)
             currentLevelIndex = planetAreaData.levelIndex;
     }
@@ -74,5 +75,15 @@ public class NewGameManager
         }
         planetData = null;
         return null;
+    }
+
+    public void ClearRestartEvent()
+    {
+        OnRestartEvent = null;
+    }
+
+    public void Restart()
+    {
+        OnRestartEvent?.Invoke();
     }
 }

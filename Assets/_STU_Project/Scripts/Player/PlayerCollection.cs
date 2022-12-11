@@ -47,4 +47,19 @@ public class PlayerCollection : MonoBehaviour
         collectStars.Add(star);
         OnCollected?.Invoke();
     }
+
+    private void Restart()
+    {
+        collectStars.Clear();
+    }
+
+    private void OnEnable()
+    {
+        NewGameManager.Instance.OnRestartEvent += Restart;
+    }
+
+    private void OnDestroy()
+    {
+        NewGameManager.Instance.OnRestartEvent -= Restart;
+    }
 }

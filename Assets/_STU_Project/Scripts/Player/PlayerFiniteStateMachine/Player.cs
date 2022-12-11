@@ -28,6 +28,8 @@ public class Player : MonoBehaviour, IData
     #endregion
 
     #region Components
+
+    [SerializeField] private SceneConfig_LevelInformation sceneConfig;
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
@@ -42,12 +44,12 @@ public class Player : MonoBehaviour, IData
     #endregion
 
     #region Other Variables         
+    public PlayerSex CurrentSex { get; private set; } = PlayerSex.Girl;
 
     private Vector2 workspace;
 
-    public PlayerSex CurrentSex = PlayerSex.Girl;
-
     private Switch switchInteractive;
+    private bool invincible;
     #endregion
 
     #region Unity Callback Functions
@@ -103,7 +105,7 @@ public class Player : MonoBehaviour, IData
             switchInteractive = collision.GetComponent<Switch>();
         }
 
-        if(collision.CompareTag("Damage2"))
+        if(collision.CompareTag("Damage2") && !invincible)
         {
             Core.GetCoreComponent<Stats>().DecreaseHealth(1);
         }
@@ -148,46 +150,42 @@ public class Player : MonoBehaviour, IData
     public void FlipHorizontal()
     {
         FlipSex();
-        transform.Rotate(180, 0, 0);
         transform.position += (Vector3)((int)CurrentSex * Vector2.up * 2.8f);
         SetTouchGroundY();
     }
-    public void FlipSex()
+    public void FlipSex(bool show = true)
     {
         CurrentSex = (PlayerSex)((int)CurrentSex * -1);
-        if(CurrentSex == PlayerSex.Girl)
-        {
-            Anim = girlAnim;
-            girlAnim.gameObject.SetActive(true);
-            boyAnim.gameObject.SetActive(false);
-        }
-        else if(CurrentSex == PlayerSex.Boy)
-        {
-            Anim = boyAnim;
-            boyAnim.gameObject.SetActive(true);
-            girlAnim.gameObject.SetActive(false);
-        }
 
-        UpdateGravity();
+        transform.Rotate(new Vector3(180, 0, 0));
+        SetCurrentSex(CurrentSex, show);
     }
 
-    private void UpdateGravity()
+    public void SetCurrentSex(PlayerSex playerSex, bool show = true)
     {
-        Physics2D.gravity = new Vector2(0, Mathf.Abs(Physics2D.gravity.y) * -(int)CurrentSex);
-    }
-    public void FlipSexNoShow()
-    {
-        CurrentSex = (PlayerSex)((int)CurrentSex * -1);
-        if (CurrentSex == PlayerSex.Girl)
+        CurrentSex = playerSex;
+        if (playerSex == PlayerSex.Girl)
         {
             Anim = girlAnim;
+            if(show)
+            {
+                girlAnim.gameObject.SetActive(true);
+                boyAnim.gameObject.SetActive(false);
+            }
         }
-        else if (CurrentSex == PlayerSex.Boy)
+        else if (playerSex == PlayerSex.Boy)
         {
             Anim = boyAnim;
+            if(show)
+            {
+                boyAnim.gameObject.SetActive(true);
+                girlAnim.gameObject.SetActive(false);
+            }
         }
-        Physics2D.gravity *= -1;
+
+        Physics2D.gravity = new Vector2(0, Mathf.Abs(Physics2D.gravity.y) * -(int)playerSex);
     }
+
     public void CheckNeedFlip(PlayerSex value)
     {
         if (CurrentSex != value)
@@ -198,6 +196,10 @@ public class Player : MonoBehaviour, IData
     {
         interactiveObject = switchInteractive;
         return switchInteractive != null && switchInteractive.CanInteractive();
+    }
+    public void SetInvincible(bool value)
+    {
+        invincible = value;
     }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
@@ -214,13 +216,27 @@ public class Player : MonoBehaviour, IData
     {
         if (data.CurrentLevelData.spawnPoint != Vector3.zero)
             transform.position = data.CurrentLevelData.spawnPoint;
-        if (data.CurrentLevelData.playerSex != PlayerSex.Girl)
-        {
-            FlipSex();
-            transform.Rotate(180, 0, 0);
-            SetTouchGroundY();
-        }
-        UpdateGravity();
+
+        CurrentSex = data.CurrentLevelData.playerSex;
+        SetCurrentSex(CurrentSex);
+        SetTouchGroundY();
+    }
+
+    private void Restart()
+    {
+        if (sceneConfig.TryGetSceneData(out Vector3 spawnPoint))
+            transform.position = spawnPoint;
+        SetCurrentSex(PlayerSex.Girl);
+    }
+
+    private void OnEnable()
+    {
+        NewGameManager.Instance.OnRestartEvent += Restart;
+    }
+
+    private void OnDestroy()
+    {
+        NewGameManager.Instance.OnRestartEvent -= Restart;
     }
 
     #endregion

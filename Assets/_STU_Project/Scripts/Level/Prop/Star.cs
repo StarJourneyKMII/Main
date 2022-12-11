@@ -27,11 +27,6 @@ public class Star : MonoBehaviour, IData
         PlayerCollection.Instance.AddStar(this);
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && starData.collected == false)
@@ -65,6 +60,7 @@ public class Star : MonoBehaviour, IData
             starData.collected = false;
         });
     }
+
     public void SaveData(ref GameData data)
     {
         if (data.CurrentLevelData.stars.ContainsKey(id))
@@ -86,6 +82,16 @@ public class Star : MonoBehaviour, IData
             sr.enabled = false;
             PlayerCollection.Instance.CollectStar(this);
         }
+    }
+
+    private void OnEnable()
+    {
+        NewGameManager.Instance.OnRestartEvent += UnCollect;
+    }
+
+    private void OnDestroy()
+    {
+        NewGameManager.Instance.OnRestartEvent -= UnCollect;
     }
 }
 

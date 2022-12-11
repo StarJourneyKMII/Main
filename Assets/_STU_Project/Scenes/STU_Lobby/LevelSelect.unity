@@ -230,7 +230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1879256568}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Rolling_UI, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1879256568}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Rolling_UI, Assembly-CSharp
         m_MethodName: Last
         m_Mode: 1
@@ -4101,7 +4101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1879256568}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Rolling_UI, Assembly-CSharp
         m_MethodName: Next
         m_Mode: 1
@@ -4286,7 +4286,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879256567}
-  - component: {fileID: 1879256568}
   m_Layer: 5
   m_Name: Planets
   m_TagString: Untagged
@@ -4323,42 +4322,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1820, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1879256568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879256566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2d4c8ad412c8e41aad6e334a735e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleCenter: {x: 0, y: 0, z: 0}
-  circleRadius: 650
-  Offset_Y: 60
-  alphaChangeToggle: 1
-  alphaChange: {x: 1, y: 0.2}
-  scaleChangeToggle: 0
-  scaleChange: {x: 1.3, y: 0.7}
-  onlySelectScaleChange: 1
-  selectScale: {x: 1.7, y: 0.8}
-  moveTime: 0.4
-  currentSelect: {fileID: 1581776007}
-  childRects:
-  - {fileID: 1581776007}
-  - {fileID: 1665289037}
-  - {fileID: 2142676975}
-  - {fileID: 1737739230}
-  - {fileID: 1409197950}
-  - {fileID: 1556992531}
-  - {fileID: 472636748}
-  - {fileID: 763024220}
-  - {fileID: 1907104113}
-  - {fileID: 439654482}
-  mainIcon: {fileID: 0}
-  selectIcon: {fileID: 0}
 --- !u!1 &1907104112
 GameObject:
   m_ObjectHideFlags: 0

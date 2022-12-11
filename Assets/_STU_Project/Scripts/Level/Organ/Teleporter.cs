@@ -59,26 +59,26 @@ public class Teleporter : MonoBehaviour
         Vector3 doorAPos = doorA.target.position + doorA.offset;
         Vector3 doorBPos = doorB.target.position + doorB.offset;
         bool isRight = doorBPos.x > doorAPos.x;
-        ExtensionsGizmos.DrawWireDisc(doorAPos, Vector3.forward, 0.3f);
-        ExtensionsGizmos.DrawArrow(doorAPos, (int)doorA.playerSex * Vector3.up * 1.5f, 0.7f, 30);
-        ExtensionsGizmos.Label(doorAPos + (isRight ? Vector3.left * 3f : Vector3.right * 1.5f) + Vector3.down * 0.5f, "DoorA", Color.red);
-        ExtensionsGizmos.DrawWireDisc(doorBPos, Vector3.forward, 0.3f);
-        ExtensionsGizmos.DrawArrow(doorBPos, (int)doorB.playerSex * Vector3.up * 1.5f, 0.7f, 30);
-        ExtensionsGizmos.Label(doorBPos + (isRight ? Vector3.right * 1.5f : Vector3.left * 3f) + Vector3.down * 0.5f, "DoorB", Color.red);
+        GizmosExtensions.DrawWireDisc(doorAPos, Vector3.forward, 0.3f);
+        GizmosExtensions.DrawArrow(doorAPos, (int)doorA.playerSex * Vector3.up * 1.5f, 0.7f, 30);
+        GizmosExtensions.Label(doorAPos + (isRight ? Vector3.left * 3f : Vector3.right * 1.5f) + Vector3.down * 0.5f, "DoorA", Color.red);
+        GizmosExtensions.DrawWireDisc(doorBPos, Vector3.forward, 0.3f);
+        GizmosExtensions.DrawArrow(doorBPos, (int)doorB.playerSex * Vector3.up * 1.5f, 0.7f, 30);
+        GizmosExtensions.Label(doorBPos + (isRight ? Vector3.right * 1.5f : Vector3.left * 3f) + Vector3.down * 0.5f, "DoorB", Color.red);
 
         Gizmos.color = Color.yellow;
         if(teleportType == TeleportType.TwoWay)
         {
-            ExtensionsGizmos.DrawArrow_Point(doorAPos, doorBPos, 0.2f, 1, true, 1.5f);
-            ExtensionsGizmos.DrawArrow_Point(doorBPos, doorAPos, 0.2f, 1, true, 1.5f);
+            GizmosExtensions.DrawArrow_Point(doorAPos, doorBPos, 0.2f, 1, true, 1.5f);
+            GizmosExtensions.DrawArrow_Point(doorBPos, doorAPos, 0.2f, 1, true, 1.5f);
         }
         else if(teleportType == TeleportType.AToB)
         {
-            ExtensionsGizmos.DrawArrow_Point(doorAPos, doorBPos, 0, 1, false, 1.5f);
+            GizmosExtensions.DrawArrow_Point(doorAPos, doorBPos, 0, 1, false, 1.5f);
         }
         else if(teleportType == TeleportType.BToA)
         {
-            ExtensionsGizmos.DrawArrow_Point(doorBPos, doorAPos, 0, 1, false, 1.5f);
+            GizmosExtensions.DrawArrow_Point(doorBPos, doorAPos, 0, 1, false, 1.5f);
         }
     }
 }

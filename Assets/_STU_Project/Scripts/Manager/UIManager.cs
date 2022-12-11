@@ -37,4 +37,19 @@ public class UIManager : MonoBehaviour
         if (PlayerCollection.Instance.StarTotal == 0) return;
         starBar.fillAmount = (float)PlayerCollection.Instance.CollectStarCount / PlayerCollection.Instance.StarTotal;
     }
+
+    private void Restart()
+    {
+        starBar.fillAmount = 0;
+    }
+
+    private void OnEnable()
+    {
+        NewGameManager.Instance.OnRestartEvent += Restart;
+    }
+
+    private void OnDestroy()
+    {
+        NewGameManager.Instance.OnRestartEvent -= Restart;
+    }
 }

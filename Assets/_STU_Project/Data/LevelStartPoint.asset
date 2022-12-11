@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e6145df44869c4e833d5459ef09f5d, type: 3}
+  m_Name: LevelStartPoint
+  m_EditorClassIdentifier: 
+  SceneConfigs:
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/StartUp.unity
+    Data: {x: 0, y: 0, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/Lobby.unity
+    Data: {x: 0, y: 0, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/LevelSelect.unity
+    Data: {x: 0, y: 0, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level0.unity
+    Data: {x: -40.65, y: 2.07, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level1.unity
+    Data: {x: -32.56, y: 2.8, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level2.unity
+    Data: {x: -23.2, y: 11.02, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level3.unity
+    Data: {x: -17.5, y: 8, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level4.unity
+    Data: {x: -33.7, y: 2.4, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level5.unity
+    Data: {x: -35.3, y: 4.1, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level6.unity
+    Data: {x: -31, y: 3.1, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level7.unity
+    Data: {x: -30.8, y: 2.2, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level8.unity
+    Data: {x: -30.3, y: 0.2, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level9.unity
+    Data: {x: -30.2, y: 1.9, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level10.unity
+    Data: {x: -30.7, y: 1.8, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level11.unity
+    Data: {x: -31.7, y: 2.2, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level12.unity
+    Data: {x: 1.6, y: 12.1, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level13.unity
+    Data: {x: -26.7, y: -2.9, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_PLAY1/STJ_Old_Level14.unity
+    Data: {x: -29.64, y: 25.73, z: 0}
+  - Scene: Assets/_STU_Project/Scenes/STU_Lobby/GameOver.unity
+    Data: {x: 0, y: 0, z: 0}

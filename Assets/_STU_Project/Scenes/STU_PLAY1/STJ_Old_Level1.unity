@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -387,6 +387,22 @@ PrefabInstance:
     - target: {fileID: 6505058361659236975, guid: a5a774417f124b3459f609b62eed0813, type: 3}
       propertyPath: m_Name
       value: Boundary
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607936297024673940, guid: a5a774417f124b3459f609b62eed0813, type: 3}
+      propertyPath: m_TagString
+      value: Damage2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185077683999623207, guid: a5a774417f124b3459f609b62eed0813, type: 3}
+      propertyPath: m_TagString
+      value: Damage2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488172393094929796, guid: a5a774417f124b3459f609b62eed0813, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685027533650367169, guid: a5a774417f124b3459f609b62eed0813, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9115830767212498809, guid: a5a774417f124b3459f609b62eed0813, type: 3}
       propertyPath: m_RootOrder
@@ -8020,7 +8036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027597521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.812603, y: 2.80059, z: -12}
+  m_LocalPosition: {x: -22.701487, y: 2.80048, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13785,7 +13801,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
