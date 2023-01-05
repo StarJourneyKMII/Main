@@ -14,7 +14,7 @@ namespace MiProduction.Scene
             SerializedProperty sceneConfigs = serializedObject.FindProperty("SceneConfigs");
             if (sceneConfigs.isArray && sceneConfigs.arraySize == 0)
             {
-                
+
                 sceneConfigs.arraySize = SceneManager.sceneCountInBuildSettings;
                 for (int i = 0; i < sceneConfigs.arraySize; i++)
                 {
@@ -22,7 +22,7 @@ namespace MiProduction.Scene
                 }
                 serializedObject.ApplyModifiedProperties();
             }
-            
+
         }
     }
 

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97e999de2fb71e479884d0b934e1414, type: 3}
+  m_Name: NewPlanetsDataBase
+  m_EditorClassIdentifier: 
+  planetSetting:
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u51A5\u738B\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u571F\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u5730\u7403.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u5929\u738B\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u592A\u967D.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u6728\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u6C34\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u6D77\u738B\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u706B\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  - scriptable: "Assets/Resources/Data_\u661F\u7403/\u91D1\u661F.asset"
+    unLock: 0
+    planetIndex: 0
+  planetsData: []

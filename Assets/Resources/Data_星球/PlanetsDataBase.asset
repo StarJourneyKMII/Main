@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97e999de2fb71e479884d0b934e1414, type: 3}
   m_Name: PlanetsDataBase
   m_EditorClassIdentifier: 
+  planetSetting:
+  - planetIndex: 0
+    scriptable: "Assets/Resources/Data_\u661F\u7403/\u51A5\u738B\u661F.asset"
+    unLock: 0
+    area: []
+  - planetIndex: 0
+    scriptable: "Assets/Resources/Data_\u661F\u7403/\u571F\u661F.asset"
+    unLock: 0
+    area: []
   planetsData:
   - {fileID: 11400000, guid: 26dc75884a1321e469a23c341fb2d584, type: 2}
   - {fileID: 11400000, guid: 4c40c21f72df74e4b950a10ef7f4d3f2, type: 2}
