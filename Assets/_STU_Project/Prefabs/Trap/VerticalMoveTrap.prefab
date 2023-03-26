@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePlatform: {fileID: 4125899714177019795}
-  targetPoint: {fileID: 4125899714994900008}
-  moveTime: 2
+  targetAPoint: {fileID: 7533079931362394253}
+  targetBPoint: {fileID: 4125899714994900008}
+  moveSpeed: 2
   moveCurve:
     serializedVersion: 2
     m_Curve:
