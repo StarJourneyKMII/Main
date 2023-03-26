@@ -6,37 +6,50 @@ using DG.Tweening;
 public class MoveTrap : MonoBehaviour
 {
     [SerializeField] private Transform movePlatform;
-    [SerializeField] private Transform targetPoint;
+    [SerializeField] private Transform targetAPoint;
+    [SerializeField] private Transform targetBPoint;
 
-    [SerializeField] private float moveTime = 2f;
+    [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private AnimationCurve moveCurve;
 
-    private Vector3 startPos;
-    private Vector3 targetPos;
+    //private Vector3 startPos;
+    private Vector3 targetAPos;
+    private Vector3 targetBPos;
 
-    private bool inStartPos = true;
+    private bool inTargetAPos = true;
 
     private void Start()
     {
-        startPos = transform.position;
-        targetPos = targetPoint.transform.position;
+        //startPos = transform.position;
+        targetAPos = targetAPoint.transform.position;
+        targetBPos = targetBPoint.transform.position;
 
-        StartCoroutine(MoveTo(targetPos));
-    }
+        float targetADistacne = Vector2.Distance(movePlatform.position, targetAPoint.position);
+        float targetBDistacne = Vector2.Distance(movePlatform.position, targetBPoint.position);
+
+        if (targetADistacne < targetBDistacne)
+        {
+            StartCoroutine(MoveTo(targetAPoint.transform.position));
+            inTargetAPos = true;
+        }
+        else
+        {
+            StartCoroutine(MoveTo(targetBPoint.transform.position));
+            inTargetAPos = false;
+        }
+     }
 
     private IEnumerator MoveTo(Vector3 target)
     {
-        Vector3 startPos = movePlatform.position;
-        float timer = 0;
-        while(timer < 1)
+        Vector3 dir = (target - movePlatform.position).normalized;
+        while(Vector2.Distance(movePlatform.position, target) > 0.05f)
         {
-            timer += Time.deltaTime / moveTime;
-            movePlatform.position = Vector3.Lerp(startPos, target, moveCurve.Evaluate(timer));
+            movePlatform.position += dir * Time.deltaTime * moveSpeed;
             yield return null;
         }
         movePlatform.position = target;
-        inStartPos = !inStartPos;
 
-        StartCoroutine(MoveTo(inStartPos ? targetPos : this.startPos));
+        StartCoroutine(MoveTo(inTargetAPos ? targetBPos : targetAPos));
+        inTargetAPos = !inTargetAPos;
     }
 }
