@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1530,7 +1530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2207302745769505990, guid: fd5299a4a7ad6fe478e2e53f9919ab91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.4910445
+      value: -3.59
       objectReference: {fileID: 0}
     - target: {fileID: 2207302745769505990, guid: fd5299a4a7ad6fe478e2e53f9919ab91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2748,7 +2748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2207302745769505990, guid: fd5299a4a7ad6fe478e2e53f9919ab91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.035
+      value: -10.44
       objectReference: {fileID: 0}
     - target: {fileID: 2207302745769505990, guid: fd5299a4a7ad6fe478e2e53f9919ab91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2991,7 +2991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2207302745769505990, guid: fd5299a4a7ad6fe478e2e53f9919ab91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.942595
+      value: 25.4
       objectReference: {fileID: 0}
     - target: {fileID: 2207302745769505990, guid: fd5299a4a7ad6fe478e2e53f9919ab91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6316,7 +6316,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.85171974, y: 1}
+    m_SensorSize: {x: 2.4112246, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6657,7 +6657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059675377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.047085, y: 11.00974, z: -12}
+  m_LocalPosition: {x: -8.130523, y: 11.015349, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
