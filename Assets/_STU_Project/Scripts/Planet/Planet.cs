@@ -7,12 +7,13 @@ using System;
 
 public class Planet : MonoBehaviour, IData
 {
+    [SerializeField] private NewPlanetSelect planetSelect;
     private Image image;
     private Button button;
 
     public PlanetData data;
 
-    public event Action<Planet> OnClick;
+    public Action<Planet> OnClick;
 
     private bool canInteractable = true;
 
@@ -20,7 +21,7 @@ public class Planet : MonoBehaviour, IData
     {
         image = GetComponent<Image>();
         button = GetComponent<Button>();
-        Refresh();
+        //Refresh();
     }
 
     public void Refresh()
@@ -43,6 +44,7 @@ public class Planet : MonoBehaviour, IData
     {
         if (!canInteractable) return;
         OnClick?.Invoke(this);
+        planetSelect.Select(9 - transform.GetSiblingIndex(), this);
     }
 
     public void SaveData(ref GameData data)
