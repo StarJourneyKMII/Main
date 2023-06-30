@@ -4228,10 +4228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1191724237, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5214635562489944488, guid: c819c95f13ed9e8498aa55f0a09b1a43, type: 3}
       propertyPath: m_Name
       value: SceneChangeManager

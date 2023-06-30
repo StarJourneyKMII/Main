@@ -5,7 +5,6 @@ using UnityEngine;
 public class TeleportDoor : MonoBehaviour
 {
     [SerializeField] private Teleporter teleporter;
-    [SerializeField] private GameObject focusCamera;
     private float timer;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,15 +27,9 @@ public class TeleportDoor : MonoBehaviour
             if(timer <= 0)
             {
                 if (name == "DoorA")
-                {
-                    //focusCamera.SetActive(true);
                     teleporter.GoToB(collision.gameObject);
-                }
                 else if(name == "DoorB")
-                {
-                    //focusCamera.SetActive(true);
                     teleporter.GoToA(collision.gameObject);
-                }
             }
         }
     }

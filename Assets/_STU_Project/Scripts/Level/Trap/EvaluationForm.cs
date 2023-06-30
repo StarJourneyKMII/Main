@@ -14,7 +14,6 @@ public class EvaluationForm : MonoBehaviour
     [SerializeField] private Text collectStarText;
     [SerializeField] private GameObject touchTrapTitle;
     [SerializeField] private Text touchTrapText;
-    [SerializeField] private Image[] starArray;
 
     private float gameStartTime;
     public static int touchTrapCount;
@@ -33,23 +32,6 @@ public class EvaluationForm : MonoBehaviour
         int touchTrapCounter = 0;
         int collectCount = PlayerCollection.Instance.CollectStarCount;
         int collectTotal = PlayerCollection.Instance.StarTotal;
-
-        if(collectCount / (float)collectTotal >= 1)
-        {
-            starArray[0].color = Color.white;
-            starArray[1].color = Color.white;
-            starArray[2].color = Color.white;
-        }
-        else if(collectCount / (float)collectTotal >= 2 / 3f)
-        {
-            starArray[0].color = Color.white;
-            starArray[1].color = Color.white;
-        }
-        else if(collectCount / (float)collectTotal >= 1 / 3f)
-        {
-            starArray[0].color = Color.white;
-        }
-
         DOTween.To(() => gameTimeCounter, x => gameTimeCounter = x, gameTime, 1).SetEase(Ease.Linear).OnUpdate(() =>{
             gameTimeText.text = gameTimeCounter.ToString("0.00");
         });
