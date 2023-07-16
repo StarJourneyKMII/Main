@@ -40,11 +40,6 @@ public class NewGameManager
             currentLevelIndex = planetAreaData.levelIndex;
     }
 
-    public void GoToLobby()
-    {
-        SceneChangeManager.Instance.LoadSceneByName("Lobby");
-    }
-
     public void GotoNextLevel()
     {
         currentLevelIndex++;

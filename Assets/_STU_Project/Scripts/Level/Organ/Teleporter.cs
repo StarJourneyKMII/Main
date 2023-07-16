@@ -19,7 +19,6 @@ public struct TargetSetting
 
 public class Teleporter : MonoBehaviour
 {
-
     public TeleportType teleportType = TeleportType.TwoWay;
     public float teleportSec = 0;
     public float teleportCD = 1f;
@@ -52,7 +51,7 @@ public class Teleporter : MonoBehaviour
         isCD = false;
     }
 
-    //ï¿½eï¿½uï¿½ï¿½ï¿½Uï¿½ï¿½
+    //µe½u»²§U¥Î
     private void OnDrawGizmos()
     {
         if (debug == false) return;

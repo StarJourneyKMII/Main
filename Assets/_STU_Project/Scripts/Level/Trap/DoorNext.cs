@@ -43,10 +43,4 @@ public class DoorNext : MonoBehaviour
         DataManager.Instance.SaveGame();
         NewGameManager.Instance.GotoNextLevel();
     }
-
-    public void GoToLobby()
-    {
-        DataManager.Instance.SaveGame();
-        NewGameManager.Instance.GoToLobby();
-    }
 }

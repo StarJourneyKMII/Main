@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
-using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviourSingleton<DataManager>
 {
@@ -140,10 +139,8 @@ public class DataManager : MonoBehaviourSingleton<DataManager>
     {
         DataHandler checkDataHandler = new DataHandler("Test01");
         gameData = checkDataHandler.Load();
-        if (gameData != null && SceneManager.GetActiveScene().name == "StartUp")
-        {
+        if (gameData != null)
             LoadButton.Instance.OpenLoadButton();
-        }
     }
 
     private void OnApplicationQuit()

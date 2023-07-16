@@ -49,7 +49,7 @@ public class MoveTrap : MonoBehaviour
         }
         movePlatform.position = target;
 
-        StartCoroutine(MoveTo(inTargetAPos ? targetBPos : targetAPos));
         inTargetAPos = !inTargetAPos;
+        StartCoroutine(MoveTo(inTargetAPos ? targetBPos : targetAPos));
     }
 }

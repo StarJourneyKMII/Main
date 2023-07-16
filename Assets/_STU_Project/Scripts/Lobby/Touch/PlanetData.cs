@@ -6,18 +6,17 @@ using System.Linq;
 [CreateAssetMenu(fileName = "New Planet", menuName = "Data/Planet Data/New Planet")]
 public class PlanetData : ScriptableObject
 {
-    [Header("ï¿½ï¿½ï¿½ï¿½")]
+    [Header("¸ÑÂê")]
     public bool unLock;
     public Sprite lockSprite;
     public Sprite unlockSprite;
 
-    [Header("ï¿½Ô²Ó¸ï¿½ï¿½")]
+    [Header("¸Ô²Ó¸ê®Æ")]
     public string planetName;
     [TextArea(7, 13)]
     public string description;
 
-    [Header("ï¿½Ï°ï¿½")]
-    public int newIndex;
+    [Header("°Ï°ì")]
     public int planetIndex = -1;
     public PlanetAreaData[] planetArea;
     
